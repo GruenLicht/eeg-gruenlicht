@@ -23,51 +23,58 @@
             </div>
         </div>
 
-        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-7">
-            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Aktueller Stand
-            </p>
+<div class="rounded-3xl border border-slate-200 bg-slate-50 p-7">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+        Aktueller Stand
+    </p>
 
-            <div class="mt-6">
-                <p class="text-sm text-slate-500">Registrierung</p>
-                <p class="mt-1 text-base font-semibold text-slate-900">
-                    Regionale EEG <span class="text-slate-500">(RC107602)</span>
-                </p>
-            </div>
+    <div class="mt-6">
+        <p class="text-sm text-slate-500">Organisation</p>
+        <p class="mt-1 text-base font-semibold text-slate-900">
+            Regionale EEG <span class="text-slate-500">(RC107602)</span>
+        </p>
+        <p class="text-base font-semibold text-slate-900">
+            <%= ENV['ANZAHL_EINSPEISER']  || "3" %> Einspeiser · <%= ENV['ANZAHL_VERBRAUCHER']  || "5" %> Verbraucher
+        </p>
+    </div>
 
-            <div class="mt-5">
-                <p class="text-sm text-slate-500">Eckdaten</p>
+    <div class="mt-5">
+        <p class="text-sm text-slate-500">Konditionen</p>
 
-                <div class="mt-1 space-y-1">
-                    <p class="text-base font-semibold text-slate-900">
-                        <%= ENV['ANZAHL_EINSPEISER']  || "3" %> Einspeiser · <%= ENV['ANZAHL_VERBRAUCHER']  || "5" %> Verbraucher
-                    </p>
-                    <p class="text-base font-semibold text-slate-900">
-                        10 ct/kWh netto
+        <div class="mt-1 space-y-1">
+            <p class="text-base font-semibold text-slate-900">
+                10 ct/kWh netto
                 <span class="ml-1 text-sm font-normal text-slate-500">
                     (für Einspeiser/Abnehmer gleich)
                 </span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="mt-6 space-y-3 text-sm text-slate-700">
-                <div class="flex gap-3">
-                    <span class="mt-1 h-2 w-2 rounded-full bg-green-600"></span>
-                    <p>Keine Eintritts- oder Mitgliedsgebühr</p>
-                </div>
-
-                <div class="flex gap-3">
-                    <span class="mt-1 h-2 w-2 rounded-full bg-green-600"></span>
-                    <p>Monatliche Abrechnung</p>
-                </div>
-
-                <div class="flex gap-3">
-                    <span class="mt-1 h-2 w-2 rounded-full bg-green-600"></span>
-                    <p>Ein- und Austritt jederzeit möglich</p>
-                </div>
-            </div>
+            </p>
+            <p class="text-base font-semibold text-slate-900">
+                reduzierte Netzentgelte
+                <span class="ml-1 text-sm font-normal text-slate-500">
+                    (beim Bezug aus EEG)
+                </span>
+            </p>                    
         </div>
+    </div>
+
+    <div class="mt-6 space-y-3 text-sm text-slate-700">
+        <div class="flex gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-green-600"></span>
+            <p>Keine Eintritts- oder Mitgliedsgebühr</p>
+        </div>
+
+        <div class="flex gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-green-600"></span>
+            <p>Monatliche Abrechnung</p>
+        </div>
+
+        <div class="flex gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-green-600"></span>
+            <p>Ein- und Austritt jederzeit möglich</p>
+        </div>
+    </div>
+</div>
+
     </div>
 </section>
 

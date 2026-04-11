@@ -52,28 +52,13 @@ class LandingController < ApplicationController
           }
       )
   end
-  def mitmachen
-  end
-
-  def so_funktionierts
-  end
-
-  def ueber_uns
-  end
-
-  def kontakt
-  end
-
-  def zahlen
+  def unterstuetzer
   end
 
   def impressum
   end
 
   def datenschutz
-  end
-
-  def agb
   end
 
   private

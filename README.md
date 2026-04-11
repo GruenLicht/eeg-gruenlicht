@@ -1,24 +1,47 @@
-# README
+# EEG Grünes Licht Bad Vöslau -- Website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Diese Repository enthält die Website der\
+**Erneuerbare-Energie-Gemeinschaft Grünes-Licht-Bad-Vöslau**.
 
-Things you may want to cover:
+Die Seite informiert über die Teilnahme an der EEG, Rahmenbedingungen
+sowie Kontaktmöglichkeiten für Interessierte.
 
-* Ruby version
+------------------------------------------------------------------------
 
-* System dependencies
+## Inhalt
 
-* Configuration
+-   Startseite mit Informationen zur Energiegemeinschaft
+-   Kontaktformular
+-   Impressum und Datenschutz
 
-* Database creation
+------------------------------------------------------------------------
 
-* Database initialization
+## Technologie
 
-* How to run the test suite
+-   Ruby on Rails
+-   Tailwind CSS
 
-* Services (job queues, cache servers, search engines, etc.)
+------------------------------------------------------------------------
 
-* Deployment instructions
+## Lokale Entwicklung
 
-* ...
+``` bash
+bundle install
+bin/dev
+```
+
+Die Anwendung ist danach unter\
+http://localhost:3000 erreichbar.
+
+------------------------------------------------------------------------
+
+## Kontakt
+
+Erneuerbare-Energie-Gemeinschaft Grünes Licht Bad Vöslau\
+E-Mail: office@eeg-gruenlicht.at
+
+------------------------------------------------------------------------
+
+## Lizenz
+
+Dieses Projekt steht unter der Apache License 2.0.
