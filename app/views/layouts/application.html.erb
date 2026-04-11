@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "EEG Grünes Licht" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= javascript_importmap_tags %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path('favicon-16x16.png') %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_path('favicon-32x32.png') %>">
+    <link rel="apple-touch-icon" href="<%= asset_path('apple-touch-icon.png') %>">
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="border-b border-slate-200">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+            <%= link_to root_path, class: "text-lg font-semibold tracking-tight" do %>
+                EEG Grünes Licht für Bad Vöslau
+            <% end %>
+
+            <nav class="hidden gap-6 text-sm md:flex">
+                <%= link_to "Mitmachen", "/#kontakt", class: "hover:text-green-700" %>
+                <%= link_to "So funktioniert’s", "/#funktion", class: "hover:text-green-700" %>
+                <%= link_to "Über uns", impressum_path, class: "hover:text-green-700" %>
+                <%= link_to "Kontakt", "/#kontakt", class: "hover:text-green-700" %>
+            </nav>
+        </div>
+    </header>    
+    <main>
+        <%= yield %>
+    </main>
+    <footer class="mt-20 border-t border-slate-200">
+        <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
+            <p>© <%= Date.current.year %> EEG Grünes Licht Bad Vöslau</p>
+            <div class="flex flex-wrap gap-4">
+                <%= link_to "Impressum", impressum_path, class: "hover:text-slate-900" %>
+                <%= link_to "Datenschutz", datenschutz_path, class: "hover:text-slate-900" %>
+            </div>
+        </div>
+    </footer>    
+  </body>
+</html>

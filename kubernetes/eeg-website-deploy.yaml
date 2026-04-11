@@ -1,0 +1,107 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eeg-website
+  namespace: eeg-gruenlicht
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eeg-website
+  template:
+    metadata:
+      name: eeg-website
+      labels:
+        app: eeg-website
+    spec:
+      containers:
+      - name: eeg-website
+        image: oydeu/eeg-gruenlicht:latest
+        ports:
+        - containerPort: 3000
+        env:
+          - name: LANG
+            value: C.UTF-8
+          - name: RAILS_LOG_TO_STDOUT
+            value: "TRUE"
+          - name: RAILS_SERVE_STATIC_FILES
+            value: "TRUE"
+          - name: RAILS_ENV
+            value: production
+          - name: RAILS_CONFIG_HOSTS
+            value: "eeg-gruenlicht.at"
+
+          - name: NO_REPLY_EMAIL
+            value: 'no-reply@eeg-gruenlicht.at'
+          - name: SMTP_USERNAME
+            value: 'no-reply@eeg-gruenlicht.at'
+          - name: SMTP_PASSWORD
+            value: 'asdf'
+          - name: SMTP_SECURITY
+            value: ssl
+          - name: SMTP_ADDRESS
+            value: 'REDACTED'
+          - name: SMTP_PORT
+            value: '465'
+          - name: SMTP_DOMAIN
+            value: 'eeg-gruenlicht.at'
+          - name: MAILER_URL_OPTIONS_HOST
+            value: 'www.eeg-gruenlicht.at'
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: eeg-website
+  namespace: eeg-gruenlicht
+spec:
+  selector:
+    app: eeg-website
+  type: NodePort
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: eeg-website
+  namespace: eeg-gruenlicht
+  annotations:
+    certmanager.io/issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: "nginx"
+  tls:
+  - hosts:
+    - eeg-gruenlicht.at
+    secretName: eeg-website-tls
+  rules:
+  - host: eeg-gruenlicht.at
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: eeg-website
+            port:
+              number: 80
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: eeg-website-tls
+  namespace: eeg-gruenlicht
+  annotations:
+    cert-manager.io/issuer: "letsencrypt-prod"
+spec:
+  secretName: eeg-website-tls
+  issuerRef:
+    group: cert-manager.io
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - 'eeg-gruenlicht.at'
+  privateKey:
+    rotationPolicy: Always

@@ -1,0 +1,78 @@
+<section class="bg-white">
+    <div class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+        <h1 class="text-3xl font-semibold tracking-tight text-slate-900">
+            Impressum
+        </h1>
+
+        <div class="mt-10 space-y-10 text-slate-700">
+            <section>
+                <h2 class="text-xl font-semibold text-slate-900">Vereinsangaben</h2>
+
+                <div class="mt-5 space-y-4">
+                    <div>
+                        <p class="text-sm font-medium text-slate-500">Vereinsname</p>
+                        <p class="mt-1">Erneuerbare-Energie-Gemeinschaft Grünes-Licht-Bad-Vöslau</p>
+                    </div>
+
+                    <div>
+                        <p class="text-sm font-medium text-slate-500">Zustellanschrift</p>
+                        <p class="mt-1">
+                            Michael Scherz-Straße 14<br>
+                            2540 Bad Vöslau<br>
+                            Österreich
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="text-sm font-medium text-slate-500">ZVR-Zahl</p>
+                        <p class="mt-1">1369683586</p>
+                    </div>
+
+                    <div>
+                        <p class="text-sm font-medium text-slate-500">E-Mail</p>
+                        <p class="mt-1">
+                            <%= mail_to "office@eeg-gruenlicht.at", "office@eeg-gruenlicht.at", class: "text-green-700 hover:text-green-800" %>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-slate-900">Vereinsvorstand</h2>
+
+                <div class="mt-5 space-y-3">
+                    <p><span class="font-medium text-slate-900">Obmann:</span> Dr. Christoph Fabianek</p>
+                    <p><span class="font-medium text-slate-900">Obmann-Stellvertreter:</span> Thomas Michael Glockner</p>
+                    <p><span class="font-medium text-slate-900">Kassierin:</span> Marta Glockner</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-slate-900">Wichtige rechtliche Hinweise</h2>
+
+                <div class="mt-5 space-y-5 leading-7">
+                    <p>
+                        <span class="font-medium text-slate-900">Links:</span>
+                        Der Verein überprüft fremde Webseiten, auf die direkt von dieser Webseite aus verlinkt wird, nicht laufend auf Inhalt oder Gesetzmäßigkeit. Der Verein hat keinen Einfluss auf die Gestaltung dieser Webseiten und distanziert sich ausdrücklich von allen dort veröffentlichten Inhalten, die gegebenenfalls rechtswidrig sein könnten. Für solche Inhalte wird keine Verantwortung oder Haftung übernommen.
+                    </p>
+
+                    <p>
+                        <span class="font-medium text-slate-900">Urheberrecht:</span>
+                        Die Inhalte dieser Webseite unterliegen urheberrechtlichem Schutz. Jede Verwendung, Vervielfältigung oder Verbreitung von bereitgestellten Inhalten bedarf der vorherigen Zustimmung des Webseitenbetreibers, sofern dies gesetzlich nicht ausdrücklich erlaubt ist.
+                    </p>
+
+                    <p>
+                        <span class="font-medium text-slate-900">Änderungen:</span>
+                        Der Verein behält sich das Recht vor, Änderungen oder Ergänzungen der bereitgestellten Informationen ohne vorherige Ankündigung vorzunehmen.
+                    </p>
+
+                    <p>
+                        <span class="font-medium text-slate-900">Datenschutz:</span>
+                        Personenbezogene Daten werden im Einklang mit den anwendbaren datenschutzrechtlichen Vorschriften verarbeitet. Weitere Informationen finden Sie in der
+                        <%= link_to "Datenschutzerklärung", datenschutz_path, class: "text-green-700 hover:text-green-800" %>.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
