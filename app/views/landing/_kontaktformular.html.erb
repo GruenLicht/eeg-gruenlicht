@@ -58,6 +58,25 @@
                                 class: "block w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 shadow-sm outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100" %>
                         </div>
 
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+                            <div class="flex items-start gap-3">
+                                <%= f.check_box :privacy_consent,
+                                    required: true,
+                                    class: "mt-1 h-5 w-5 rounded border-slate-300 text-green-700 focus:ring-green-600" %>
+
+                                <%= f.label :privacy_consent, class: "text-sm leading-6 text-slate-700" do %>
+                                    Ich stimme zu, dass die im Formular angegebenen personenbezogenen Daten
+                                    zur Bearbeitung meiner Anfrage verarbeitet werden. Die Einwilligung kann
+                                    jederzeit mit Wirkung für die Zukunft widerrufen werden.
+                                    Es gilt unsere
+                                    <%= link_to "Datenschutzerklärung",
+                                        datenschutz_path,
+                                        data: { turbo_frame: "_top" },
+                                        class: "font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:text-green-800" %>.
+                                <% end %>
+                            </div>
+                        </div>
+                        
                         <div class="hidden">
                             <%= f.label :honeypot, "Weiteres Feld" %>
                             <%= f.text_field :honeypot,

@@ -1,3 +1,24 @@
+<% content_for :title, "Regionale Energiegemeinschaft in Bad Vöslau" %>
+<% content_for :meta_description, "EEG Grünes Licht Bad Vöslau: regionale Energiegemeinschaft mit 10 ct/kWh netto, reduzierten Netzentgelten beim Bezug innerhalb der EEG, keiner Mitgliedsgebühr und monatlicher Abrechnung." %>
+<% content_for :canonical_path, root_path %>
+<% content_for :og_type, "website" %>
+
+<% content_for :structured_data do %>
+  <script type="application/ld+json">
+    <%= raw JSON.pretty_generate({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "EEG Grünes Licht Bad Vöslau",
+      "url": canonical_url,
+      "description": seo_description,
+      "about": {
+        "@type": "Organization",
+        "name": "EEG Grünes Licht Bad Vöslau"
+      }
+    }) %>
+  </script>
+<% end %>
+
 <section class="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:py-24">
     <div class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
         <div class="max-w-2xl">
@@ -299,3 +320,5 @@
 </section>
 
 <%= render "kontaktformular", contact_request: @contact_request, flash_message: nil %>
+
+<%= render "haeufige_fragen" %>

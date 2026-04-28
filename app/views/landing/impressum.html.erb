@@ -1,3 +1,7 @@
+<% content_for :title, "Impressum" %>
+<% content_for :meta_description, "Impressum der EEG Grünes Licht Bad Vöslau mit Vereinsangaben, Zustellanschrift, ZVR-Zahl und vertretungsberechtigten Personen." %>
+<% content_for :canonical_path, impressum_path %>
+
 <section class="bg-white">
     <div class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
         <h1 class="text-3xl font-semibold tracking-tight text-slate-900">
@@ -40,10 +44,85 @@
             <section>
                 <h2 class="text-xl font-semibold text-slate-900">Vereinsvorstand</h2>
 
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                    Für weitere Informationen kann die jeweilige Person angeklickt werden.
+                </p>
+
                 <div class="mt-5 space-y-3">
-                    <p><span class="font-medium text-slate-900">Obmann:</span> Dr. Christoph Fabianek</p>
-                    <p><span class="font-medium text-slate-900">Obmann-Stellvertreter:</span> Thomas Michael Glockner</p>
-                    <p><span class="font-medium text-slate-900">Kassierin:</span> Marta Glockner</p>
+                    <details class="group">
+                        <summary class="inline-disclosure-summary inline">
+                            <span class="font-medium text-slate-900">Obmann:</span>
+                            <span class="ml-1 font-medium text-green-700 hover:text-green-800">
+                                Dr. Christoph Fabianek
+                            </span>
+                        </summary>
+
+                        <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-5 text-sm leading-7 text-slate-600">
+                            <p>
+                                Christoph Fabianek ist Datenwissenschaftler und Technologieexperte mit über
+                                20 Jahren Erfahrung in IT, Datenmanagement und digitalen Infrastrukturen.
+                            </p>
+
+                            <p class="mt-4">
+                                Er hat Technische Mathematik studiert und an der TU Wien mit Diplom und
+                                Doktorat abgeschlossen. Ergänzend absolvierte er einen MBA an der
+                                Donau-Universität Krems und der Weatherhead School of Management in den USA.
+                            </p>
+
+                            <p class="mt-4">
+                                Sein fachlicher Schwerpunkt liegt auf der sicheren Nutzung und dem
+                                verantwortungsvollen Austausch von Daten, insbesondere im Kontext der
+                                Energiewende. Als Geschäftsführer eines registrierten Datenintermediärs
+                                arbeitet er an Lösungen, die Energiegemeinschaften technisch unterstützen
+                                und zugleich hohe Datenschutzanforderungen erfüllen.
+                            </p>
+
+                            <p class="mt-4">
+                                Er verfügt über internationale Projekterfahrung in Europa, Nordamerika und
+                                Asien sowie über langjährige Erfahrung in der Entwicklung komplexer Systeme —
+                                von öffentlicher Sicherheit bis zu datengetriebenen Plattformen.
+                            </p>
+
+                            <div class="mt-4">
+                                <p class="font-medium text-slate-900">
+                                    Besondere fachliche Schwerpunkte:
+                                </p>
+
+                                <ul class="mt-2 list-disc space-y-1 pl-5">
+                                    <li>Datenschutz und Datensouveränität</li>
+                                    <li>sichere Datenräume und anonymisierte Datenflüsse</li>
+                                    <li>technische Lösungen für Energiegemeinschaften</li>
+                                </ul>
+                            </div>
+
+                            <p class="mt-4">
+                                Als Mitbegründer von Initiativen rund um MyData und OwnYourData setzt er
+                                sich seit Jahren für einen fairen und transparenten Umgang mit persönlichen
+                                und energierelevanten Daten ein.
+                            </p>
+
+                            <div class="mt-5 border-t border-slate-200 pt-4">
+                                <button
+                                    type="button"
+                                    class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-green-700"
+                                    onclick="this.closest('details').removeAttribute('open')"
+                                >
+                                    <span aria-hidden="true">×</span>
+                                    Ausblenden
+                                </button>
+                            </div>
+                        </div>
+                    </details>
+
+                    <p>
+                        <span class="font-medium text-slate-900">Obmann-Stellvertreter:</span>
+                        Thomas Michael Glockner
+                    </p>
+
+                    <p>
+                        <span class="font-medium text-slate-900">Kassierin:</span>
+                        Marta Glockner
+                    </p>
                 </div>
             </section>
 

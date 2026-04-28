@@ -20,10 +20,25 @@ class LandingController < ApplicationController
           return
       end
 
+      unless @contact_request.valid?
+          render turbo_stream: turbo_stream.replace(
+              "kontaktformular",
+              partial: "landing/kontaktformular",
+              locals: {
+                  contact_request: @contact_request,
+                  flash_message: nil
+              }
+          )
+          return
+      end
+
       subject   = "[EEG Website Kontakt] #{@contact_request.name}"
       text_body = <<~TEXT
           Name: #{@contact_request.name}
           E-Mail: #{@contact_request.email}
+
+          Zustimmung Datenschutz:
+          Ja, die Datenschutzerklärung wurde akzeptiert.
 
           Nachricht:
           #{@contact_request.message}
@@ -52,18 +67,24 @@ class LandingController < ApplicationController
           }
       )
   end
-  def unterstuetzer
-  end
+  
+  def unterstuetzer; end
 
-  def impressum
-  end
+  def impressum; end
 
-  def datenschutz
-  end
+  def datenschutz; end
+
+  def sitemap; end
 
   private
 
   def contact_request_params
-      params.require(:contact_request).permit(:name, :email, :message, :honeypot)
+      params.require(:contact_request).permit(
+          :name,
+          :email,
+          :message,
+          :privacy_consent,
+          :honeypot
+      )
   end
 end

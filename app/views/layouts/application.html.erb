@@ -1,50 +1,269 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
   <head>
-    <title><%= content_for(:title) || "EEG Grünes Licht" %></title>
+    <title><%= seo_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= seo_description %>">
+    <meta name="robots" content="<%= content_for?(:robots) ? content_for(:robots) : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' %>">
+    <link rel="canonical" href="<%= canonical_url %>">
+
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#16a34a">
+
+    <meta property="og:locale" content="de_AT">
+    <meta property="og:type" content="<%= content_for?(:og_type) ? content_for(:og_type) : 'website' %>">
+    <meta property="og:site_name" content="EEG Grünes Licht Bad Vöslau">
+    <meta property="og:title" content="<%= seo_title %>">
+    <meta property="og:description" content="<%= seo_description %>">
+    <meta property="og:url" content="<%= canonical_url %>">
+    <meta property="og:image" content="<%= seo_image_url %>">
+    <meta property="og:image:alt" content="<%= content_for?(:og_image_alt) ? content_for(:og_image_alt) : 'Logo der EEG Grünes Licht Bad Vöslau' %>">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<%= seo_title %>">
+    <meta name="twitter:description" content="<%= seo_description %>">
+    <meta name="twitter:image" content="<%= seo_image_url %>">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= javascript_importmap_tags %>
-
     <%= yield :head %>
+
+    <style>
+      .site-header-nav {
+        display: none;
+        align-items: center;
+        gap: 1.5rem;
+        font-size: 0.875rem;
+      }
+
+      .site-header-nav a {
+        white-space: nowrap;
+        color: #0f172a;
+        text-decoration: none;
+      }
+
+      .site-header-nav a:hover {
+        color: #15803d;
+      }
+
+      .mobile-menu {
+        position: relative;
+        display: block;
+        flex-shrink: 0;
+      }
+
+      .mobile-menu summary {
+        display: flex;
+        width: 2.75rem;
+        height: 2.75rem;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        list-style: none;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.75rem;
+        background: #ffffff;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+      }
+
+      .mobile-menu summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .mobile-menu summary::marker {
+        content: "";
+      }
+
+      .mobile-menu-icon {
+        display: flex;
+        width: 1.5rem;
+        height: 1.1rem;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .mobile-menu-icon span {
+        display: block;
+        width: 1.5rem;
+        height: 2px;
+        border-radius: 9999px;
+        background: #0f172a;
+      }
+
+      .mobile-menu-close {
+        position: relative;
+        display: none;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .mobile-menu-close span {
+        position: absolute;
+        top: 0.7rem;
+        left: 0;
+        display: block;
+        width: 1.5rem;
+        height: 2px;
+        border-radius: 9999px;
+        background: #0f172a;
+      }
+
+      .mobile-menu-close span:first-child {
+        transform: rotate(45deg);
+      }
+
+      .mobile-menu-close span:last-child {
+        transform: rotate(-45deg);
+      }
+
+      .mobile-menu[open] .mobile-menu-icon {
+        display: none;
+      }
+
+      .mobile-menu[open] .mobile-menu-close {
+        display: block;
+      }
+
+      .mobile-menu-panel {
+        position: absolute;
+        right: 0;
+        z-index: 50;
+        margin-top: 0.75rem;
+        width: 16rem;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        border-radius: 1rem;
+        background: #ffffff;
+        padding: 0.5rem;
+        box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.12);
+      }
+
+      .mobile-menu-panel a {
+        display: block;
+        border-radius: 0.75rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #334155;
+        text-decoration: none;
+      }
+
+      .mobile-menu-panel a:hover {
+        background: #f0fdf4;
+        color: #15803d;
+      }
+
+      @media (min-width: 960px) {
+        .site-header-nav {
+          display: flex;
+        }
+
+        .mobile-menu {
+          display: none;
+        }
+      }
+
+      .inline-disclosure-summary {
+          cursor: pointer;
+          list-style: none;
+      }
+
+      .inline-disclosure-summary::-webkit-details-marker {
+          display: none;
+      }
+
+      .inline-disclosure-summary::marker {
+          content: "";
+      }
+
+      .disclosure-summary {
+          cursor: pointer;
+          list-style: none;
+      }
+
+      .disclosure-summary::-webkit-details-marker {
+          display: none;
+      }
+
+      .disclosure-summary::marker {
+          content: "";
+      }
+    </style>
+
+    <script type="application/ld+json">
+      <%= raw organization_json_ld %>
+    </script>
+    <% if content_for?(:structured_data) %>
+      <%= yield :structured_data %>
+    <% end %>
 
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path('favicon-16x16.png') %>">
     <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_path('favicon-32x32.png') %>">
     <link rel="apple-touch-icon" href="<%= asset_path('apple-touch-icon.png') %>">
+
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <header class="border-b border-slate-200">
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-            <%= link_to root_path, class: "text-lg font-semibold tracking-tight" do %>
-                EEG Grünes Licht für Bad Vöslau
-            <% end %>
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-4">
+        <div class="flex items-center justify-between gap-4">
+          <%= link_to root_path, class: "flex min-w-0 items-center gap-3 text-lg font-semibold tracking-tight text-slate-900" do %>
+            <%= image_tag "apple-touch-icon.png",
+                alt: "Logo der EEG Grünes Licht Bad Vöslau",
+                class: "h-8 w-8 shrink-0 rounded-md" %>
+            <span class="truncate">EEG Grünes Licht für Bad Vöslau</span>
+          <% end %>
 
-            <nav class="hidden gap-6 text-sm md:flex">
-                <%= link_to "Mitmachen", "/#kontakt", class: "hover:text-green-700" %>
-                <%= link_to "So funktioniert’s", "/#funktion", class: "hover:text-green-700" %>
-                <%= link_to "Über uns", impressum_path, class: "hover:text-green-700" %>
-                <%= link_to "Kontakt", "/#kontakt", class: "hover:text-green-700" %>
+          <nav class="site-header-nav">
+            <%= link_to "Mitmachen", "/#kontakt" %>
+            <%= link_to "Häufige Fragen", "/#haeufige-fragen" %>
+            <%= link_to "Unterstützer", unterstuetzer_path %>
+            <%= link_to "Über uns", impressum_path %>
+            <%= link_to "Kontakt", "/#kontakt" %>
+          </nav>
+
+          <details class="mobile-menu">
+            <summary aria-label="Menü öffnen" title="Menü öffnen">
+              <span class="mobile-menu-icon" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+
+              <span class="mobile-menu-close" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </summary>
+
+            <nav class="mobile-menu-panel">
+              <%= link_to "Mitmachen", "/#kontakt" %>
+              <%= link_to "Häufige Fragen", "/#haeufige-fragen" %>
+              <%= link_to "Unterstützer", unterstuetzer_path %>
+              <%= link_to "Über uns", impressum_path %>
+              <%= link_to "Kontakt", "/#kontakt" %>
             </nav>
+          </details>
         </div>
-    </header>    
+      </div>
+    </header>
+
     <main>
-        <%= yield %>
+      <%= yield %>
     </main>
+
     <footer class="mt-20 border-t border-slate-200">
-        <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
-            <p>© <%= Date.current.year %> EEG Grünes Licht Bad Vöslau</p>
-            <div class="flex flex-wrap gap-4">
-                <%= link_to "Impressum", impressum_path, class: "hover:text-slate-900" %>
-                <%= link_to "Datenschutz", datenschutz_path, class: "hover:text-slate-900" %>
-            </div>
+      <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
+        <p>© <%= Date.current.year %> EEG Grünes Licht Bad Vöslau</p>
+        <div class="flex flex-wrap gap-4">
+          <%= link_to "Impressum", impressum_path, class: "hover:text-slate-900" %>
+          <%= link_to "Datenschutz", datenschutz_path, class: "hover:text-slate-900" %>
         </div>
-    </footer>    
+      </div>
+    </footer>
   </body>
 </html>
