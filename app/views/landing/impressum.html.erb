@@ -1,6 +1,71 @@
 <% content_for :title, "Impressum" %>
-<% content_for :meta_description, "Impressum der EEG Grünes Licht Bad Vöslau mit Vereinsangaben, Zustellanschrift, ZVR-Zahl und vertretungsberechtigten Personen." %>
+<% content_for :meta_description, "Impressum der EEG GrünLicht Vereine mit Vereinsangaben, Zustellanschrift, ZVR-Zahl und vertretungsberechtigten Personen." %>
 <% content_for :canonical_path, impressum_path %>
+
+<%
+    vereine = [
+        {
+            tab_id: "bad-voeslau",
+            tab_label: "EEG Grünes Licht Bad Vöslau",
+            name: "Erneuerbare-Energie-Gemeinschaft<br>Grünes-Licht-Bad-Vöslau",
+            short_name: "EEG GrünLicht Bad Vöslau",
+            address: [
+                "Michael Scherz-Straße 14",
+                "2540 Bad Vöslau",
+                "Österreich"
+            ],
+            zvr: "1369683586",
+            email: "office@eeg-gruenlicht.at",
+            board: [
+                {
+                    role: "Obmann",
+                    name: "Dr. Christoph Fabianek",
+                    details: true
+                },
+                {
+                    role: "Obmann-Stellvertretung",
+                    name: "Thomas Michael Glockner",
+                    details: false
+                },
+                {
+                    role: "Kassierin",
+                    name: "Marta Glockner",
+                    details: false
+                }
+            ]
+        },
+        {
+            tab_id: "flugfeld",
+            tab_label: "EEG Grünes Licht Bad Vöslau Flugfeld",
+            name: "Erneuerbare-Energie-Gemeinschaft<br>Grünes-Licht-Bad-Vöslau-Flugfeld",
+            short_name: "EEG GrünLicht Flugfeld",
+            address: [
+                "Michael Scherz-Straße 14",
+                "2540 Bad Vöslau",
+                "Österreich"
+            ],
+            zvr: "1608928219",
+            email: "office@eeg-gruenlicht.at",
+            board: [
+                {
+                    role: "Obmann",
+                    name: "Dr. Christoph Fabianek",
+                    details: true
+                },
+                {
+                    role: "Obmann-Stellvertretung",
+                    name: "Thomas Sztavinovszki",
+                    details: false
+                },
+                {
+                    role: "Kassier",
+                    name: "Bernhard Hein",
+                    details: false
+                }
+            ]
+        }
+    ]
+%>
 
 <section class="bg-white">
     <div class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
@@ -8,141 +73,172 @@
             Impressum
         </h1>
 
-        <div class="mt-10 space-y-10 text-slate-700">
-            <section>
-                <h2 class="text-xl font-semibold text-slate-900">Vereinsangaben</h2>
+        <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+            Die EEG GrünLicht wird organisatorisch über zwei eigenständige Vereine geführt.
+            Die folgenden Karteireiter zeigen die jeweiligen Vereinsangaben und den
+            vertretungsberechtigten Vereinsvorstand.
+        </p>
 
-                <div class="mt-5 space-y-4">
-                    <div>
-                        <p class="text-sm font-medium text-slate-500">Vereinsname</p>
-                        <p class="mt-1">Erneuerbare-Energie-Gemeinschaft Grünes-Licht-Bad-Vöslau</p>
-                    </div>
-
-                    <div>
-                        <p class="text-sm font-medium text-slate-500">Zustellanschrift</p>
-                        <p class="mt-1">
-                            Michael Scherz-Straße 14<br>
-                            2540 Bad Vöslau<br>
-                            Österreich
-                        </p>
-                    </div>
-
-                    <div>
-                        <p class="text-sm font-medium text-slate-500">ZVR-Zahl</p>
-                        <p class="mt-1">1369683586</p>
-                    </div>
-
-                    <div>
-                        <p class="text-sm font-medium text-slate-500">E-Mail</p>
-                        <p class="mt-1">
-                            <%= mail_to "office@eeg-gruenlicht.at", "office@eeg-gruenlicht.at", class: "text-green-700 hover:text-green-800" %>
-                        </p>
-                    </div>
+        <div
+            class="mt-10"
+            data-controller="tabs"
+            data-tabs-active-class="border-slate-200 border-b-white bg-white text-slate-900 shadow-sm"
+            data-tabs-inactive-class="border-slate-200 bg-slate-50 text-slate-600 hover:bg-white hover:text-slate-900"
+        >
+            <div class="border-b border-slate-200" role="tablist" aria-label="Vereinsauswahl">
+                <div class="flex flex-wrap items-end gap-x-2 gap-y-2">
+                    <% vereine.each_with_index do |verein, index| %>
+                        <button
+                            type="button"
+                            id="tab-<%= verein[:tab_id] %>"
+                            class="<%= index.zero? ? "border-slate-200 border-b-white bg-white text-slate-900 shadow-sm" : "border-slate-200 bg-slate-50 text-slate-600 hover:bg-white hover:text-slate-900" %> -mb-px rounded-t-xl border px-5 py-3 text-left text-sm font-semibold transition"
+                            role="tab"
+                            aria-selected="<%= index.zero? ? "true" : "false" %>"
+                            aria-controls="panel-<%= verein[:tab_id] %>"
+                            data-tabs-target="tab"
+                            data-action="click->tabs#select"
+                        >
+                            <%= verein[:tab_label] %>
+                        </button>
+                    <% end %>
                 </div>
-            </section>
+            </div>
 
-            <section>
-                <h2 class="text-xl font-semibold text-slate-900">Vereinsvorstand</h2>
+            <div class="mt-10 space-y-10">
+                <% vereine.each_with_index do |verein, index| %>
+                    <section
+                        id="panel-<%= verein[:tab_id] %>"
+                        class="<%= index.zero? ? "" : "hidden" %>"
+                        role="tabpanel"
+                        aria-labelledby="tab-<%= verein[:tab_id] %>"
+                        data-tabs-target="panel"
+                    >
+                        <div class="flex flex-col gap-3 border-b border-slate-200 pb-6 sm:flex-row sm:items-start sm:justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-green-700">Verein</p>
+                                <h2 class="mt-1 text-xl font-semibold text-slate-900">
+                                    <%= verein[:short_name] %>
+                                </h2>
+                            </div>
 
-                <p class="mt-2 text-sm leading-6 text-slate-500">
-                    Für weitere Informationen kann die jeweilige Person angeklickt werden.
-                </p>
-
-                <div class="mt-5 space-y-3">
-                    <details class="group">
-                        <summary class="inline-disclosure-summary inline">
-                            <span class="font-medium text-slate-900">Obmann:</span>
-                            <span class="ml-1 font-medium text-green-700 hover:text-green-800">
-                                Dr. Christoph Fabianek
-                            </span>
-                        </summary>
-
-                        <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-5 text-sm leading-7 text-slate-600">
-                            <p>
-                                Christoph Fabianek ist Datenwissenschaftler und Technologieexperte mit über
-                                20 Jahren Erfahrung in IT, Datenmanagement und digitalen Infrastrukturen.
+                            <p class="text-sm font-medium text-slate-500">
+                                ZVR: <span class="text-slate-700"><%= verein[:zvr] %></span>
                             </p>
+                        </div>
 
-                            <p class="mt-4">
-                                Er hat Technische Mathematik studiert und an der TU Wien mit Diplom und
-                                Doktorat abgeschlossen. Ergänzend absolvierte er einen MBA an der
-                                Donau-Universität Krems und der Weatherhead School of Management in den USA.
-                            </p>
+                        <div class="mt-8 grid gap-10 lg:grid-cols-2">
+                            <section>
+                                <h3 class="text-base font-semibold text-slate-900">Vereinsangaben</h3>
 
-                            <p class="mt-4">
-                                Sein fachlicher Schwerpunkt liegt auf der sicheren Nutzung und dem
-                                verantwortungsvollen Austausch von Daten, insbesondere im Kontext der
-                                Energiewende. Als Geschäftsführer eines registrierten Datenintermediärs
-                                arbeitet er an Lösungen, die Energiegemeinschaften technisch unterstützen
-                                und zugleich hohe Datenschutzanforderungen erfüllen.
-                            </p>
+                                <div class="mt-5 space-y-4">
+                                    <div>
+                                        <p class="text-sm font-medium text-slate-500">Vereinsname</p>
+                                        <p class="mt-1 text-slate-700"><%= verein[:name].html_safe %></p>
+                                    </div>
 
-                            <p class="mt-4">
-                                Er verfügt über internationale Projekterfahrung in Europa, Nordamerika und
-                                Asien sowie über langjährige Erfahrung in der Entwicklung komplexer Systeme —
-                                von öffentlicher Sicherheit bis zu datengetriebenen Plattformen.
-                            </p>
+                                    <div>
+                                        <p class="text-sm font-medium text-slate-500">Zustellanschrift</p>
+                                        <p class="mt-1 text-slate-700">
+                                            <% verein[:address].each do |line| %>
+                                                <%= line %><br>
+                                            <% end %>
+                                        </p>
+                                    </div>
 
-                            <div class="mt-4">
-                                <p class="font-medium text-slate-900">
-                                    Besondere fachliche Schwerpunkte:
+                                    <div>
+                                        <p class="text-sm font-medium text-slate-500">ZVR-Zahl</p>
+                                        <p class="mt-1 text-slate-700"><%= verein[:zvr] %></p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-sm font-medium text-slate-500">E-Mail</p>
+                                        <p class="mt-1">
+                                            <%= mail_to verein[:email], verein[:email], class: "text-green-700 hover:text-green-800" %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section>
+                                <h3 class="text-base font-semibold text-slate-900">Vereinsvorstand</h3>
+
+                                <p class="mt-2 text-sm leading-6 text-slate-500">
+                                    Der Vorstand vertritt den Verein nach außen und ist für die organisatorische
+                                    Abwicklung der Energiegemeinschaft zuständig.
                                 </p>
 
-                                <ul class="mt-2 list-disc space-y-1 pl-5">
-                                    <li>Datenschutz und Datensouveränität</li>
-                                    <li>sichere Datenräume und anonymisierte Datenflüsse</li>
-                                    <li>technische Lösungen für Energiegemeinschaften</li>
-                                </ul>
-                            </div>
+                                <div class="mt-5 space-y-3">
+                                    <% verein[:board].each do |person| %>
+                                        <% if person[:details] %>
+                                            <details class="group">
+                                                <summary class="inline-disclosure-summary inline">
+                                                    <span class="font-medium text-slate-900"><%= person[:role] %>:</span>
+                                                    <span class="ml-1 font-medium text-green-700 hover:text-green-800">
+                                                        <%= person[:name] %>
+                                                    </span>
+                                                </summary>
 
-                            <p class="mt-4">
-                                Als Mitbegründer von Initiativen rund um MyData und OwnYourData setzt er
-                                sich seit Jahren für einen fairen und transparenten Umgang mit persönlichen
-                                und energierelevanten Daten ein.
-                            </p>
+                                                <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm leading-7 text-slate-600 shadow-sm">
+                                                    <p>
+                                                        Christoph Fabianek ist Datenwissenschaftler und Technologieexperte mit langjähriger Erfahrung in IT,
+                                                        Datenmanagement und digitalen Infrastrukturen.
+                                                    </p>
 
-                            <div class="mt-5 border-t border-slate-200 pt-4">
-                                <button
-                                    type="button"
-                                    class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-green-700"
-                                    onclick="this.closest('details').removeAttribute('open')"
-                                >
-                                    <span aria-hidden="true">×</span>
-                                    Ausblenden
-                                </button>
-                            </div>
+                                                    <p class="mt-4">
+                                                        Sein Schwerpunkt liegt auf sicherem und verantwortungsvollem Datenaustausch, insbesondere im Kontext
+                                                        der Energiewende und technischer Lösungen für Energiegemeinschaften.
+                                                    </p>
+
+                                                    <p class="mt-4">
+                                                        Als Mitbegründer von MyData- und OwnYourData-Initiativen setzt er sich für fairen, transparenten und
+                                                        datenschutzfreundlichen Umgang mit persönlichen und energierelevanten Daten ein.
+                                                    </p>
+
+                                                    <div class="mt-5 border-t border-slate-100 pt-4">
+                                                        <button
+                                                            type="button"
+                                                            class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-green-700"
+                                                            onclick="this.closest('details').removeAttribute('open')"
+                                                        >
+                                                            <span aria-hidden="true">×</span>
+                                                            Ausblenden
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </details>
+                                        <% else %>
+                                            <p>
+                                                <span class="font-medium text-slate-900"><%= person[:role] %>:</span>
+                                                <%= person[:name] %>
+                                            </p>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                            </section>
                         </div>
-                    </details>
+                    </section>
+                <% end %>
+            </div>
+        </div>
 
-                    <p>
-                        <span class="font-medium text-slate-900">Obmann-Stellvertreter:</span>
-                        Thomas Michael Glockner
-                    </p>
-
-                    <p>
-                        <span class="font-medium text-slate-900">Kassierin:</span>
-                        Marta Glockner
-                    </p>
-                </div>
-            </section>
-
+        <div class="mt-10 space-y-10 text-slate-700">
             <section>
                 <h2 class="text-xl font-semibold text-slate-900">Wichtige rechtliche Hinweise</h2>
 
                 <div class="mt-5 space-y-5 leading-7">
                     <p>
                         <span class="font-medium text-slate-900">Links:</span>
-                        Der Verein überprüft fremde Webseiten, auf die direkt von dieser Webseite aus verlinkt wird, nicht laufend auf Inhalt oder Gesetzmäßigkeit. Der Verein hat keinen Einfluss auf die Gestaltung dieser Webseiten und distanziert sich ausdrücklich von allen dort veröffentlichten Inhalten, die gegebenenfalls rechtswidrig sein könnten. Für solche Inhalte wird keine Verantwortung oder Haftung übernommen.
+                        Die Vereine überprüfen fremde Webseiten, auf die direkt von dieser Webseite aus verlinkt wird, nicht laufend auf Inhalt oder Gesetzmäßigkeit. Die Vereine haben keinen Einfluss auf die Gestaltung dieser Webseiten und distanzieren sich ausdrücklich von allen dort veröffentlichten Inhalten, die gegebenenfalls rechtswidrig sein könnten. Für solche Inhalte wird keine Verantwortung oder Haftung übernommen.
                     </p>
 
                     <p>
                         <span class="font-medium text-slate-900">Urheberrecht:</span>
-                        Die Inhalte dieser Webseite unterliegen urheberrechtlichem Schutz. Jede Verwendung, Vervielfältigung oder Verbreitung von bereitgestellten Inhalten bedarf der vorherigen Zustimmung des Webseitenbetreibers, sofern dies gesetzlich nicht ausdrücklich erlaubt ist.
+                        Die Inhalte dieser Webseite unterliegen urheberrechtlichem Schutz. Jede Verwendung, Vervielfältigung oder Verbreitung von bereitgestellten Inhalten bedarf der vorherigen Zustimmung des jeweiligen Webseitenbetreibers, sofern dies gesetzlich nicht ausdrücklich erlaubt ist.
                     </p>
 
                     <p>
                         <span class="font-medium text-slate-900">Änderungen:</span>
-                        Der Verein behält sich das Recht vor, Änderungen oder Ergänzungen der bereitgestellten Informationen ohne vorherige Ankündigung vorzunehmen.
+                        Die Vereine behalten sich das Recht vor, Änderungen oder Ergänzungen der bereitgestellten Informationen ohne vorherige Ankündigung vorzunehmen.
                     </p>
 
                     <p>
@@ -155,3 +251,34 @@
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("[data-controller='tabs']").forEach(function (tabsRoot) {
+            const tabs = Array.from(tabsRoot.querySelectorAll("[data-tabs-target='tab']"));
+            const panels = Array.from(tabsRoot.querySelectorAll("[data-tabs-target='panel']"));
+            const activeClass = tabsRoot.dataset.tabsActiveClass.split(" ");
+            const inactiveClass = tabsRoot.dataset.tabsInactiveClass.split(" ");
+
+            function selectTab(selectedTab) {
+                tabs.forEach(function (tab) {
+                    const active = tab === selectedTab;
+
+                    tab.setAttribute("aria-selected", active ? "true" : "false");
+                    tab.classList.remove(...(active ? inactiveClass : activeClass));
+                    tab.classList.add(...(active ? activeClass : inactiveClass));
+                });
+
+                panels.forEach(function (panel) {
+                    panel.classList.toggle("hidden", panel.id !== selectedTab.getAttribute("aria-controls"));
+                });
+            }
+
+            tabs.forEach(function (tab) {
+                tab.addEventListener("click", function () {
+                    selectTab(tab);
+                });
+            });
+        });
+    });
+</script>
