@@ -68,6 +68,8 @@ class LandingController < ApplicationController
       )
   end
   
+  def preise; end
+  
   def unterstuetzer; end
 
   def impressum; end

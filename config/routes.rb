@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     root "landing#start"
 
+    get  "/preise",           to: "landing#preise",           as: :preise
     get  "/unterstuetzer",    to: "landing#unterstuetzer",    as: :unterstuetzer
     post "/kontakt",          to: "landing#create_kontakt",   as: :kontakt
 

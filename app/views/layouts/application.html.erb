@@ -198,9 +198,11 @@
     <% end %>
 
     <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="<%= asset_path("favicon.svg") %>">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path('favicon-16x16.png') %>">
     <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_path('favicon-32x32.png') %>">
-    <link rel="apple-touch-icon" href="<%= asset_path('apple-touch-icon.png') %>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('apple-touch-icon.png') %>">
+    <link rel="icon" href="/favicon.ico" sizes="any">
 
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -219,7 +221,7 @@
           <% end %>
 
           <nav class="site-header-nav">
-            <%= link_to "Mitmachen", "/#kontakt" %>
+            <%= link_to "Mitmachen", "/#servicebereich" %>
             <%= link_to "Häufige Fragen", "/#haeufige-fragen" %>
             <%= link_to "Unterstützer", unterstuetzer_path %>
             <%= link_to "Über uns", impressum_path %>

@@ -1,0 +1,107 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beta-eeg-website
+  namespace: eeg-gruenlicht
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: beta-eeg-website
+  template:
+    metadata:
+      name: beta-eeg-website
+      labels:
+        app: beta-eeg-website
+    spec:
+      containers:
+      - name: beta-eeg-website
+        image: oydeu/eeg-gruenlicht:260622
+        ports:
+        - containerPort: 3000
+        env:
+          - name: LANG
+            value: C.UTF-8
+          - name: RAILS_LOG_TO_STDOUT
+            value: "TRUE"
+          - name: RAILS_SERVE_STATIC_FILES
+            value: "TRUE"
+          - name: RAILS_ENV
+            value: production
+          - name: RAILS_CONFIG_HOSTS
+            value: "beta.eeg-gruenlicht.at"
+
+          - name: NO_REPLY_EMAIL
+            value: 'no-reply@eeg-gruenlicht.at'
+          - name: SMTP_USERNAME
+            value: 'no-reply@eeg-gruenlicht.at'
+          - name: SMTP_PASSWORD
+            value: 'asdf'
+          - name: SMTP_SECURITY
+            value: ssl
+          - name: SMTP_ADDRESS
+            value: 'REDACTED'
+          - name: SMTP_PORT
+            value: '465'
+          - name: SMTP_DOMAIN
+            value: 'eeg-gruenlicht.at'
+          - name: MAILER_URL_OPTIONS_HOST
+            value: 'www.eeg-gruenlicht.at'
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: beta-eeg-website
+  namespace: eeg-gruenlicht
+spec:
+  selector:
+    app: beta-eeg-website
+  type: NodePort
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: beta-eeg-website
+  namespace: eeg-gruenlicht
+  annotations:
+    certmanager.io/issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: "nginx"
+  tls:
+  - hosts:
+    - beta.eeg-gruenlicht.at
+    secretName: beta-eeg-website-tls
+  rules:
+  - host: beta.eeg-gruenlicht.at
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: beta-eeg-website
+            port:
+              number: 80
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: beta-eeg-website-tls
+  namespace: eeg-gruenlicht
+  annotations:
+    cert-manager.io/issuer: "letsencrypt-prod"
+spec:
+  secretName: beta-eeg-website-tls
+  issuerRef:
+    group: cert-manager.io
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - 'beta.eeg-gruenlicht.at'
+  privateKey:
+    rotationPolicy: Always

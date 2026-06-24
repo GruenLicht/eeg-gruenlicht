@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Grüne Glühbirne mit 7 Strahlen, transparenter Hintergrund -->
+  <g>
+    <!-- Strahlen (7) -->
+    <g stroke="#8DC63F" stroke-width="22" stroke-linecap="round" fill="none">
+      <line x1="256" y1="52"  x2="256" y2="14"/>
+      <line x1="160" y1="82"  x2="138" y2="51"/>
+      <line x1="352" y1="82"  x2="374" y2="51"/>
+      <line x1="96"  y1="160" x2="62"  y2="143"/>
+      <line x1="416" y1="160" x2="450" y2="143"/>
+      <line x1="80"  y1="262" x2="43"  y2="266"/>
+      <line x1="432" y1="262" x2="469" y2="266"/>
+    </g>
+    <!-- Glaskolben -->
+    <path fill="#8DC63F" d="M256 78c-77 0-132 58-132 130 0 44 21 76 44 102 17 19 27 34 31 56h114c4-22 14-37 31-56 23-26 44-58 44-102 0-72-55-130-132-130z"/>
+    <!-- Lichtreflex -->
+    <path fill="#B5DC7E" d="M186 142c-18 18-29 42-29 66 0 8 11 8 12 0 2-21 11-40 26-55 12-12 24-21 38-26 8-3 5-13-3-12-16 2-32 14-44 27z"/>
+    <!-- Sockel: 3 Striche, die ersten beiden gleich breit, der dritte kürzer -->
+    <g fill="#5E8F2C">
+      <rect x="199" y="378" width="114" height="24" rx="12"/>
+      <rect x="199" y="412" width="114" height="24" rx="12"/>
+      <rect x="217" y="446" width="78"  height="24" rx="12"/>
+    </g>
+  </g>
+</svg>

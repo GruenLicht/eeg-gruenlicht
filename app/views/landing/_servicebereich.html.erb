@@ -1,0 +1,163 @@
+<section id="servicebereich" class="bg-green-50">
+    <div class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+        <div class="mx-auto max-w-4xl">
+            <div class="max-w-3xl">
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-green-700">
+                    Einstieg &amp; Service
+                </p>
+
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900">
+                    Wie können wir Sie unterstützen?
+                </h2>
+
+                <p class="mt-4 text-lg leading-8 text-slate-600">
+                    Starten Sie direkt mit dem Beitrittsantrag, senden Sie uns eine unverbindliche
+                    Anfrage oder öffnen Sie als bestehendes Mitglied das Abrechnungsportal.
+                </p>
+            </div>
+
+            <div
+                class="mt-10 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm"
+                data-service-tabs
+            >
+                <div class="border-b border-slate-200 bg-slate-50 px-4 py-3 sm:px-6">
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-2"
+                        role="tablist"
+                        aria-label="Einstieg und Service"
+                    >
+                        <button
+                            type="button"
+                            id="service-tab-beitritt"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="service-panel-beitritt"
+                            data-service-tab="beitritt"
+                            class="rounded-2xl px-5 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+                        >
+                            Beitritt zur Energiegemeinschaft
+                        </button>
+
+                        <button
+                            type="button"
+                            id="service-tab-kontakt"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="service-panel-kontakt"
+                            tabindex="-1"
+                            data-service-tab="kontakt"
+                            class="rounded-2xl px-5 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+                        >
+                            Kontaktanfrage
+                        </button>
+
+                        <button
+                            type="button"
+                            id="service-tab-portal"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="service-panel-portal"
+                            tabindex="-1"
+                            data-service-tab="portal"
+                            class="rounded-2xl px-5 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+                        >
+                            Portalzugriff für Mitglieder
+                        </button>
+                    </div>
+                </div>
+
+                <div
+                    id="beitritt"
+                    class="scroll-mt-28 p-6 sm:p-8"
+                    role="tabpanel"
+                    aria-labelledby="service-tab-beitritt"
+                    data-service-panel="beitritt"
+                >
+                    <h3 class="text-2xl font-semibold tracking-tight text-slate-900">
+                        Beitritt zur Energiegemeinschaft
+                    </h3>
+
+                    <p class="mt-3 text-base leading-7 text-slate-600">
+                        Über das folgende Formular können Sie Ihren Beitritt vorbereiten.
+                        Die notwendigen Angaben werden Schritt für Schritt abgefragt.
+                    </p>
+
+                    <div class="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                        <iframe
+                            src="https://abrechnung.eeg-gruenlicht.at/onboarding/437a846f-a56f-4f35-86b0-0ff31041b915"
+                            title="Beitrittsantrag zur EEG Grünes Licht für Bad Vöslau"
+                            loading="lazy"
+                            class="block h-[900px] w-full border-0"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                        ></iframe>
+                    </div>
+
+                    <p class="mt-4 text-sm leading-6 text-slate-500">
+                        Falls das Formular in Ihrem Browser nicht angezeigt wird, können Sie den
+                        <a
+                            href="https://abrechnung.eeg-gruenlicht.at/onboarding/437a846f-a56f-4f35-86b0-0ff31041b915"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="font-medium text-green-700 hover:text-green-800"
+                        >
+                            Beitrittsantrag in einem neuen Fenster öffnen
+                        </a>.
+                    </p>
+                </div>
+
+                <div
+                    id="kontakt"
+                    class="scroll-mt-28 p-6 sm:p-8"
+                    role="tabpanel"
+                    aria-labelledby="service-tab-kontakt"
+                    data-service-panel="kontakt"
+                    hidden
+                >
+                    <%= render "kontaktformular",
+                        contact_request: contact_request,
+                        flash_message: local_assigns[:flash_message] %>
+                </div>
+
+                <div
+                    id="portal"
+                    class="scroll-mt-28 p-6 sm:p-8"
+                    role="tabpanel"
+                    aria-labelledby="service-tab-portal"
+                    data-service-panel="portal"
+                    hidden
+                >
+                    <h3 class="text-2xl font-semibold tracking-tight text-slate-900">
+                        Portalzugriff für Mitglieder
+                    </h3>
+
+                    <p class="mt-3 text-base leading-7 text-slate-600">
+                        Bestehende Mitglieder können sich hier anmelden und ihre Zählpunkte,
+                        Teilnahme- und Abrechnungsinformationen einsehen.
+                    </p>
+
+                    <div class="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                        <iframe
+                            src="https://abrechnung.eeg-gruenlicht.at/portal"
+                            title="Mitgliederportal der EEG Grünes Licht für Bad Vöslau"
+                            loading="lazy"
+                            class="block h-[380px] w-full border-0 sm:h-[420px]"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                        ></iframe>
+                    </div>
+
+                    <p class="mt-4 text-sm leading-6 text-slate-500">
+                        Falls das Portal in Ihrem Browser nicht angezeigt wird, können Sie es
+                        <a
+                            href="https://abrechnung.eeg-gruenlicht.at/portal"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="font-medium text-green-700 hover:text-green-800"
+                        >
+                            in einem neuen Fenster öffnen
+                        </a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

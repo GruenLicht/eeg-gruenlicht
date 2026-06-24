@@ -1,5 +1,5 @@
 <% content_for :title, "Regionale Energiegemeinschaft in Bad Vöslau" %>
-<% content_for :meta_description, "EEG Grünes Licht Bad Vöslau: regionale Energiegemeinschaft mit 12 ct/kWh USt-frei, reduzierten Netzentgelten beim Bezug innerhalb der EEG, keiner Mitgliedsgebühr und monatlicher Abrechnung." %>
+<% content_for :meta_description, "EEG Grünes Licht Bad Vöslau: regionale Energiegemeinschaft mit 11 ct/kWh USt-frei, reduzierten Netzentgelten beim Bezug innerhalb der EEG, keiner Mitgliedsgebühr und monatlicher Abrechnung." %>
 <% content_for :canonical_path, root_path %>
 <% content_for :og_type, "website" %>
 
@@ -36,7 +36,7 @@
             </p>
 
             <div class="mt-8 flex flex-wrap gap-4">
-                <%= link_to "Jetzt mitmachen", "#kontakt",
+                <%= link_to "Jetzt mitmachen", "#beitritt",
                     class: "inline-flex items-center rounded-xl bg-green-700 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-green-800" %>
 
                 <%= link_to "So funktioniert’s", "#funktion",
@@ -64,7 +64,9 @@
 
         <div class="mt-1 space-y-1">
             <p class="text-base font-semibold text-slate-900">
-                12 ct/kWh USt-frei
+                <%= link_to "11 ct/kWh USt-frei",
+                    preise_path,
+                    class: "cursor-pointer font-semibold text-slate-900 no-underline hover:underline hover:decoration-slate-500 hover:underline-offset-4" %>
                 <span class="ml-1 text-sm font-normal text-slate-500">
                     (für Einspeiser/Abnehmer gleich)
                 </span>
@@ -198,7 +200,7 @@
     </div>
 </section>
 
-<section class="bg-white">
+<section id="einstieg" class="bg-white">
     <div class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
         <div class="rounded-[2rem] border border-slate-200 bg-slate-50 px-8 py-10 sm:px-10 sm:py-12">
             <div class="mx-auto max-w-3xl text-center">
@@ -207,8 +209,7 @@
                 </h2>
 
                 <p class="mt-4 text-lg leading-8 text-slate-600">
-                    Der Weg zur Teilnahme ist klar strukturiert. Wir begleiten unsere Mitglieder
-                    von der ersten Anfrage bis zur laufenden Teilnahme in der Energiegemeinschaft.
+                    Von der Online-Anmeldung bis zur aktiven Teilnahme sind nur wenige Schritte notwendig.
                 </p>
             </div>
 
@@ -220,11 +221,13 @@
                         <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white ring-8 ring-slate-50">
                             1
                         </div>
-                        <h3 class="mt-6 text-xl font-semibold text-slate-900">
-                            Interesse melden
+
+                        <h3 class="mt-6 text-lg font-semibold text-slate-900">
+                            Online anmelden
                         </h3>
-                        <p class="mt-3 text-sm leading-7 text-slate-600">
-                            Unverbindlich Kontakt aufnehmen und erste Informationen zur geplanten Teilnahme übermitteln.
+
+                        <p class="mt-3 text-sm leading-6 text-slate-600">
+                            Beitrittsformular vollständig ausfüllen und verbindlich die Aufnahme beantragen.
                         </p>
                     </div>
 
@@ -232,11 +235,13 @@
                         <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white ring-8 ring-slate-50">
                             2
                         </div>
-                        <h3 class="mt-6 text-xl font-semibold text-slate-900">
-                            Teilnahme prüfen
+
+                        <h3 class="mt-6 text-lg font-semibold text-slate-900">
+                            Aufnahme bestätigen
                         </h3>
-                        <p class="mt-3 text-sm leading-7 text-slate-600">
-                            Zählpunkt, technische Rahmenbedingungen und organisatorische Voraussetzungen gemeinsam abstimmen.
+
+                        <p class="mt-3 text-sm leading-6 text-slate-600">
+                            Der Vorstand prüft und bestätigt die Aufnahme meist noch am selben Tag.
                         </p>
                     </div>
 
@@ -244,11 +249,22 @@
                         <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white ring-8 ring-slate-50">
                             3
                         </div>
-                        <h3 class="mt-6 text-xl font-semibold text-slate-900">
-                            Unterlagen erhalten
+
+                        <h3 class="mt-6 text-lg font-semibold text-slate-900">
+                            Netzteilnahme bestätigen
                         </h3>
-                        <p class="mt-3 text-sm leading-7 text-slate-600">
-                            Vertrags- und Teilnahmeunterlagen strukturiert erhalten und in Ruhe prüfen.
+
+                        <p class="mt-3 text-sm leading-6 text-slate-600">
+                            Vertragsunterlagen erhalten und die Teilnahme im
+                            <a
+                                href="https://smartmeter-web.wienernetze.at/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="font-medium text-green-700 hover:text-green-800 hover:underline"
+                            >
+                                Smart-Meter-Webportal
+                            </a>
+                            bestätigen.
                         </p>
                     </div>
 
@@ -256,69 +272,110 @@
                         <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white ring-8 ring-slate-50">
                             4
                         </div>
-                        <h3 class="mt-6 text-xl font-semibold text-slate-900">
-                            Teil der EEG werden
+
+                        <h3 class="mt-6 text-lg font-semibold text-slate-900">
+                            Strom gemeinsam nutzen
                         </h3>
-                        <p class="mt-3 text-sm leading-7 text-slate-600">
-                            Nach Abschluss der Schritte startet die Teilnahme an der Energiegemeinschaft.
+
+                        <p class="mt-3 text-sm leading-6 text-slate-600">
+                            Nach der Freigabe durch Wiener Netze nimmt Ihr Zählpunkt aktiv an der EEG teil.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-10 grid gap-6 lg:hidden">
+            <div class="mt-10 space-y-5 lg:hidden">
                 <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
                     <div class="flex items-center gap-4">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white">
+                        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white">
                             1
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-900">Interesse melden</h3>
+
+                        <h3 class="text-lg font-semibold text-slate-900">
+                            Online anmelden
+                        </h3>
                     </div>
-                    <p class="mt-4 text-sm leading-7 text-slate-600">
-                        Unverbindlich Kontakt aufnehmen und erste Informationen zur geplanten Teilnahme übermitteln.
+
+                    <p class="mt-4 text-sm leading-6 text-slate-600">
+                        Beitrittsformular vollständig ausfüllen und verbindlich die Aufnahme beantragen.
                     </p>
                 </div>
 
                 <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
                     <div class="flex items-center gap-4">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white">
+                        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white">
                             2
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-900">Teilnahme prüfen</h3>
+
+                        <h3 class="text-lg font-semibold text-slate-900">
+                            Aufnahme bestätigen
+                        </h3>
                     </div>
-                    <p class="mt-4 text-sm leading-7 text-slate-600">
-                        Zählpunkt, technische Rahmenbedingungen und organisatorische Voraussetzungen gemeinsam abstimmen.
+
+                    <p class="mt-4 text-sm leading-6 text-slate-600">
+                        Der Vorstand prüft und bestätigt die Aufnahme meist noch am selben Tag.
                     </p>
                 </div>
 
                 <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
                     <div class="flex items-center gap-4">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white">
+                        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white">
                             3
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-900">Unterlagen erhalten</h3>
+
+                        <h3 class="text-lg font-semibold text-slate-900">
+                            Netzteilnahme bestätigen
+                        </h3>
                     </div>
-                    <p class="mt-4 text-sm leading-7 text-slate-600">
-                        Vertrags- und Teilnahmeunterlagen strukturiert erhalten und in Ruhe prüfen.
+
+                    <p class="mt-4 text-sm leading-6 text-slate-600">
+                        Vertragsunterlagen erhalten und die Teilnahme im
+                        <a
+                            href="https://smartmeter-web.wienernetze.at/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="font-medium text-green-700 hover:text-green-800 hover:underline"
+                        >
+                            Smart-Meter-Webportal
+                        </a>
+                        bestätigen.
                     </p>
                 </div>
 
                 <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
                     <div class="flex items-center gap-4">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white">
+                        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white">
                             4
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-900">Teil der EEG werden</h3>
+
+                        <h3 class="text-lg font-semibold text-slate-900">
+                            Strom gemeinsam nutzen
+                        </h3>
                     </div>
-                    <p class="mt-4 text-sm leading-7 text-slate-600">
-                        Nach Abschluss der Schritte startet die Teilnahme an der Energiegemeinschaft.
+
+                    <p class="mt-4 text-sm leading-6 text-slate-600">
+                        Nach der Freigabe durch Wiener Netze nimmt Ihr Zählpunkt aktiv an der EEG teil.
                     </p>
                 </div>
+            </div>
+
+            <div class="mx-auto mt-10 max-w-3xl border-t border-slate-200 pt-7 text-center">
+                <p class="text-sm leading-7 text-slate-600">
+                    Sie haben vor oder während der Anmeldung noch Fragen?<br>
+                    Schreiben Sie uns gerne über das
+                    <a
+                        href="#kontakt"
+                        class="cursor-pointer font-medium text-green-700 hover:text-green-800 hover:underline"
+                    >
+                        Kontaktformular
+                    </a>
+                    – wir unterstützen Sie gerne.
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<%= render "kontaktformular", contact_request: @contact_request, flash_message: nil %>
+<%= render "servicebereich", contact_request: @contact_request, flash_message: nil %>
 
 <%= render "haeufige_fragen" %>
