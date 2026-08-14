@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get  "/impressum",        to: "landing#impressum",        as: :impressum
     get  "/datenschutz",      to: "landing#datenschutz",      as: :datenschutz
 
+    get  "/app/datenloeschung", to: "landing#datenloeschung", as: :app_datenloeschung
+
     get  "/sitemap.xml",      to: "landing#sitemap", defaults: { format: :xml }, as: :sitemap
 
 end

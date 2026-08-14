@@ -78,31 +78,132 @@
                     </h3>
 
                     <p class="mt-3 text-base leading-7 text-slate-600">
-                        Über das folgende Formular können Sie Ihren Beitritt vorbereiten.
-                        Die notwendigen Angaben werden Schritt für Schritt abgefragt.
+                        Wir betreiben drei regionale Energiegemeinschaften. Welche für Sie zuständig
+                        ist, hängt vom Netzbereich Ihres Zählpunkts ab — maßgeblich ist Ihre
+                        <strong>Beauskunftungskennzahl</strong> (sie beginnt mit 00BA21, 00BA22 oder 00BA23).
                     </p>
 
-                    <div class="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                        <iframe
-                            src="https://abrechnung.eeg-gruenlicht.at/onboarding/437a846f-a56f-4f35-86b0-0ff31041b915"
-                            title="Beitrittsantrag zur EEG Grünes Licht für Bad Vöslau"
-                            loading="lazy"
-                            class="block h-[900px] w-full border-0"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                        ></iframe>
+                    <div
+                        class="mt-6"
+                        data-controller="eeg-select"
+                        data-eeg-select-base-value="https://abrechnung.eeg-gruenlicht.at/onboarding/"
+                    >
+                        <p class="text-sm font-semibold text-slate-700">
+                            Schritt 1: Wählen Sie Ihre Energiegemeinschaft
+                        </p>
+
+                        <p class="mt-1 text-sm text-slate-500">
+                            Nicht sicher, welche die richtige ist? Sie können uns natürlich auch einfach eine
+                            <button
+                                type="button"
+                                data-action="eeg-select#openKontakt"
+                                class="font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:text-green-800"
+                            >Kontaktanfrage</button>
+                            schicken — wir helfen Ihnen gerne bei der Auswahl der passenden Energiegemeinschaft.
+                        </p>
+
+                        <div class="mt-3 grid gap-3 sm:grid-cols-3">
+                            <button
+                                type="button"
+                                data-eeg-select-target="card"
+                                data-action="eeg-select#selectCard"
+                                data-bkz="00BA21"
+                                data-eeg-id="cb81cc8e-a2a3-4660-b4cc-067c15d9b277"
+                                data-eeg-name="EEG Bad Vöslau-Sooß"
+                                class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600"
+                            >
+                                <span class="block text-sm font-semibold text-slate-900">EEG Bad Vöslau-Sooß</span>
+                                <span class="mt-1 block text-xs text-slate-500">Kennzahl 00BA21-…</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                data-eeg-select-target="card"
+                                data-action="eeg-select#selectCard"
+                                data-bkz="00BA22"
+                                data-eeg-id="437a846f-a56f-4f35-86b0-0ff31041b915"
+                                data-eeg-name="EEG Bad Vöslau"
+                                class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600"
+                            >
+                                <span class="block text-sm font-semibold text-slate-900">EEG Bad Vöslau</span>
+                                <span class="mt-1 block text-xs text-slate-500">Kennzahl 00BA22-…</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                data-eeg-select-target="card"
+                                data-action="eeg-select#selectCard"
+                                data-bkz="00BA23"
+                                data-eeg-id="e10c2146-c551-4e73-8515-573c30be6c7e"
+                                data-eeg-name="EEG Bad Vöslau-Flugfeld"
+                                class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600"
+                            >
+                                <span class="block text-sm font-semibold text-slate-900">EEG Bad Vöslau-Flugfeld</span>
+                                <span class="mt-1 block text-xs text-slate-500">Kennzahl 00BA23-…</span>
+                            </button>
+                        </div>
+
+                        <div class="mt-5">
+                            <label for="bkz-input" class="block text-sm text-slate-600">
+                                Nicht sicher? Geben Sie hier Ihre Beauskunftungskennzahl ein:
+                            </label>
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                <input
+                                    id="bkz-input"
+                                    type="text"
+                                    placeholder="00BA…"
+                                    data-eeg-select-target="input"
+                                    data-action="keydown->eeg-select#keydown"
+                                    class="min-w-[200px] flex-1 rounded-xl border border-slate-300 px-3 py-2 text-base focus:border-green-600 focus:outline-none focus:ring-2 focus:ring-green-600"
+                                />
+                                <button
+                                    type="button"
+                                    data-action="eeg-select#checkBkz"
+                                    class="rounded-xl bg-green-700 px-5 py-2 text-sm font-semibold text-white transition hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+                                >
+                                    Prüfen
+                                </button>
+                            </div>
+                            <p class="mt-2 text-xs text-slate-500">
+                                Kennzahl unbekannt? Mit Ihrer Zählernummer
+                                <a
+                                    href="https://www.wienernetze.at/beauskunftungskennzahl-abfragen"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="font-medium text-green-700 hover:text-green-800"
+                                >hier bei den Wiener Netzen abfragen</a>.
+                            </p>
+                            <p data-eeg-select-target="message" class="mt-2 text-sm" hidden></p>
+                        </div>
+
+                        <div class="mt-8" data-eeg-select-target="form" hidden>
+                            <p class="text-sm font-semibold text-slate-700">
+                                Schritt 2: Beitrittsantrag ausfüllen — <span data-eeg-select-target="name"></span>
+                            </p>
+
+                            <div class="mt-3 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                                <iframe
+                                    data-eeg-select-target="frame"
+                                    src=""
+                                    title="Beitrittsantrag zur Energiegemeinschaft"
+                                    loading="lazy"
+                                    class="block h-[900px] w-full border-0"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                ></iframe>
+                            </div>
+
+                            <p class="mt-4 text-sm leading-6 text-slate-500">
+                                Falls das Formular in Ihrem Browser nicht angezeigt wird, können Sie den
+                                <a
+                                    data-eeg-select-target="link"
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="font-medium text-green-700 hover:text-green-800"
+                                >Beitrittsantrag in einem neuen Fenster öffnen</a>.
+                            </p>
+                        </div>
                     </div>
-
-                    <p class="mt-4 text-sm leading-6 text-slate-500">
-                        Falls das Formular in Ihrem Browser nicht angezeigt wird, können Sie den
-                        <a
-                            href="https://abrechnung.eeg-gruenlicht.at/onboarding/437a846f-a56f-4f35-86b0-0ff31041b915"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="font-medium text-green-700 hover:text-green-800"
-                        >
-                            Beitrittsantrag in einem neuen Fenster öffnen
-                        </a>.
-                    </p>
                 </div>
 
                 <div
@@ -134,6 +235,54 @@
                         Bestehende Mitglieder können sich hier anmelden und ihre Zählpunkte,
                         Teilnahme- und Abrechnungsinformationen einsehen.
                     </p>
+
+                    <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-5 sm:px-6">
+                        <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                            <div>
+                                <p class="text-base font-semibold text-slate-900">
+                                    Auch als App für Android und iPhone
+                                </p>
+
+                                <p class="mt-1 text-sm leading-6 text-slate-600">
+                                    Die Anmeldung erfolgt mit der E-Mail-Adresse, die Sie bei Ihrem Beitritt angegeben haben.
+                                </p>
+                            </div>
+
+                            <div class="flex shrink-0 flex-col gap-2 sm:flex-row">
+                                <a
+                                    href="https://play.google.com/store/apps/details?id=at.eeggruenlicht.gruenlicht_app"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-3 rounded-xl bg-slate-900 px-4 py-2.5 text-white transition hover:bg-slate-800"
+                                >
+                                    <svg class="h-6 w-6 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/>
+                                    </svg>
+
+                                    <span class="text-left leading-tight">
+                                        <span class="block text-[0.625rem] uppercase tracking-wide text-slate-300">Jetzt bei</span>
+                                        <span class="block text-sm font-semibold">Google Play</span>
+                                    </span>
+                                </a>
+
+                                <a
+                                    href="https://apps.apple.com/at/app/eeg-gr%C3%BCnlicht/id6790113324"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-3 rounded-xl bg-slate-900 px-4 py-2.5 text-white transition hover:bg-slate-800"
+                                >
+                                    <svg class="h-6 w-6 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+                                    </svg>
+
+                                    <span class="text-left leading-tight">
+                                        <span class="block text-[0.625rem] uppercase tracking-wide text-slate-300">Laden im</span>
+                                        <span class="block text-sm font-semibold">App Store</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white">
                         <iframe

@@ -1,0 +1,109 @@
+<% content_for :title, "Datenlöschung – App „EEG GrünLicht“" %>
+<% content_for :meta_description, "So beantragen Sie die Löschung Ihrer personenbezogenen Daten aus der App „EEG GrünLicht“ der EEG Grünes Licht Bad Vöslau: Schritte zur Löschung, gelöschte Daten und gesetzliche Aufbewahrungsfristen." %>
+<% content_for :canonical_path, app_datenloeschung_path %>
+<section class="bg-white">
+    <div class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+        <h1 class="text-3xl font-semibold tracking-tight text-slate-900">
+            Datenlöschung – App „EEG GrünLicht“
+        </h1>
+
+        <div class="mt-10 space-y-10 text-slate-700">
+            <section>
+                <div class="space-y-4 leading-7">
+                    <p>
+                        Die App <span class="font-medium text-slate-900">„EEG GrünLicht“</span> der
+                        <span class="font-medium text-slate-900">Erneuerbare-Energie-Gemeinschaft
+                        Grünes-Licht-Bad-Vöslau</span> zeigt Mitgliedern ihre eigenen Energie- und
+                        Abrechnungsdaten an. Auf dieser Seite erfahren Sie, wie Sie die Löschung Ihrer
+                        personenbezogenen Daten beantragen, welche Daten gelöscht werden und welche Daten wir
+                        aus gesetzlichen Gründen aufbewahren müssen.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-slate-900">So beantragen Sie die Löschung Ihrer Daten</h2>
+
+                <div class="mt-5 space-y-4 leading-7">
+                    <p>
+                        Sie können die Löschung Ihrer Daten jederzeit auf einem der folgenden Wege anfordern:
+                    </p>
+
+                    <ol class="list-decimal space-y-3 pl-6">
+                        <li>
+                            Senden Sie eine E-Mail an
+                            <%= mail_to "office@eeg-gruenlicht.at", "office@eeg-gruenlicht.at", subject: "Datenlöschung App EEG GrünLicht", class: "text-green-700 hover:text-green-800" %>
+                            und geben Sie darin Ihren <span class="font-medium text-slate-900">Namen</span> und Ihre
+                            <span class="font-medium text-slate-900">Mitgliedsnummer</span> an. Alternativ können Sie
+                            uns über das Mitgliederportal kontaktieren.
+                        </li>
+                        <li>
+                            Wir bestätigen den Eingang Ihrer Anfrage.
+                        </li>
+                        <li>
+                            Wir löschen Ihre Daten im nachstehend beschriebenen Umfang und informieren Sie über die
+                            Umsetzung.
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-slate-900">Welche Daten gelöscht werden</h2>
+
+                <div class="mt-5 space-y-4 leading-7">
+                    <p>
+                        Auf Ihre Anfrage hin löschen wir insbesondere:
+                    </p>
+
+                    <ul class="list-disc space-y-2 pl-6">
+                        <li>verbundene Gerätesitzungen der App (Geräteschlüssel bzw. Pairing)</li>
+                        <li>im Portal gespeicherte Kontakt- und Kontodaten</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-slate-900">Aufbewahrung</h2>
+
+                <div class="mt-5 space-y-4 leading-7">
+                    <p>
+                        Abrechnungsrelevante Daten unterliegen gesetzlichen Aufbewahrungsfristen. Nach den
+                        steuer- und unternehmensrechtlichen Vorschriften (insbesondere § 132 Bundesabgabenordnung
+                        sowie § 212 Unternehmensgesetzbuch) beträgt diese Frist in der Regel
+                        <span class="font-medium text-slate-900">sieben Jahre</span>. Solche Daten werden daher erst
+                        nach Ablauf der jeweiligen Aufbewahrungsfrist gelöscht.
+                    </p>
+
+                    <p>
+                        Die Geräteverbindung können Sie außerdem jederzeit selbst im Mitgliederportal trennen,
+                        auch unabhängig von einem Löschantrag.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-slate-900">Verantwortlicher</h2>
+
+                <div class="mt-5 space-y-4 leading-7">
+                    <p>
+                        <span class="font-medium text-slate-900">Erneuerbare-Energie-Gemeinschaft Grünes-Licht-Bad-Vöslau</span><br>
+                        Michael Scherz-Straße 14<br>
+                        2540 Bad Vöslau<br>
+                        Österreich
+                    </p>
+
+                    <p>
+                        <span class="font-medium text-slate-900">E-Mail:</span>
+                        <%= mail_to "office@eeg-gruenlicht.at", "office@eeg-gruenlicht.at", class: "text-green-700 hover:text-green-800" %>
+                    </p>
+
+                    <p>
+                        Weitere Informationen zur Verarbeitung Ihrer Daten finden Sie in unserer
+                        <%= link_to "Datenschutzinformation", datenschutz_path, class: "text-green-700 hover:text-green-800" %>.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

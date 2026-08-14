@@ -1,0 +1,29 @@
+<section class="bg-white">
+    <div class="mx-auto max-w-6xl px-6">
+        <div class="rounded-2xl bg-green-50 px-6 py-5">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <p class="text-sm font-semibold text-slate-900">
+                        Neuigkeiten aus der Energiegemeinschaft
+                    </p>
+
+                    <p class="mt-1 text-sm text-slate-600">
+                        Aktuelles gibt es auf Facebook und Instagram — Abrechnung und Community-Infos kommen monatlich per E-Mail.
+                    </p>
+                </div>
+
+                <div class="flex shrink-0 flex-wrap items-center gap-2">
+                    <% social_profiles.each do |profile| %>
+                        <%= link_to profile[:url],
+                            target: "_blank",
+                            rel: "noopener",
+                            class: "inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-200 transition hover:text-green-700 hover:ring-green-300" do %>
+                            <%= social_icon profile[:key], css_class: "h-4 w-4" %>
+                            <%= profile[:name] %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

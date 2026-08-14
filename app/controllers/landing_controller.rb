@@ -76,6 +76,8 @@ class LandingController < ApplicationController
 
   def datenschutz; end
 
+  def datenloeschung; end
+
   def sitemap; end
 
   private

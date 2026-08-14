@@ -19,7 +19,7 @@ module SeoHelper
   end
 
   def default_meta_description
-    "Regionale Energiegemeinschaft in Bad Vöslau: 10 ct/kWh netto, reduzierte Netzentgelte beim Bezug innerhalb der EEG, keine Mitgliedsgebühr und monatliche Abrechnung."
+    "Regionale Energiegemeinschaft in Bad Vöslau: 11 ct/kWh USt-frei, reduzierte Netzentgelte beim Bezug innerhalb der EEG, keine Mitgliedsgebühr und monatliche Abrechnung."
   end
 
   def canonical_url
@@ -57,7 +57,8 @@ module SeoHelper
       "areaServed" => {
         "@type" => "City",
         "name" => "Bad Vöslau"
-      }
+      },
+      "sameAs" => SocialHelper::PROFILES.map { |profile| profile[:url] }
     }
 
     JSON.pretty_generate(data)

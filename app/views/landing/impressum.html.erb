@@ -16,6 +16,7 @@
             ],
             zvr: "1369683586",
             email: "office@eeg-gruenlicht.at",
+            statuten_pdf: "/statuten/Statuten_EEG-GLV_260618.pdf",
             board: [
                 {
                     role: "Obmann",
@@ -40,7 +41,7 @@
                     ]
                 },
                 {
-                    role: "Kassierin",
+                    role: "Kassiererin",
                     name: "Marta Glockner",
                     description: [
                         "Marta Glockner verfügt über eine Einzelhandelsausbildung im Buchhandel und war später langjährig in internationalen Konzernen tätig.",
@@ -66,6 +67,7 @@
             ],
             zvr: "1608928219",
             email: "office@eeg-gruenlicht.at",
+            statuten_pdf: "/statuten/Statuten_EEG-GLF_260513.pdf",
             board: [
                 {
                     role: "Obmann",
@@ -102,37 +104,41 @@
         {
             tab_id: "bad-voeslau-sooss",
             tab_label: "EEG Grünes Licht Bad Vöslau/Sooß",
-            name: "Erneuerbare-Energie-Gemeinschaft<br>Grünes-Licht-Bad-Vöslau-Sooß",
+            name: "Erneuerbare-Energie-Gemeinschaft<br>Grünes-Licht-Bad-Vöslau-Sooss",
             short_name: "EEG GrünLicht Bad Vöslau-Sooß",
             address: [
                 "Michael Scherz-Straße 14",
                 "2540 Bad Vöslau",
                 "Österreich"
             ],
-            zvr: "in Gründung",
+            zvr: "1773880994",
             email: "office@eeg-gruenlicht.at",
+            statuten_pdf: "/statuten/Statuten_EEG-GLS_260624.pdf",
             board: [
                 {
-                    role: "Gründer",
+                    role: "Obmann",
                     name: "Dr. Christoph Fabianek",
                     description: [
                         "Christoph Fabianek ist Datenwissenschaftler und Technologieexperte mit langjähriger Erfahrung in IT, Datenmanagement und digitalen Infrastrukturen.",
                         "Sein Schwerpunkt liegt auf sicherem und verantwortungsvollem Datenaustausch, insbesondere im Kontext der Energiewende und technischer Lösungen für Energiegemeinschaften.",
-                        "Als Mitbegründer von MyData- und OwnYourData-Initiativen setzt er sich für fairen, transparenten und datenschutzfreundlichen Umgang mit persönlichen und energierelevanten Daten ein."
-                    ]
+                        "Als Mitbegründer von MyData- und OwnYourData-Initiativen setzt er sich für fairen, transparenten und datenschutzfreundlichen Umgang mit persönlichen und energierelevanten Daten ein."]
                 },
                 {
-                    role: "Gründer",
-                    name: "Thomas Michael Glockner",
+                    role: "Obmann-Stellvertreterin",
+                    name: "Christina Kreihsler, MA, BSc",
                     description: [
-                        "Michael Glockner ist Betriebswirtschaftler mit langjähriger Erfahrung im höheren Management eines multinationalen Konzerns.",
-                        "Seit Jahren beschäftigt er sich mit eigenen Lösungen für Energieautonomie sowie mit Natur- und Umweltbewusstsein."
-                    ],
-                    focus: [
-                        "Umgang mit Zahlen",
-                        "Management und Teamarbeit",
-                        "Umsetzung von Zukunftslösungen"
-                    ]
+                        "Christina Kreihsler verbindet wirtschaftliches Know-how mit einem großen Interesse an Nachhaltigkeit. Nach ihrem Studium der Wirtschafts- und Sozialwissenschaften sowie einem Masterstudium in Organic Business and Marketing sammelte sie Erfahrungen in den Bereichen Steuerberatung, Verwaltung, Nachhaltigkeitsberichterstattung und Controlling.",
+                        "Heute liegt ihr Schwerpunkt im Controlling sowie in der Erstellung von CO₂-Bilanzen. Dabei beschäftigt sie sich insbesondere mit der Frage, wie ökologische Verantwortung und wirtschaftliche Tragfähigkeit erfolgreich miteinander verbunden werden können.",
+                        "Energiegemeinschaften sieht sie als wichtige Möglichkeit, Bürgerinnen und Bürger aktiv an einer nachhaltigen, unabhängigen und gemeinschaftlichen Energieversorgung zu beteiligen sowie die regionale Nutzung erneuerbarer Energien zu fördern und die Stromnetze zu entlasten."],
+                    focus: []
+                },
+                {
+                    role: "Kassier",
+                    name: "Josef Pfleger",
+                    description: [
+                        "Josef Pfleger ist ausgebildeter Techniker (HTL und Informatikstudium) und verfügt über 42 Jahre Berufserfahrung im IT-Bereich – sowohl im nationalen als auch im internationalen Umfeld.",
+                        "Seit zwölf Jahren im Ruhestand, beschäftigt er sich intensiv mit erneuerbaren Energie- und Heizungslösungen sowie mit der Optimierung des Energieverbrauchs. Darüber hinaus engagiert er sich ehrenamtlich in verschiedenen Organisationen."],
+                    focus: []
                 }
             ]
         }
@@ -221,6 +227,16 @@
                                     <div>
                                         <p class="text-sm font-medium text-slate-500">ZVR-Zahl</p>
                                         <p class="mt-1 text-slate-700"><%= verein[:zvr] %></p>
+                                        <p class="mt-1 text-sm text-slate-500">
+                                            Eintragung im
+                                            <a
+                                                href="https://citizen.bmi.gv.at/at.gv.bmi.fnsweb-p/zvn/public/Registerauszug"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="font-medium text-green-700 hover:text-green-800"
+                                            >Zentralen Vereinsregister</a>
+                                            überprüfbar (mit obiger ZVR-Zahl).
+                                        </p>
                                     </div>
 
                                     <div>
@@ -229,6 +245,25 @@
                                             <%= mail_to verein[:email], verein[:email], class: "text-green-700 hover:text-green-800" %>
                                         </p>
                                     </div>
+
+                                    <% if verein[:statuten_pdf].present? %>
+                                        <div>
+                                            <p class="text-sm font-medium text-slate-500">Statuten</p>
+                                            <p class="mt-1">
+                                                <a
+                                                    href="<%= verein[:statuten_pdf] %>"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="inline-flex items-center gap-1.5 font-medium text-green-700 hover:text-green-800"
+                                                >
+                                                    <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+                                                    </svg>
+                                                    Vereinsstatuten herunterladen (PDF)
+                                                </a>
+                                            </p>
+                                        </div>
+                                    <% end %>
                                 </div>
                             </section>
 

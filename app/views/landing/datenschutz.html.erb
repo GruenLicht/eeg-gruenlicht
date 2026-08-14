@@ -1,5 +1,5 @@
 <% content_for :title, "Datenschutz" %>
-<% content_for :meta_description, "Datenschutzinformationen der EEG Grünes Licht Bad Vöslau zur Website, zum Kontaktformular und zur Verarbeitung personenbezogener Daten." %>
+<% content_for :meta_description, "Datenschutzinformationen der EEG Grünes Licht Bad Vöslau zur Website, zum Kontaktformular, zur Mitglieder-App und zur Verarbeitung personenbezogener Daten." %>
 <% content_for :canonical_path, datenschutz_path %>
 <section class="bg-white">
     <div class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
@@ -20,7 +20,8 @@
 
                     <p>
                         Diese Datenschutzinformation erläutert in knapper Form, welche personenbezogenen Daten beim Besuch
-                        dieser Website und bei der Nutzung des Kontaktformulars verarbeitet werden.
+                        dieser Website, bei der Nutzung des Kontaktformulars sowie bei der Nutzung unserer Mitglieder-App
+                        „EEG GrünLicht" verarbeitet werden.
                     </p>
                 </div>
             </section>
@@ -97,6 +98,96 @@
             </section>
 
             <section>
+                <h2 class="text-xl font-semibold text-slate-900">Mitglieder-App „EEG GrünLicht"</h2>
+
+                <div class="mt-5 space-y-4 leading-7">
+                    <p>
+                        Die App richtet sich ausschließlich an Mitglieder der Energiegemeinschaft. Eine Nutzung ohne
+                        bestehende Mitgliedschaft ist nicht möglich.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Anmeldung und Gerätebindung</h3>
+
+                    <p>
+                        Die Anmeldung erfolgt über einen QR-Code aus dem Mitgliederportal, der zusätzlich im Portal
+                        bestätigt werden muss. Dabei erzeugt die App auf Ihrem Gerät ein Schlüsselpaar. Der
+                        <span class="font-medium text-slate-900">private Schlüssel verlässt den Sicherheitschip Ihres
+                        Geräts niemals</span>. An uns übermittelt und gespeichert werden ausschließlich:
+                    </p>
+
+                    <ul class="list-disc space-y-2 pl-6">
+                        <li>der öffentliche Schlüssel des Geräts</li>
+                        <li>eine Gerätebezeichnung (z. B. „iPhone von Max M."), damit Sie die Verbindung im
+                            Mitgliederportal wiedererkennen und jederzeit entziehen können</li>
+                    </ul>
+
+                    <h3 class="pt-2 font-medium text-slate-900">In der App angezeigte Daten</h3>
+
+                    <p>
+                        Nach der Anmeldung zeigt die App Ihnen Ihre eigenen Stammdaten an:
+                    </p>
+
+                    <ul class="list-disc space-y-2 pl-6">
+                        <li>Name</li>
+                        <li>Mitgliedsnummer</li>
+                        <li>zugeordnete Energiegemeinschaft</li>
+                        <li>Rolle (z. B. Verbraucher, Einspeiser, Prosumer)</li>
+                        <li>Zählpunkte</li>
+                    </ul>
+
+                    <p>
+                        Diese Daten stammen aus der Mitgliederverwaltung und werden ausschließlich Ihnen selbst angezeigt.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Kamera</h3>
+
+                    <p>
+                        Der Kamerazugriff dient allein dem Scannen des QR-Codes für die Anmeldung. Es werden keine Bilder
+                        gespeichert oder übertragen.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Sitzung</h3>
+
+                    <p>
+                        Der Sitzungsschlüssel wird ausschließlich im gesicherten Speicher Ihres Geräts (iOS-Schlüsselbund
+                        bzw. Android-Keystore) abgelegt.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Protokolldaten</h3>
+
+                    <p>
+                        Beim Zugriff auf unsere Schnittstelle werden aus Sicherheitsgründen technische Daten (IP-Adresse,
+                        Zeitpunkt und Art des Zugriffs) protokolliert. Rechtsgrundlage ist unser berechtigtes Interesse an
+                        einem sicheren Betrieb gemäß Art. 6 Abs. 1 lit. f DSGVO.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Kein Tracking</h3>
+
+                    <p>
+                        Die App enthält keine Analyse-, Tracking- oder Werbefunktionen und bindet keine Dienste Dritter ein.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Rechtsgrundlage</h3>
+
+                    <p>
+                        Die Verarbeitung erfolgt zur Erfüllung des Mitgliedschaftsverhältnisses (Art. 6 Abs. 1 lit. b DSGVO)
+                        sowie aus berechtigtem Interesse an einem sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO).
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Speicherdauer und Löschung</h3>
+
+                    <p>
+                        Die Gerätebindung besteht, bis Sie sie im Mitgliederportal entziehen oder sich in der App abmelden.
+                        Die Löschung Ihrer Daten können Sie jederzeit unter
+                        <%= mail_to "office@eeg-gruenlicht.at", "office@eeg-gruenlicht.at", class: "text-green-700 hover:text-green-800" %>
+                        verlangen. Eine Schritt-für-Schritt-Anleitung sowie Angaben dazu, welche Daten gelöscht und
+                        welche aus gesetzlichen Gründen aufbewahrt werden, finden Sie auf der Seite
+                        <%= link_to "Datenlöschung – App „EEG GrünLicht“", app_datenloeschung_path, class: "text-green-700 hover:text-green-800" %>.
+                    </p>
+                </div>
+            </section>
+
+            <section>
                 <h2 class="text-xl font-semibold text-slate-900">Cookies</h2>
 
                 <div class="mt-5 space-y-4 leading-7">
@@ -124,6 +215,11 @@
                         Daten aus Kontaktanfragen speichern wir grundsätzlich nur so lange, wie dies zur Bearbeitung der
                         Anfrage und für eine allfällige Anschlusskommunikation erforderlich ist.
                     </p>
+
+                    <p>
+                        Für die Mitglieder-App gelten ergänzend die Angaben im Abschnitt
+                        <span class="font-medium text-slate-900">„Mitglieder-App ‚EEG GrünLicht'"</span>.
+                    </p>
                 </div>
             </section>
 
@@ -133,6 +229,12 @@
                 <div class="mt-5 space-y-4 leading-7">
                     <p>
                         Diese Website verwendet eine verschlüsselte Verbindung (SSL bzw. TLS). Dadurch können Daten, die Sie an uns übermitteln, vor unbefugtem Zugriff geschützt werden.
+                    </p>
+
+                    <p>
+                        Auch die Kommunikation der Mitglieder-App mit unserer Schnittstelle erfolgt ausschließlich
+                        verschlüsselt. Die Anmeldung ist zusätzlich an Ihr Gerät gebunden; der dafür verwendete private
+                        Schlüssel verlässt den Sicherheitschip Ihres Geräts nicht.
                     </p>
                 </div>
             </section>
@@ -163,7 +265,7 @@
 
                 <div class="mt-5 space-y-4 leading-7">
                     <p>
-                        Wir behalten uns vor, diese Datenschutzinformation bei Bedarf anzupassen, insbesondere bei Änderungen der Website oder der rechtlichen Rahmenbedingungen.
+                        Wir behalten uns vor, diese Datenschutzinformation bei Bedarf anzupassen, insbesondere bei Änderungen der Website, der App oder der rechtlichen Rahmenbedingungen.
                     </p>
                 </div>
             </section>

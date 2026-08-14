@@ -52,7 +52,7 @@
     <div class="mt-6">
         <p class="text-sm text-slate-500">Organisation</p>
         <p class="mt-1 text-base font-semibold text-slate-900">
-            Regionale EEGs <span class="text-slate-500">(RC107602, RC108113)</span>
+            Regionale EEGs <span class="text-slate-500">(RC107602, RC108113, RC108354)</span>
         </p>
         <p class="text-base font-semibold text-slate-900">
             <%= ENV['ANZAHL_EINSPEISER']  || "3" %> Einspeiser · <%= ENV['ANZAHL_VERBRAUCHER']  || "5" %> Verbraucher
@@ -241,7 +241,7 @@
                         </h3>
 
                         <p class="mt-3 text-sm leading-6 text-slate-600">
-                            Der Vorstand prüft und bestätigt die Aufnahme meist noch am selben Tag.
+                            Der Vorstand prüft und bestätigt die Aufnahme meist innerhalb eines Tages.
                         </p>
                     </div>
 
@@ -379,3 +379,5 @@
 <%= render "servicebereich", contact_request: @contact_request, flash_message: nil %>
 
 <%= render "haeufige_fragen" %>
+
+<%= render "social_kanaele" %>

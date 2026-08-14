@@ -96,14 +96,37 @@ function activateServiceTab(container, tabName, updateHash = false) {
     return true
 }
 
-function serviceTabNameFromHash() {
-    const tabName = window.location.hash.substring(1)
+const SERVICE_TAB_NAMES = ["beitritt", "kontakt", "portal"]
 
-    if (["beitritt", "kontakt", "portal"].includes(tabName)) {
-        return tabName
+// Zerlegt den URL-Hash in Reiter-Name und optionalen Zusatz.
+// Beispiele:
+//   "#beitritt"         -> { tab: "beitritt", suffix: null }
+//   "#beitritt-00BA21"  -> { tab: "beitritt", suffix: "00BA21" }
+//   "#kontakt"          -> { tab: "kontakt",  suffix: null }
+//   "#faq-standort"     -> null  (kein Service-Reiter)
+function parseServiceHash() {
+    const raw = window.location.hash.substring(1)
+
+    if (!raw) {
+        return null
     }
 
-    return null
+    const separatorIndex = raw.indexOf("-")
+    const tab = separatorIndex === -1 ? raw : raw.slice(0, separatorIndex)
+
+    if (!SERVICE_TAB_NAMES.includes(tab)) {
+        return null
+    }
+
+    const suffix = separatorIndex === -1 ? null : raw.slice(separatorIndex + 1)
+
+    return { tab, suffix: suffix || null }
+}
+
+function serviceTabNameFromHash() {
+    const parsed = parseServiceHash()
+
+    return parsed ? parsed.tab : null
 }
 
 function initializeServiceTabs() {
@@ -180,10 +203,34 @@ function initializeServiceTabs() {
     })
 }
 
-function openServiceTabFromHash() {
-    const tabName = serviceTabNameFromHash()
+// Wählt bei "#beitritt-00BA21" die passende Energiegemeinschaft vor, indem die
+// zugehörige Karte geklickt wird. Die Karte trägt die Zuordnung (BKZ -> Onboarding)
+// bereits als data-Attribute, daher wird die Logik des eeg-select-Controllers
+// unverändert wiederverwendet. Rückgabe: true, wenn eine Karte gewählt wurde.
+function selectEegCardFromSuffix(container, suffix) {
+    if (!suffix) {
+        return false
+    }
 
-    if (!tabName) {
+    const normalized = suffix.trim().toUpperCase()
+    const cards = Array.from(container.querySelectorAll("[data-bkz]"))
+    const card = cards.find((c) => normalized.indexOf(c.dataset.bkz) === 0)
+
+    if (!card) {
+        return false
+    }
+
+    // Ein Frame warten, damit das Panel sichtbar ist und der Stimulus-Controller
+    // verbunden ist, bevor der Klick das Formular lädt und dorthin scrollt.
+    window.requestAnimationFrame(() => card.click())
+
+    return true
+}
+
+function openServiceTabFromHash() {
+    const parsed = parseServiceHash()
+
+    if (!parsed) {
         return
     }
 
@@ -193,13 +240,19 @@ function openServiceTabFromHash() {
         return
     }
 
-    const activated = activateServiceTab(container, tabName)
+    const activated = activateServiceTab(container, parsed.tab)
 
     if (!activated) {
         return
     }
 
-    const target = document.getElementById(tabName)
+    // Direktlink auf ein bestimmtes Beitrittsformular (z. B. "#beitritt-00BA21"):
+    // Karte vorwählen und zu Schritt 2 scrollen. Der Klick übernimmt das Scrollen.
+    if (parsed.tab === "beitritt" && selectEegCardFromSuffix(container, parsed.suffix)) {
+        return
+    }
+
+    const target = document.getElementById(parsed.tab)
 
     if (target) {
         window.requestAnimationFrame(() => {
