@@ -45,8 +45,9 @@ spec:
             value: '465'
           - name: SMTP_DOMAIN
             value: 'eeg-gruenlicht.at'
+          # Kanonischer Host -- Mail-Links sollen nicht ueber einen Redirect laufen.
           - name: MAILER_URL_OPTIONS_HOST
-            value: 'www.eeg-gruenlicht.at'
+            value: 'eeg-gruenlicht.at'
 ---
 kind: Service
 apiVersion: v1
@@ -63,6 +64,9 @@ spec:
     port: 80
     targetPort: 3000
 ---
+# Alle vier Hostnamen liefern die Anwendung aus.
+# Die Umleitung der Nebenformen auf den Apex passiert NICHT hier -- der
+# nginx-Admission-Webhook lehnt "permanent-redirect" mit $request_uri ab.
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
