@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: eeg-website
-        image: oydeu/eeg-gruenlicht:latest
+        image: oydeu/eeg-gruenlicht:260814
         ports:
         - containerPort: 3000
         env:
@@ -75,9 +75,42 @@ spec:
   tls:
   - hosts:
     - eeg-gruenlicht.at
+    - www.eeg-gruenlicht.at
+    - xn--eeg-grnlicht-ilb.at
+    - www.xn--eeg-grnlicht-ilb.at
     secretName: eeg-website-tls
   rules:
   - host: eeg-gruenlicht.at
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: eeg-website
+            port:
+              number: 80
+  - host: www.eeg-gruenlicht.at
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: eeg-website
+            port:
+              number: 80
+  - host: xn--eeg-grnlicht-ilb.at
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: eeg-website
+            port:
+              number: 80
+  - host: www.xn--eeg-grnlicht-ilb.at
     http:
       paths:
       - path: /
@@ -103,5 +136,8 @@ spec:
     kind: ClusterIssuer
   dnsNames:
   - 'eeg-gruenlicht.at'
+  - 'www.eeg-gruenlicht.at'
+  - 'xn--eeg-grnlicht-ilb.at'
+  - 'www.xn--eeg-grnlicht-ilb.at'
   privateKey:
     rotationPolicy: Always
