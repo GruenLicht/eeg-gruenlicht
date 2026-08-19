@@ -2,7 +2,11 @@
 
 CONTAINER="eeg-gruenlicht"
 REPOSITORY="oydeu"
-TAG="latest"
+
+# Standard-Tag ist das heutige Datum im Format YYMMDD (z.B. 260814).
+# Mit --tag=<wert> ueberschreibbar, mit --latest auf "latest" zurueckschaltbar.
+TAG="$(date +%y%m%d)"
+EXPLICIT_TAG=""
 
 # read commandline options
 BUILD_TEST=true
@@ -32,8 +36,19 @@ while [ $# -gt 0 ]; do
             BUILD_X86=true
             PLATFORM="linux/amd64"
             ;;
+        --tag=*)
+            EXPLICIT_TAG="${1#*=}"
+            ;;
+        --tag)
+            shift
+            EXPLICIT_TAG="$1"
+            ;;
+        --latest*)
+            EXPLICIT_TAG="latest"
+            ;;
         *)
             printf "unknown option(s)\n"
+            printf "usage: ./build.sh [--clean] [--dockerhub] [--arm|--x86] [--tag=YYMMDD|--latest]\n"
             if [ "${BASH_SOURCE[0]}" != "${0}" ]; then
                 return 1
             else
@@ -43,6 +58,13 @@ while [ $# -gt 0 ]; do
     shift
 done
 
+# Ein explizit gesetzter Tag gewinnt immer -- auch gegenueber --arm.
+if [ -n "$EXPLICIT_TAG" ]; then
+    TAG="$EXPLICIT_TAG"
+fi
+
+printf "building %s/%s:%s for %s\n" "$REPOSITORY" "$CONTAINER" "$TAG" "$PLATFORM"
+
 if $BUILD_CLEAN; then
     docker build --platform $PLATFORM --no-cache -f $DOCKERFILE -t $REPOSITORY/$CONTAINER:$TAG .
 else
@@ -51,4 +73,6 @@ fi
 
 if $DOCKER_UPDATE; then
     docker push $REPOSITORY/$CONTAINER:$TAG
+    printf "\npushed %s/%s:%s\n" "$REPOSITORY" "$CONTAINER" "$TAG"
+    printf "naechster Schritt: image-Tag in kubernetes/eeg-website-deploy.yaml auf %s setzen und anwenden\n" "$TAG"
 fi
