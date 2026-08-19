@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: eeg-website
-        image: oydeu/eeg-gruenlicht:260814
+        image: oydeu/eeg-gruenlicht:260819
         ports:
         - containerPort: 3000
         env:
