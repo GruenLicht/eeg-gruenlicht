@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: eeg-website
-        image: oydeu/eeg-gruenlicht:260819
+        image: oydeu/eeg-gruenlicht:260829
         ports:
         - containerPort: 3000
         env:
@@ -34,9 +34,12 @@ spec:
           - name: NO_REPLY_EMAIL
             value: 'no-reply@eeg-gruenlicht.at'
           - name: SMTP_USERNAME
-            value: 'no-reply@eeg-gruenlicht.at'
+            value: 'REDACTED'
           - name: SMTP_PASSWORD
-            value: 'asdf'
+            valueFrom:
+              secretKeyRef:
+                name: eeg-website-smtp
+                key: password
           - name: SMTP_SECURITY
             value: ssl
           - name: SMTP_ADDRESS
