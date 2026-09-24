@@ -11,7 +11,7 @@ export default class extends Controller {
 
     get eegs() {
         return {
-            "00BA21": { id: "cb81cc8e-a2a3-4660-b4cc-067c15d9b277", name: "EEG Bad Vöslau-Sooß" },
+            "00BA21": { id: "cb81cc8e-a2a3-4660-b4cc-067c15d9b277", name: "EEG Bad Vöslau/Sooß" },
             "00BA22": { id: "437a846f-a56f-4f35-86b0-0ff31041b915", name: "EEG Bad Vöslau" },
             "00BA23": { id: "e10c2146-c551-4e73-8515-573c30be6c7e", name: "EEG Bad Vöslau-Flugfeld" }
         }
