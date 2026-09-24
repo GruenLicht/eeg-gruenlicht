@@ -15,6 +15,12 @@
             </div>
         <% end %>
 
+        <% if local_assigns[:error_message].present? %>
+            <div class="mt-6 rounded-2xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-800" role="alert">
+                <%= error_message %>
+            </div>
+        <% end %>
+
         <% if contact_request.errors.any? %>
             <div class="mt-6 rounded-2xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-800">
                 <p class="font-semibold">
