@@ -1,4 +1,5 @@
-<section class="bg-white">
+<%# locals: (posts: []) %>
+<section id="neuigkeiten" class="scroll-mt-28 bg-white">
     <div class="mx-auto max-w-6xl px-6">
         <div class="rounded-2xl bg-green-50 px-6 py-5">
             <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -8,7 +9,11 @@
                     </p>
 
                     <p class="mt-1 text-sm text-slate-600">
-                        Aktuelles gibt es auf Facebook und Instagram — Abrechnung und Community-Infos kommen monatlich per E-Mail.
+                        <% if posts.any? %>
+                            Hintergründe und Erklärungen im <%= link_to "Blog", blog_path, class: "font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:decoration-green-700" %>, Aktuelles auf Facebook und Instagram — Abrechnung und Community-Infos kommen monatlich per E-Mail.
+                        <% else %>
+                            Aktuelles gibt es auf Facebook und Instagram — Abrechnung und Community-Infos kommen monatlich per E-Mail.
+                        <% end %>
                     </p>
                 </div>
 
@@ -24,6 +29,18 @@
                     <% end %>
                 </div>
             </div>
+
+            <% if posts.any? %>
+                <div class="mt-6 grid gap-4 md:grid-cols-3">
+                    <% posts.each do |post| %>
+                        <%= render "blog/post_card", post: post, compact: true %>
+                    <% end %>
+                </div>
+
+                <div class="mt-5 text-right">
+                    <%= link_to "Alle Beiträge im Blog →", blog_path, class: "text-sm font-medium text-green-700 hover:text-green-800" %>
+                </div>
+            <% end %>
         </div>
     </div>
 </section>

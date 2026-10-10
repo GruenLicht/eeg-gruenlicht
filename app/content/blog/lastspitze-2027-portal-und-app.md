@@ -3,11 +3,13 @@ title: "Ab 2027 zählt die Lastspitze: Was das bedeutet — und wo Sie Ihre sehe
 date: 2026-10-10
 author: Christoph Fabianek
 category: Abrechnung
-summary: "Ab 2027 hängt das Netzentgelt auch davon ab, wie viel Strom Sie gleichzeitig beziehen. Wir erklären, was sich ändert, was das für EEG-Mitglieder heißt — und zeigen Ihnen ab sofort Ihre eigene Lastspitze im Abrechnungsportal."
-draft: true
+summary: "Ab 2027 hängt das Netzentgelt auch davon ab, wie viel Strom Sie gleichzeitig beziehen. Wir erklären, was sich ändert, was das für EEG-Mitglieder heißt — und zeigen unseren Mitgliedern ihre eigene Lastspitze schon heute im Portal und in der App."
+draft: false
 ---
 
 Bisher war beim Netzentgelt vor allem eines entscheidend: **wie viel** Strom Sie im Jahr verbrauchen. Ab 2027 kommt eine zweite Frage dazu: **wie viel gleichzeitig.** Wer viele große Geräte zur selben Zeit laufen lässt, belastet das Netz stärker — und soll dafür künftig mehr beitragen.
+
+Damit unsere Mitglieder nicht bis zur ersten Netzrechnung 2027 warten müssen, um zu sehen, wo sie stehen, zeigen wir ihnen ihre Lastspitze ab sofort im Abrechnungsportal und in unserer App.
 
 ## Was ändert sich 2027?
 
@@ -18,12 +20,11 @@ Nach dem derzeitigen Entwurf der Systemnutzungsentgelte-Grundsatzverordnung der 
 - Bis **10 kW** gilt ein günstigerer Preis je kW, für den Teil darüber ein **doppelt so hoher**.
 - Verrechnet werden mindestens **2 kW**, auch wenn Ihre Spitze darunter liegt.
 
-Wie hoch die Preise genau sind, legt die E-Control erst in der Tarifverordnung fest, die gegen Ende 2026 erwartet wird — und zwar je Netzbereich unterschiedlich. Erste Rechenwerte (österreichweite Durchschnitte) für die **Zielstufe in rund drei Jahren**: etwa **33,82 € pro kW und Jahr** bis 10 kW und **67,64 €** darüber, dafür sinkt der Arbeitspreis von heute rund 7,36 auf etwa **4,53 ct/kWh**. Auf den Monat umgerechnet kostet dann jedes kW Spitze bis 10 kW rund 2,80 €, darüber rund 5,60 €. Zum Start 2027 ist der Leistungsanteil kleiner; Ziel der E-Control ist, dass Leistung und Arbeit nach drei Jahren je etwa die Hälfte ausmachen.
+Die genauen Preise legt die E-Control erst in der Tarifverordnung fest, die gegen Ende 2026 erwartet wird — je Netzbereich unterschiedlich. Erste, noch unverbindliche Rechenwerte hat sie im Juli 2026 [vorgestellt](https://www.e-control.at/documents/1785851/1811582/03-Karin-Emberger-FachVA-GrundsatzVO-14072026.pdf/ea12f281-8d5e-3724-9869-b9014f0fab92?t=1784034800793) (österreichweite Durchschnitte): In der Zielstufe, die in rund drei Jahren erreicht werden soll, kostet ein kW Spitze etwa **33,82 € pro Jahr** bis 10 kW und **67,64 €** darüber — auf den Monat umgerechnet rund 2,80 € bzw. 5,60 €. Im Gegenzug sinkt der Arbeitspreis von heute rund 7,36 ct/kWh (plus Pauschale) auf etwa **4,53 ct/kWh**. Zum Start liegt der Leistungspreis rechnerisch niedriger, bei rund 19 € pro kW und Jahr, und steigt dann schrittweise, bis Leistung und Arbeit je etwa die Hälfte der Netzentgelte ausmachen.
 
-Euro-Richtwerte gegen eine E-Control-Primärquelle prüfen (im Begutachtungsentwurf selbst stehen keine Beträge) oder durch die Werte der Tarifverordnung für den Netzbereich Wiener Netze ersetzen, sobald diese veröffentlicht ist.
-{: .blog-todo}
+Die Summe der Netzkosten bleibt laut E-Control gleich, sie wird nur anders verteilt: Rund drei von vier Haushalten sollen künftig weniger zahlen, wer hohe Spitzen hat, zahlt mehr.
 
-Laut E-Control bleibt die Summe der Netzkosten gleich, sie wird nur anders verteilt: Rund drei von vier Haushalten sollen künftig weniger zahlen, wer hohe Spitzen hat, zahlt mehr.
+Außerdem sieht der Entwurf zu bestimmten Zeiten einen günstigeren Netz-Arbeitspreis vor: im Sommerhalbjahr zwischen 10 und 16 Uhr, im Winterhalbjahr zwischen 22 und 4 Uhr. Das gilt für alle Haushalte im Netz gleichermaßen, mit oder ohne Energiegemeinschaft — und passt gut zu uns, denn mittags ist auch in der EEG der meiste Sonnenstrom verfügbar.
 
 ## kW oder kWh?
 
@@ -34,7 +35,7 @@ Eine Viertelstunde mit durchschnittlich 10 kW entspricht 2,5 kWh. Zur Orientieru
 
 ## Was heißt das für EEG-Mitglieder?
 
-Die Ermäßigung der Energiegemeinschaft wirkt beim **Arbeitspreis**: Für Strom, den Sie aus der EEG beziehen, sinkt er bei uns im Regionalbereich derzeit um 28 % (mehr dazu im [Beitrag zum ElWG](/blog/elwg-2026-was-sich-fuer-energiegemeinschaften-aendert)). Wie hoch dieser Abschlag ab 2027 ist, legt ebenfalls die neue Tarifverordnung fest.
+Die Ermäßigung der Energiegemeinschaft wirkt beim **Arbeitspreis**: Für Strom, den Sie aus der EEG beziehen, sinkt er bei uns im Regionalbereich derzeit um 28 % (mehr dazu im [Beitrag zum ElWG](/blog/elwg-2026-was-sich-fuer-energiegemeinschaften-aendert)). Wie hoch dieser Abschlag ab 2027 ist, legt ebenfalls die neue Tarifverordnung fest — wir aktualisieren unsere Angaben, sobald sie vorliegt.
 
 Ihre **Lastspitze** senkt EEG-Strom dagegen nicht. Nach dem Entwurf wird geteilter Strom nur dann von der Spitze abgezogen, wenn er im selben Haus bzw. am selben Hausanschluss geteilt wird — nicht bei regionalen Gemeinschaften wie unseren.
 
@@ -42,25 +43,42 @@ Ehrlich gesagt heißt das: Je größer der Leistungsanteil an den Netzentgelten 
 
 Anders ist es mit einer **eigenen PV-Anlage**: Was sie gerade erzeugt und Sie direkt verbrauchen, beziehen Sie nicht aus dem Netz — und das senkt auch Ihre gemessene Spitze, solange die Sonne scheint.
 
-## Ihre Lastspitze im Portal — und bald in der App
+## Ein Service für unsere Mitglieder: Ihre Lastspitze im Portal
 
-Ihre eigene Lastspitze finden Sie ab sofort im [Abrechnungsportal](https://abrechnung.eeg-gruenlicht.at/portal) im neuen Reiter **„Lastspitze"** (für Mitglieder mit Verbrauchs-Zählpunkt). Dort sehen Sie:
+Im [Abrechnungsportal](https://abrechnung.eeg-gruenlicht.at/portal) finden Mitglieder mit Verbrauchs-Zählpunkt den neuen Reiter **„Lastspitze"**. Dort sehen Sie:
 
 - Ihre höchste Viertelstunde je Monat für die letzten 12 Monate — als Säulen, mit einer Linie bei 10 kW und einem Band für die 2-kW-Mindestleistung,
 - Datum und Uhrzeit der Spitze,
 - wie viele Viertelstunden über 10 kW lagen und an wie vielen Tagen,
-- eine Übersicht aller Viertelstunden des Monats (Tage × Uhrzeit),
-- die fünf höchsten Viertelstunden und Tipps.
+- eine Übersicht aller Viertelstunden des Monats, die fünf höchsten Werte und Tipps.
 
-In Kürze kommt die Lastspitze auch in die App „EEG GrünLicht": als Karte oben im Reiter „Energie" und mit einer Detailansicht samt Tagesverlauf des Spitzentags.
+![Reiter „Lastspitze" im Abrechnungsportal: Kennzahlen und Monatsspitzen der letzten 12 Monate mit 10-kW-Linie](/blog-assets/lastspitze/portal-monatsspitzen.png){: loading="lazy"}
 
-Euro-Beträge zeigen wir bewusst noch nicht an — solange die Preise nicht feststehen, wären sie nur geraten. Die Werte sind Viertelstundenwerte des Netzbetreibers und kommen mit etwas Verzögerung; ein noch unvollständiger Monat ist im Portal blass dargestellt.
+Monatsspitzen der letzten 12 Monate im Portal. Eine blasse Säule bedeutet: Die Daten des Monats sind noch nicht vollständig.
+{: .blog-caption}
 
-Screenshot: Portal-Reiter „Lastspitze" (Monatssäulen mit 10-kW-Linie) einfügen.
-{: .blog-todo}
+Besonders aufschlussreich ist die Monatsübersicht: Jede Zeile ist ein Tag, jedes Kästchen eine Viertelstunde. So erkennen Sie auf einen Blick, wann bei Ihnen viel gleichzeitig läuft.
 
-Screenshot: App-Karte „Lastspitze" im Reiter „Energie" einfügen, sobald das App-Update verfügbar ist.
-{: .blog-todo}
+![Übersicht aller Viertelstunden eines Monats im Portal, daneben die fünf höchsten Viertelstunden](/blog-assets/lastspitze/portal-viertelstunden.png){: loading="lazy"}
+
+Jede Viertelstunde des Monats — je dunkler, desto höher die Leistung.
+{: .blog-caption}
+
+## … und in der App
+
+Auch in der App „EEG GrünLicht" sehen Sie Ihre Lastspitze: als Karte im Reiter „Energie" und mit einer Detailansicht samt Monatssäulen, Kennzahlen und dem Tagesverlauf des Tages mit der Spitze.
+
+![App „EEG GrünLicht": Karte „Lastspitze" im Reiter Energie und Detailansicht mit Tagesverlauf](/blog-assets/lastspitze/app-lastspitze.png){: loading="lazy"}
+
+Links die Karte im Reiter „Energie", rechts die Detailansicht.
+{: .blog-caption}
+
+Euro-Beträge zeigen wir in Portal und App bewusst noch nicht an — solange die Preise nicht feststehen, wären sie nur geraten. Die Werte sind Viertelstundenwerte des Netzbetreibers, die wir für die Abrechnung ohnehin erhalten; sie kommen mit etwas Verzögerung.
+
+Möglich ist dieser Rückblick, weil wir die Werte seit dem Beitritt jedes Mitglieds auswerten können. Je länger jemand dabei ist, desto aussagekräftiger wird das Bild.
+
+**Wir melden uns:** Mitglieder, deren Lastspitze schon einmal über 10 kW lag, schreiben wir persönlich an. Gemeinsam schauen wir, woran es lag und wie sich die Spitze einfach senken lässt.
+{: .blog-info}
 
 ## Wie sieht es bei uns aus?
 
@@ -76,9 +94,9 @@ Eine Einschränkung: Viertelstundenwerte haben wir seit dem Frühjahr 2026, bei 
 
 - **Große Geräte nicht gleichzeitig** betreiben: Backrohr, Geschirrspüler, Waschmaschine und Trockner lieber nacheinander.
 - **E-Auto mit weniger Leistung laden**, zum Beispiel mit 3,7 statt 11 kW — über Nacht ist es trotzdem voll.
-- **Heizstab und Wärmepumpe staffeln**, statt beide gleichzeitig hochfahren zu lassen.
+- **Heizstab, Durchlauferhitzer und Wärmepumpe staffeln**, statt alles gleichzeitig hochfahren zu lassen.
 - Pro Monat zählt nur die **höchste Viertelstunde**: Ein einzelner Ausreißer bestimmt den ganzen Monat — im nächsten beginnt es von vorn.
 
 ## Wie geht es weiter?
 
-Sobald die Tarifverordnung mit den endgültigen Preisen für unseren Netzbereich vorliegt, aktualisieren wir diesen Beitrag. Fragen zu Ihrer Lastspitze beantworten wir gerne über das [Kontaktformular](/#kontakt).
+Sobald die Tarifverordnung mit den endgültigen Preisen für unseren Netzbereich vorliegt, aktualisieren wir diesen Beitrag. Fragen zu Ihrer Lastspitze beantworten wir gerne.

@@ -1,0 +1,54 @@
+<% content_for :title, "Blog" %>
+<% content_for :meta_description, "Blog der EEG Grünes Licht Bad Vöslau: Neuigkeiten, Hintergründe und Erklärungen rund um Energiegemeinschaften, Abrechnung, Gesetzeslage und Klimaschutz." %>
+<% content_for :canonical_path, blog_path %>
+<% content_for :robots, "noindex,follow" unless BlogPost.listed? %>
+
+<% content_for :structured_data do %>
+  <script type="application/ld+json">
+    <%= raw JSON.pretty_generate({
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Blog der EEG Grünes Licht Bad Vöslau",
+      "url": canonical_url,
+      "description": seo_description,
+      "publisher": { "@type": "Organization", "name": site_name, "url": site_url },
+      "blogPost": @posts.reject(&:draft?).map { |post|
+        {
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "url": URI.join(site_url, blog_post_path(post)).to_s,
+          "datePublished": post.date.iso8601
+        }
+      }
+    }) %>
+  </script>
+<% end %>
+
+<section class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+    <div class="max-w-3xl">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-green-700">
+            Blog
+        </p>
+
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+            Neues aus der Energiegemeinschaft
+        </h1>
+
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+            Hier erklären wir, was sich rund um Energiegemeinschaften tut, wie unsere Abrechnung funktioniert
+            und was wir gemeinsam bewirken — verständlich und aus der Praxis unserer drei Vereine in Bad Vöslau.
+        </p>
+    </div>
+
+    <% if @posts.any? %>
+        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <% @posts.each_with_index do |post, index| %>
+                <%= render "blog/post_card", post: post, featured: index.zero? %>
+            <% end %>
+        </div>
+    <% else %>
+        <div class="mt-12 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center text-slate-600">
+            Die ersten Beiträge sind in Arbeit — schauen Sie bald wieder vorbei.
+        </div>
+    <% end %>
+</section>

@@ -46,6 +46,22 @@
         color: #15803d;
       }
 
+      /* "Blog" bekommt einen Kasten (Vorbild: fabianek-psy.at) */
+      .site-header-nav a.nav-blog {
+        border: 2px solid #94a3b8;
+        border-radius: 0.6rem;
+        padding: 0.3rem 0.9rem;
+        font-weight: 600;
+        transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+      }
+
+      .site-header-nav a.nav-blog:hover,
+      .site-header-nav a.nav-blog[aria-current="page"] {
+        border-color: #16a34a;
+        background: #f0fdf4;
+        color: #15803d;
+      }
+
       .mobile-menu {
         position: relative;
         display: block;
@@ -151,6 +167,18 @@
       .mobile-menu-panel a:hover {
         background: #f0fdf4;
         color: #15803d;
+      }
+
+      .mobile-menu-panel a.nav-blog {
+        margin: 0.25rem 0.25rem 0;
+        border: 2px solid #94a3b8;
+        font-weight: 600;
+        color: #0f172a;
+      }
+
+      .mobile-menu-panel a.nav-blog:hover,
+      .mobile-menu-panel a.nav-blog[aria-current="page"] {
+        border-color: #16a34a;
       }
 
       @media (min-width: 960px) {
@@ -292,11 +320,13 @@
           <% end %>
 
           <nav class="site-header-nav">
-            <%= link_to "Mitmachen", "/#servicebereich" %>
             <%= link_to "Häufige Fragen", "/#haeufige-fragen" %>
             <%= link_to "Unterstützer", unterstuetzer_path %>
             <%= link_to "Über uns", impressum_path %>
             <%= link_to "Kontakt", "/#kontakt" %>
+            <% if BlogPost.listed? %>
+              <%= link_to "Blog", blog_path, class: "nav-blog", aria: { current: (controller_name == "blog" ? "page" : nil) } %>
+            <% end %>
           </nav>
 
           <div class="header-actions">
@@ -326,11 +356,13 @@
               </summary>
 
               <nav class="mobile-menu-panel">
-                <%= link_to "Mitmachen", "/#kontakt" %>
                 <%= link_to "Häufige Fragen", "/#haeufige-fragen" %>
                 <%= link_to "Unterstützer", unterstuetzer_path %>
                 <%= link_to "Über uns", impressum_path %>
                 <%= link_to "Kontakt", "/#kontakt" %>
+                <% if BlogPost.listed? %>
+                  <%= link_to "Blog", blog_path, class: "nav-blog", aria: { current: (controller_name == "blog" ? "page" : nil) } %>
+                <% end %>
 
                 <div class="menu-social-separator"></div>
 

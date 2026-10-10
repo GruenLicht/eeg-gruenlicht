@@ -6,6 +6,22 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <% if BlogPost.listed? %>
+  <url>
+    <loc><%= URI.join(request.base_url, blog_path).to_s %></loc>
+    <lastmod><%= Date.current.iso8601 %></lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <% BlogPost.all(include_drafts: false).each do |post| %>
+  <url>
+    <loc><%= URI.join(request.base_url, blog_post_path(post)).to_s %></loc>
+    <lastmod><%= post.last_modified.iso8601 %></lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <% end %>
+  <% end %>
   <url>
     <loc><%= URI.join(request.base_url, unterstuetzer_path).to_s %></loc>
     <lastmod><%= Date.current.iso8601 %></lastmod>

@@ -1,0 +1,28 @@
+<%# locals: (post:, featured: false, compact: false) %>
+<article class="group relative flex h-full flex-col rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-green-300 hover:shadow-md <%= compact ? "p-5" : "p-7" %> <%= featured ? "lg:col-span-2 lg:p-9" : "" %>">
+    <div class="flex flex-wrap items-center gap-2 text-xs font-medium">
+        <% if post.category %>
+            <span class="rounded-full bg-green-50 px-3 py-1 text-green-700"><%= post.category %></span>
+        <% end %>
+        <% if post.draft? %>
+            <span class="rounded-full bg-amber-100 px-3 py-1 text-amber-800">Entwurf</span>
+        <% end %>
+    </div>
+
+    <%= content_tag (compact ? :h3 : :h2),
+        class: "font-semibold tracking-tight text-slate-900 #{compact ? "mt-3 text-base leading-snug" : "mt-4"} #{featured ? "text-2xl sm:text-3xl" : (compact ? "" : "text-xl")}" do %>
+        <%= link_to post.title, blog_post_path(post), class: "after:absolute after:inset-0 group-hover:text-green-800" %>
+    <% end %>
+
+    <p class="mt-3 flex-1 text-slate-600 <%= featured ? "text-base leading-7 sm:text-lg" : (compact ? "line-clamp-3 text-sm leading-6" : "text-sm leading-7") %>">
+        <%= post.summary %>
+    </p>
+
+    <div class="flex items-center justify-between gap-4 text-slate-500 <%= compact ? "mt-4 text-xs" : "mt-6 text-sm" %>">
+        <span>
+            <time datetime="<%= post.date.iso8601 %>" class="whitespace-nowrap"><%= blog_date(post.date) %></time>
+            · <span class="whitespace-nowrap"><%= blog_reading_time(post) %></span>
+        </span>
+        <span class="shrink-0 whitespace-nowrap font-medium text-green-700" aria-hidden="true">Weiterlesen →</span>
+    </div>
+</article>
