@@ -155,3 +155,25 @@
   color: #64748b;
   text-align: center;
 }
+
+/* Schmale Bilder (z.B. Handy-Screenshots):  ![…](…){: .blog-narrow} */
+.blog-prose img.blog-narrow {
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Bilder sind auf die volle Größe verlinkt:  [![…](bild.png){: …}](bild.png){: target="_blank"} */
+.blog-prose a:has(> img) {
+  display: block;
+  text-decoration: none;
+}
+
+.blog-prose a > img {
+  cursor: zoom-in;
+  transition: border-color 0.15s;
+}
+
+.blog-prose a:hover > img {
+  border-color: #86efac;
+}

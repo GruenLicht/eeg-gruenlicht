@@ -52,14 +52,14 @@ Im [Abrechnungsportal](https://abrechnung.eeg-gruenlicht.at/portal) finden Mitgl
 - wie viele Viertelstunden über 10 kW lagen und an wie vielen Tagen,
 - eine Übersicht aller Viertelstunden des Monats, die fünf höchsten Werte und Tipps.
 
-![Reiter „Lastspitze" im Abrechnungsportal: Kennzahlen und Monatsspitzen der letzten 12 Monate mit 10-kW-Linie](/blog-assets/lastspitze/portal-monatsspitzen.png){: loading="lazy"}
+[![Reiter „Lastspitze" im Abrechnungsportal: Kennzahlen und Monatsspitzen der letzten 12 Monate mit 10-kW-Linie](/blog-assets/lastspitze/portal-monatsspitzen.png){: loading="lazy"}](/blog-assets/lastspitze/portal-monatsspitzen.png){: target="_blank" rel="noopener"}
 
 Monatsspitzen der letzten 12 Monate im Portal. Eine blasse Säule bedeutet: Die Daten des Monats sind noch nicht vollständig.
 {: .blog-caption}
 
 Besonders aufschlussreich ist die Monatsübersicht: Jede Zeile ist ein Tag, jedes Kästchen eine Viertelstunde. So erkennen Sie auf einen Blick, wann bei Ihnen viel gleichzeitig läuft.
 
-![Übersicht aller Viertelstunden eines Monats im Portal, daneben die fünf höchsten Viertelstunden](/blog-assets/lastspitze/portal-viertelstunden.png){: loading="lazy"}
+[![Übersicht aller Viertelstunden eines Monats im Portal, daneben die fünf höchsten Viertelstunden](/blog-assets/lastspitze/portal-viertelstunden.png){: loading="lazy"}](/blog-assets/lastspitze/portal-viertelstunden.png){: target="_blank" rel="noopener"}
 
 Jede Viertelstunde des Monats — je dunkler, desto höher die Leistung.
 {: .blog-caption}
@@ -68,7 +68,7 @@ Jede Viertelstunde des Monats — je dunkler, desto höher die Leistung.
 
 Auch in der App „EEG GrünLicht" sehen Sie Ihre Lastspitze: als Karte im Reiter „Energie" und mit einer Detailansicht samt Monatssäulen, Kennzahlen und dem Tagesverlauf des Tages mit der Spitze.
 
-![App „EEG GrünLicht": Karte „Lastspitze" im Reiter Energie und Detailansicht mit Tagesverlauf](/blog-assets/lastspitze/app-lastspitze.png){: loading="lazy"}
+[![App „EEG GrünLicht": Karte „Lastspitze" im Reiter Energie und Detailansicht mit Tagesverlauf](/blog-assets/lastspitze/app-lastspitze.png){: loading="lazy"}](/blog-assets/lastspitze/app-lastspitze.png){: target="_blank" rel="noopener"}
 
 Links die Karte im Reiter „Energie", rechts die Detailansicht.
 {: .blog-caption}

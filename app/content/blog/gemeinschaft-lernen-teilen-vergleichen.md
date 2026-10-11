@@ -1,6 +1,7 @@
 ---
 title: "Mehr als Strom: Gemeinsam lernen, teilen und vergleichen"
 date: 2026-09-05
+updated: 2026-10-11
 author: Christoph Fabianek
 category: Gemeinschaft
 summary: "Eine Energiegemeinschaft ist nicht nur ein Abrechnungsmodell. Wer mitmacht, versteht den eigenen Verbrauch besser, profitiert von den Erfahrungen anderer — und sieht, was wir gemeinsam schaffen."
@@ -44,15 +45,26 @@ Genaue Uhrzeiten und Details geben wir rechtzeitig in der monatlichen Abrechnung
 
 Vergleiche motivieren, wenn sie fair sind und freiwillig bleiben. Deshalb gibt es bei uns drei Blickrichtungen:
 
-**Mit sich selbst.** Wie hat sich mein Verbrauch gegenüber dem Vormonat entwickelt? Wie hoch war mein Anteil an EEG-Strom? Das sehen Sie jederzeit im [Abrechnungsportal](https://abrechnung.eeg-gruenlicht.at/portal) und in der App.
+**Mit sich selbst.** Wie hat sich mein Verbrauch über die Monate entwickelt, und wie viel davon kam aus der EEG? Im [Abrechnungsportal](https://abrechnung.eeg-gruenlicht.at/portal) sehen Sie das im Reiter „Energiedaten" — wahlweise nach Jahr, Monat, Tag oder Viertelstunde.
 
-**Mit der Gemeinschaft.** Wie viel Strom haben wir *gemeinsam* in der Region erzeugt und genutzt? Diese Kennzahlen finden Sie zusammengefasst in der monatlichen Abrechnungsinformation.
+[![Reiter „Energiedaten" im Abrechnungsportal: Monatswerte für Bezug und Einspeisung](/blog-assets/gemeinschaft/portal-energiedaten.png){: loading="lazy"}](/blog-assets/gemeinschaft/portal-energiedaten.png){: target="_blank" rel="noopener"}
 
-**Mit anderen Mitgliedern — wenn Sie möchten.** Wer wissen will, wie andere Haushalte abschneiden, kann die eigenen Werte bewusst freigeben: Im Portal und in der App gibt es dafür die Option **„Detaildarstellung in der Abrechnungsinformation"**. Ist sie eingeschaltet, erscheinen Sie in der monatlichen Abrechnungsinformation mit einer eigenen Zeile — mit Mitgliedsnummer, Name, Straße und Zählpunktnummer sowie Ihren Monatswerten: Bezug aus der bzw. Einspeisung in die EEG, verrechneter Betrag, EEG-Deckung und CO₂-Ersparnis. Wer die Option nicht gewählt hat, wird nur zusammengefasst dargestellt, etwa als „6 weitere Verbraucher". Wie die Abrechnungsinformation im Detail aufgebaut ist, erklären wir in einem eigenen Beitrag.
+Monatswerte im Portal: Bezug aus der EEG und aus dem Netz, Einspeisung in die EEG und ins Netz.
+{: .blog-caption}
 
-Sie können die Option jederzeit ein- und wieder ausschalten. Maßgeblich ist der Stand zu dem Zeitpunkt, an dem die jeweilige Abrechnungsinformation erstellt wird.
+**Mit der Gemeinschaft.** Wie viel Strom haben wir gemeinsam erzeugt und geteilt? In der App wählen Sie dazu beim Zählpunkt „Gesamte EEG". Dann sehen Sie den Verlauf der ganzen Gemeinschaft und die EEG-Deckung — den Anteil des Verbrauchs, der aus eigener Erzeugung kommt.
 
-Wir finden: Der Blick auf die Werte anderer macht neugierig und ist ein guter Ansporn, den eigenen Strom bewusster zu nutzen. Ob Sie dabei mitmachen, entscheiden aber allein Sie.
+[![App „EEG GrünLicht": Verlauf der gesamten EEG im Juni 2026 und EEG-Deckung von 60 %](/blog-assets/gemeinschaft/app-gesamte-eeg.png){: loading="lazy" .blog-narrow}](/blog-assets/gemeinschaft/app-gesamte-eeg.png){: target="_blank" rel="noopener"}
+
+Die ganze Gemeinschaft im Blick: Verlauf und EEG-Deckung in der App.
+{: .blog-caption}
+
+**Mit anderen Mitgliedern — wenn Sie möchten.** Mit der Option **„Detaildarstellung in der Abrechnungsinformation"** in Portal oder App erscheinen Sie in der monatlichen Abrechnungsinformation mit eigener Zeile: Mitgliedsnummer, Name, Straße, Zählpunkt und Ihre Monatswerte. Alle anderen werden nur zusammengefasst gezeigt. Die Option lässt sich jederzeit ein- und ausschalten; es zählt der Stand bei Erstellung der Abrechnungsinformation. Wir finden: ein guter Ansporn, den eigenen Strom bewusster zu nutzen.
+
+[![Beispiel einer monatlichen Abrechnungsinformation mit Energiebilanz und Tabelle der Mitglieder](/blog-assets/gemeinschaft/abrechnungsinfo-beispiel.png){: loading="lazy"}](/blog-assets/gemeinschaft/abrechnungsinfo-beispiel.png){: target="_blank" rel="noopener"}
+
+Beispiel: Abrechnungsinformation September 2026. Zwei Mitglieder haben die Detaildarstellung eingeschaltet, alle anderen sind zusammengefasst. Namen und Zählpunkte haben wir für den Blog unkenntlich gemacht.
+{: .blog-caption}
 
 **Ihre Daten, Ihre Entscheidung:** Ohne Ihre ausdrückliche Zustimmung sieht niemand in der Gemeinschaft Ihre persönlichen Verbrauchswerte — der Vorstand nur, soweit es für die Abrechnung nötig ist. Alles andere teilen wir nur zusammengefasst.
 {: .blog-info}
