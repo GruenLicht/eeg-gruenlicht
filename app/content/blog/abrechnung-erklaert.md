@@ -67,7 +67,7 @@ Mit eigener Zeile erscheinen nur Mitglieder, die der [Detaildarstellung](/blog/g
 - **Bezug aus EG / Einspeisung:** Ihre geteilten kWh im Monat.
 - **Verrechnung:** Bezug mal 11 ct minus Einspeisung mal 11 ct. Ein **Plus** heißt, Sie zahlen — etwa 236,85 kWh × 11 ct = 26,05 €. Ein **Minus** (rot) heißt, Sie bekommen Geld — Mitglied 0002 hat 448,08 kWh eingespeist und 20,97 kWh bezogen und erhält 46,98 €.
 - **EEG-Deckung:** Ihre persönliche Autarkie, also der Anteil Ihres Verbrauchs aus der Gemeinschaft.
-- **CO₂-Ersparnis:** die rechnerische Einsparung durch den bezogenen EEG-Strom. Wie wir sie berechnen, erklären wir in einem eigenen Beitrag.
+- **CO₂-Ersparnis:** die rechnerische Einsparung durch den bezogenen EEG-Strom. Wie wir sie berechnen, erklären wir in einem [eigenen Beitrag](/blog/co2-einsparung-in-der-eeg).
 - **Anteil an EG:** Ihr Anteil am gesamten Austausch des Monats, Bezug und Einspeisung zusammen.
 
 Die **Gesamtsumme** von 73,20 € ist der Betrag, den alle Bezieher:innen zusammen zahlen — und genau so viel erhalten die Einspeiser:innen. Der Verein behält davon nichts.
