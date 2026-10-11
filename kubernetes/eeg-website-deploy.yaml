@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: eeg-website
-        image: oydeu/eeg-gruenlicht:261011-1513
+        image: oydeu/eeg-gruenlicht:261011-1552
         ports:
         - containerPort: 3000
         env:
@@ -30,6 +30,8 @@ spec:
             value: production
           - name: RAILS_CONFIG_HOSTS
             value: "eeg-gruenlicht.at"
+          - name: BLOG_LISTED
+            value: "1"
 
           - name: NO_REPLY_EMAIL
             value: 'no-reply@eeg-gruenlicht.at'
