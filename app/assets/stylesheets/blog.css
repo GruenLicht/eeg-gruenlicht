@@ -177,3 +177,10 @@
 .blog-prose a:hover > img {
   border-color: #86efac;
 }
+
+/* Mittelbreite Bilder (z.B. Ausschnitte):  ![…](…){: .blog-medium} */
+.blog-prose img.blog-medium {
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
