@@ -2,6 +2,7 @@ class LandingController < ApplicationController
   def start
     @contact_request = ContactRequest.new
     @latest_posts = BlogPost.listed? ? BlogPost.all.first(3) : []
+    @zaehlpunkte = ZaehlpunktStatistik.current
   end
 
   def create_kontakt

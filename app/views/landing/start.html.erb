@@ -55,7 +55,7 @@
             Regionale EEGs <span class="text-slate-500">(RC107602, RC108113, RC108354)</span>
         </p>
         <p class="text-base font-semibold text-slate-900">
-            <%= ENV['ANZAHL_EINSPEISER']  || "3" %> Einspeiser · <%= ENV['ANZAHL_VERBRAUCHER']  || "5" %> Verbraucher
+            <%= @zaehlpunkte.einspeiser %> Einspeiser · <%= @zaehlpunkte.verbraucher %> Verbraucher
         </p>
     </div>
 

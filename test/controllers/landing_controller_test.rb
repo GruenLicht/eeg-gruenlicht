@@ -108,4 +108,16 @@ class LandingControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.body, "Ihre Nachricht wurde übermittelt."
     assert_empty ActionMailer::Base.deliveries
   end
+
+  test "start page shows meter point counts from the API" do
+    ZaehlpunktStatistik.reset!
+    ZaehlpunktStatistik.fetcher = -> { ZaehlpunktStatistik::Result.new(einspeiser: 66, verbraucher: 175) }
+
+    get root_path, headers: BROWSER_HEADERS
+
+    assert_response :success
+    assert_includes response.body, "66 Einspeiser · 175 Verbraucher"
+  ensure
+    ZaehlpunktStatistik.reset!
+  end
 end
