@@ -53,6 +53,11 @@ spec:
           # Kanonischer Host -- Mail-Links sollen nicht ueber einen Redirect laufen.
           - name: MAILER_URL_OPTIONS_HOST
             value: 'eeg-gruenlicht.at'
+          - name: SECRET_KEY_BASE
+            valueFrom:
+              secretKeyRef:
+                name: eeg-website-skb
+                key: SECRET_KEY_BASE
 ---
 kind: Service
 apiVersion: v1
