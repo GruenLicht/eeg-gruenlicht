@@ -16,4 +16,13 @@ Rails.application.routes.draw do
 
     get  "/sitemap.xml",      to: "landing#sitemap", defaults: { format: :xml }, as: :sitemap
 
+    # Blog als JSON für andere Programme (z.B. eeg-stack): Liste und einzelner Beitrag in Markdown.
+    namespace :api, defaults: { format: :json } do
+        namespace :v1 do
+            get "/blog",       to: "blog#index", as: :blog
+            get "/blog/:slug", to: "blog#show",  as: :blog_post,
+                               constraints: { slug: /[a-z0-9]+(?:-[a-z0-9]+)*/ }
+        end
+    end
+
 end

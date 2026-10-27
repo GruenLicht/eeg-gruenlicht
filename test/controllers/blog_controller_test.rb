@@ -88,4 +88,40 @@ class BlogControllerTest < ActionDispatch::IntegrationTest
       end
     end
   end
+  test "unlisted post is reachable by direct link only" do
+    unlisted = BlogPost.all(include_unlisted: true).select(&:unlisted?)
+    assert unlisted.any?, "expected at least one unlisted post (eeg-assistent)"
+
+    get blog_url, headers: BROWSER_HEADERS
+    unlisted.each { |post| assert_not_includes response.body, blog_post_path(post) }
+
+    get root_url, headers: BROWSER_HEADERS
+    unlisted.each { |post| assert_not_includes response.body, blog_post_path(post) }
+
+    get sitemap_url, headers: BROWSER_HEADERS
+    unlisted.each { |post| assert_not_includes response.body, blog_post_path(post) }
+
+    unlisted.each do |post|
+      get blog_post_url(post), headers: BROWSER_HEADERS
+      assert_response :success
+      assert_select "h1", text: post.title
+      assert_select "meta[name=robots][content=?]", "noindex,follow"
+    end
+
+    BlogPost.all.each do |post|
+      get blog_post_url(post), headers: BROWSER_HEADERS
+      unlisted.each { |hidden| assert_not_includes response.body, blog_post_path(hidden), "#{post.slug} links to #{hidden.slug}" }
+    end
+  end
+
+  test "no post links to an unlisted post in its markdown" do
+    unlisted = BlogPost.all(include_unlisted: true).select(&:unlisted?)
+    BlogPost.all(include_drafts: true, include_unlisted: true).each do |post|
+      unlisted.each do |hidden|
+        next if hidden.slug == post.slug
+
+        assert_not_includes post.markdown, "/blog/#{hidden.slug}", "#{post.slug} links to unlisted #{hidden.slug}"
+      end
+    end
+  end
 end

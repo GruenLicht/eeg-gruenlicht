@@ -6,7 +6,10 @@ require "kramdown"
 # app/content/blog/elwg-2026.md  ->  /blog/elwg-2026
 #
 # Frontmatter-Felder: title, date, author, category, summary,
-# optional updated (Datum) und draft (true = nur lokal sichtbar).
+# optional updated (Datum), draft (true = nur lokal sichtbar) und
+# unlisted (true = veröffentlicht, aber nur per Direktlink: nicht in der
+# Blog-Übersicht, nicht auf der Startseite, nicht unter „Weitere Beiträge“,
+# nicht in der Sitemap und nicht in der Liste der Blog-API; Seite mit noindex).
 class BlogPost
   CONTENT_DIR = Rails.root.join("app", "content", "blog")
   FRONTMATTER = /\A---\s*\n(.*?)\n---\s*\n/m
@@ -16,14 +19,18 @@ class BlogPost
   attr_reader :slug, :title, :date, :updated, :author, :category, :summary, :markdown
 
   class << self
-    def all(include_drafts: show_drafts?)
+    # Alles, was in Listen auftaucht. Nicht gelistete Beiträge (unlisted: true)
+    # nur mit include_unlisted: true.
+    def all(include_drafts: show_drafts?, include_unlisted: false)
       posts = load_all
       posts = posts.reject(&:draft?) unless include_drafts
+      posts = posts.reject(&:unlisted?) unless include_unlisted
       posts
     end
 
+    # Direktlink: findet auch nicht gelistete Beiträge.
     def find(slug, include_drafts: show_drafts?)
-      all(include_drafts: include_drafts).find { |post| post.slug == slug.to_s } ||
+      all(include_drafts: include_drafts, include_unlisted: true).find { |post| post.slug == slug.to_s } ||
         raise(ActiveRecord::RecordNotFound, "Blog-Beitrag „#{slug}“ nicht gefunden")
     end
 
@@ -75,11 +82,16 @@ class BlogPost
     @category = meta["category"].presence
     @summary  = meta["summary"].to_s.strip
     @draft    = meta["draft"] == true
+    @unlisted = meta["unlisted"] == true
     @markdown = markdown
   end
 
   def draft?
     @draft
+  end
+
+  def unlisted?
+    @unlisted
   end
 
   def to_param
@@ -98,6 +110,22 @@ class BlogPost
       header_offset: 0,
       smart_quotes: %w[sbquo lsquo bdquo ldquo]
     ).to_html.html_safe
+  end
+
+  # Markdown für andere Programme (Blog-API): ohne kramdown-Attribute wie
+  # {: .blog-info} oder {: loading="lazy"}, ohne Entwurfs-Platzhalter
+  # ({: .blog-todo}) und mit absoluten Links statt /blog/… bzw. /blog-assets/….
+  def portable_markdown(base_url)
+    base = base_url.to_s.chomp("/")
+    text = markdown.gsub(/\r\n?/, "\n")
+    # Absätze, die mit {: .blog-todo} markiert sind, samt Markierung entfernen.
+    text = text.gsub(/(?:^(?!\s*$).*\n)+^\{:[^}\n]*\.blog-todo[^}\n]*\}[ \t]*\n?/, "")
+    # Eigenständige Attributzeilen ({: …}) und angehängte Attribute entfernen.
+    text = text.gsub(/^[ \t]*\{:[^}\n]*\}[ \t]*\n/, "")
+    text = text.gsub(/\{:[^}\n]*\}/, "")
+    # Wurzel-relative Links und Bilder absolut machen: ](/…) -> ](https://…/…)
+    text = text.gsub(%r{\]\(/(?!/)}) { "](#{base}/" }
+    text.gsub(/\n{3,}/, "\n\n").strip + "\n"
   end
 
   def reading_minutes
