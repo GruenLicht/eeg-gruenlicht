@@ -1,11 +1,15 @@
 ---
 title: "Ab 2027 zählt die Lastspitze: Was das bedeutet — und wo Sie Ihre sehen"
 date: 2026-10-10
+updated: 2026-11-05
 author: Christoph Fabianek
 category: Abrechnung
 summary: "Ab 2027 hängt das Netzentgelt auch davon ab, wie viel Strom Sie gleichzeitig beziehen. Wir erklären, was sich ändert, was das für EEG-Mitglieder heißt — und zeigen unseren Mitgliedern ihre eigene Lastspitze schon heute im Portal und in der App."
 draft: false
 ---
+
+**Aktualisiert am 5. November 2026:** Tarifentwurf 2027 eingearbeitet.
+{: .blog-info}
 
 Bisher war beim Netzentgelt vor allem eines entscheidend: **wie viel** Strom Sie im Jahr verbrauchen. Ab 2027 kommt eine zweite Frage dazu: **wie viel gleichzeitig.** Wer viele große Geräte zur selben Zeit laufen lässt, belastet das Netz stärker — und soll dafür künftig mehr beitragen.
 
@@ -13,18 +17,23 @@ Damit unsere Mitglieder nicht bis zur ersten Netzrechnung 2027 warten müssen, u
 
 ## Was ändert sich 2027?
 
-Nach dem derzeitigen Entwurf der Systemnutzungsentgelte-Grundsatzverordnung der E-Control gilt ab **1. Jänner 2027**:
+Die Grundlage ist inzwischen beschlossen: Die [Systemnutzungsentgelte-Grundsatzverordnung](https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2026_II_299/BGBLA_2026_II_299.html) der E-Control (BGBl. II Nr. 299/2026) gilt ab **1. Jänner 2027**. Sobald Ihr Netzbereich umgestellt hat (dazu gleich mehr), gilt:
 
-- Das Netznutzungsentgelt besteht aus einem **Arbeitspreis** (je kWh) und einem **Leistungspreis** (je kW). Die bisherige Pauschale fällt weg.
+- Das Netznutzungsentgelt besteht aus einem **Arbeitspreis** (je kWh) und einem **Leistungspreis** (je kW). Die bisherige Pauschale fällt dann weg.
 - Bemessen wird der Leistungspreis an Ihrer **Lastspitze**: der höchsten durchschnittlichen Viertelstunden-Leistung des Kalendermonats, die Sie laut Smart Meter aus dem Netz beziehen.
-- Bis **10 kW** gilt ein günstigerer Preis je kW, für den Teil darüber ein **doppelt so hoher**.
+- Bis **10 kW** gilt ein günstigerer Preis je kW, für den Teil darüber ein höherer — laut Tarifentwurf in jedem Netzbereich rund das **1,5-Fache**.
 - Verrechnet werden mindestens **2 kW**, auch wenn Ihre Spitze darunter liegt.
 
-Die genauen Preise legt die E-Control erst in der Tarifverordnung fest, die gegen Ende 2026 erwartet wird — je Netzbereich unterschiedlich. Erste, noch unverbindliche Rechenwerte hat sie im Juli 2026 [vorgestellt](https://www.e-control.at/documents/1785851/1811582/03-Karin-Emberger-FachVA-GrundsatzVO-14072026.pdf/ea12f281-8d5e-3724-9869-b9014f0fab92?t=1784034800793) (österreichweite Durchschnitte): In der Zielstufe, die in rund drei Jahren erreicht werden soll, kostet ein kW Spitze etwa **33,82 € pro Jahr** bis 10 kW und **67,64 €** darüber — auf den Monat umgerechnet rund 2,80 € bzw. 5,60 €. Im Gegenzug sinkt der Arbeitspreis von heute rund 7,36 ct/kWh (plus Pauschale) auf etwa **4,53 ct/kWh**. Zum Start liegt der Leistungspreis rechnerisch niedriger, bei rund 19 € pro kW und Jahr, und steigt dann schrittweise, bis Leistung und Arbeit je etwa die Hälfte der Netzentgelte ausmachen.
+**Umstellung je Netzbereich:** Anschlüsse ohne Leistungsmessung — also die meisten Haushalte — zahlen bis zur Umstellung ihres Netzbereichs ein Übergangsentgelt: eine Pauschale von **82,80 € pro Jahr** (netto, darin ist das bisherige Messentgelt enthalten) plus Arbeitspreis. Vorgesehen ist die Umstellung mit 1. Dezember 2027; je Netzbereich kann der Zeitpunkt anders festgelegt werden, spätestens ab 1. Juli 2028 gilt der Leistungspreis für alle. Wann unser Netzbereich umstellt, steht noch nicht fest.
 
-Die Summe der Netzkosten bleibt laut E-Control gleich, sie wird nur anders verteilt: Rund drei von vier Haushalten sollen künftig weniger zahlen, wer hohe Spitzen hat, zahlt mehr.
+Die Preise legt die Regulierungskommission der E-Control in einer eigenen Tarifverordnung fest, je Netzbereich unterschiedlich. Dazu liegt seit Ende Oktober 2026 der Begutachtungsentwurf der Systemnutzungsentgelte-Tarife-Verordnung 2027 (SNT-V 2027) vor; die Kundmachung wird gegen Ende 2026 erwartet. Nach dem Entwurf gilt nach der Umstellung auf Netzebene 7 (alle Beträge netto ohne Umsatzsteuer, Entwurf, kann sich noch ändern):
 
-Außerdem sieht der Entwurf zu bestimmten Zeiten einen günstigeren Netz-Arbeitspreis vor: im Sommerhalbjahr zwischen 10 und 16 Uhr, im Winterhalbjahr zwischen 22 und 4 Uhr. Das gilt für alle Haushalte im Netz gleichermaßen, mit oder ohne Energiegemeinschaft — und passt gut zu uns, denn mittags ist auch in der EEG der meiste Sonnenstrom verfügbar.
+- **Netzbereich Wien** (Wiener Netze, dazu gehören unsere drei EEGs in Bad Vöslau): Leistungspreis **29,52 € pro kW und Jahr** bis 10 kW (2,46 € im Monat) und **44,28 €** für den Teil darüber (3,69 € im Monat); Arbeitspreis **5,58 ct/kWh**, in den günstigeren Zeitfenstern (siehe unten) 80 % davon, also 4,46 ct/kWh. Dazu kommt ein Netzverlustentgelt von 0,588 ct/kWh, das getrennt verrechnet wird.
+- **Netzbereich Burgenland** (Netz Burgenland): Leistungspreis **40,80 €** bzw. **61,20 € pro kW und Jahr**, Arbeitspreis **6,60 ct/kWh**, in den günstigeren Zeitfenstern ebenfalls 80 % davon.
+
+Die Summe der Netzkosten bleibt [laut E-Control](https://www.e-control.at/documents/1785851/1811582/03-Karin-Emberger-FachVA-GrundsatzVO-14072026.pdf/ea12f281-8d5e-3724-9869-b9014f0fab92?t=1784034800793) gleich, sie wird nur anders verteilt: Rund drei von vier Haushalten sollen künftig weniger zahlen, wer hohe Spitzen hat, zahlt mehr.
+
+Außerdem sieht die Verordnung zu bestimmten Zeiten einen günstigeren Netz-Arbeitspreis vor: von April bis September zwischen 10 und 16 Uhr, von Oktober bis März zwischen 23 und 5 Uhr — das Winterfenster erstmals ab 1. Oktober 2027. Das gilt für alle Haushalte mit Viertelstundenmessung gleichermaßen, mit oder ohne Energiegemeinschaft — und passt gut zu uns, denn mittags ist auch in der EEG der meiste Sonnenstrom verfügbar.
 
 ## kW oder kWh?
 
@@ -37,7 +46,7 @@ Eine Viertelstunde mit durchschnittlich 10 kW entspricht 2,5 kWh. Zur Orientieru
 
 Die Ermäßigung der Energiegemeinschaft wirkt beim **Arbeitspreis**: Für Strom, den Sie aus der EEG beziehen, sinkt er bei uns im Regionalbereich derzeit um 28 % (mehr dazu im [Beitrag zum ElWG](/blog/elwg-2026-was-sich-fuer-energiegemeinschaften-aendert)). Wie hoch dieser Abschlag ab 2027 ist, legt ebenfalls die neue Tarifverordnung fest — wir aktualisieren unsere Angaben, sobald sie vorliegt.
 
-Ihre **Lastspitze** senkt EEG-Strom dagegen nicht. Nach dem Entwurf wird geteilter Strom nur dann von der Spitze abgezogen, wenn er im selben Haus bzw. am selben Hausanschluss geteilt wird — nicht bei regionalen Gemeinschaften wie unseren.
+Ihre **Lastspitze** senkt EEG-Strom dagegen nicht. Nach der Grundsatzverordnung wird geteilter Strom nur dann von der Spitze abgezogen, wenn er über gemeinsame Leitungen im selben Haus bzw. am selben Standort geteilt wird — nicht, wenn er wie bei regionalen Gemeinschaften (also auch unseren) über das öffentliche Netz fließt.
 
 Ehrlich gesagt heißt das: Je größer der Leistungsanteil an den Netzentgelten wird, desto kleiner wird *im Verhältnis* der Netzvorteil aus der EEG. Er bleibt aber bestehen, ebenso der faire Energiepreis innerhalb der Gemeinschaft.
 
@@ -73,7 +82,7 @@ Auch in der App „EEG GrünLicht" sehen Sie Ihre Lastspitze: als Karte im Reite
 Links die Karte im Reiter „Energie", rechts die Detailansicht.
 {: .blog-caption}
 
-Euro-Beträge zeigen wir in Portal und App bewusst noch nicht an — solange die Preise nicht feststehen, wären sie nur geraten. Die Werte sind Viertelstundenwerte des Netzbetreibers, die wir für die Abrechnung ohnehin erhalten; sie kommen mit etwas Verzögerung.
+Euro-Beträge zeigen wir in Portal und App bewusst noch nicht an — solange die Preise nicht feststehen, wären sie nur geraten. Unser EEG-Assistent im Portal nennt auf Nachfrage bereits Beträge nach dem Tarifentwurf — immer mit dem Hinweis, dass es sich um einen Entwurf handelt. Die Werte sind Viertelstundenwerte des Netzbetreibers, die wir für die Abrechnung ohnehin erhalten; sie kommen mit etwas Verzögerung.
 
 Möglich ist dieser Rückblick, weil wir die Werte seit dem Beitritt jedes Mitglieds auswerten können. Je länger jemand dabei ist, desto aussagekräftiger wird das Bild.
 
@@ -99,4 +108,4 @@ Eine Einschränkung: Viertelstundenwerte haben wir seit dem Frühjahr 2026, bei 
 
 ## Wie geht es weiter?
 
-Sobald die Tarifverordnung mit den endgültigen Preisen für unseren Netzbereich vorliegt, aktualisieren wir diesen Beitrag. Fragen zu Ihrer Lastspitze beantworten wir gerne.
+Sobald die Tarifverordnung mit den endgültigen Preisen kundgemacht ist und feststeht, wann unser Netzbereich umstellt, aktualisieren wir diesen Beitrag. Fragen zu Ihrer Lastspitze beantworten wir gerne.
