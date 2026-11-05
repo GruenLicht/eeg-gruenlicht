@@ -1,14 +1,14 @@
 ---
 title: "Ab 2027 zählt die Lastspitze: Was das bedeutet — und wo Sie Ihre sehen"
 date: 2026-10-10
-updated: 2026-11-05
+updated: 2026-11-06
 author: Christoph Fabianek
 category: Abrechnung
 summary: "Ab 2027 hängt das Netzentgelt auch davon ab, wie viel Strom Sie gleichzeitig beziehen. Wir erklären, was sich ändert, was das für EEG-Mitglieder heißt — und zeigen unseren Mitgliedern ihre eigene Lastspitze schon heute im Portal und in der App."
 draft: false
 ---
 
-**Aktualisiert am 5. November 2026:** Tarifentwurf 2027 eingearbeitet.
+**Aktualisiert am 6. November 2026:** Tarifentwurf 2027 eingearbeitet.
 {: .blog-info}
 
 Bisher war beim Netzentgelt vor allem eines entscheidend: **wie viel** Strom Sie im Jahr verbrauchen. Ab 2027 kommt eine zweite Frage dazu: **wie viel gleichzeitig.** Wer viele große Geräte zur selben Zeit laufen lässt, belastet das Netz stärker — und soll dafür künftig mehr beitragen.
@@ -44,7 +44,7 @@ Eine Viertelstunde mit durchschnittlich 10 kW entspricht 2,5 kWh. Zur Orientieru
 
 ## Was heißt das für EEG-Mitglieder?
 
-Die Ermäßigung der Energiegemeinschaft wirkt beim **Arbeitspreis**: Für Strom, den Sie aus der EEG beziehen, sinkt er bei uns im Regionalbereich derzeit um 28 % (mehr dazu im [Beitrag zum ElWG](/blog/elwg-2026-was-sich-fuer-energiegemeinschaften-aendert)). Wie hoch dieser Abschlag ab 2027 ist, legt ebenfalls die neue Tarifverordnung fest — wir aktualisieren unsere Angaben, sobald sie vorliegt.
+Die Ermäßigung der Energiegemeinschaft wirkt beim **Arbeitspreis**: Für Strom, den Sie aus der EEG beziehen, sinkt er bei uns im Regionalbereich derzeit um 28 %, laut Tarifentwurf ab 2027 um 22 % (mehr dazu im [Beitrag zu den Netzentgelten 2027](/blog/netzentgelte-2027-eeg-abschlag)).
 
 Ihre **Lastspitze** senkt EEG-Strom dagegen nicht. Nach der Grundsatzverordnung wird geteilter Strom nur dann von der Spitze abgezogen, wenn er über gemeinsame Leitungen im selben Haus bzw. am selben Standort geteilt wird — nicht, wenn er wie bei regionalen Gemeinschaften (also auch unseren) über das öffentliche Netz fließt.
 

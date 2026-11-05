@@ -1,6 +1,7 @@
 ---
 title: "Das neue ElWG ist da: Was sich für unsere Energiegemeinschaft ändert"
 date: 2026-10-01
+updated: 2026-11-06
 author: Christoph Fabianek
 category: Recht & Regeln
 summary: "Seit 1. Oktober 2026 gilt das neue Elektrizitätswirtschaftsgesetz. Für Mitglieder unserer EEGs ändert sich im Alltag wenig — rundherum aber einiges. Ein Überblick, was neu ist, was bleibt und was noch offen ist."
@@ -14,7 +15,7 @@ Die gute Nachricht vorweg: **Für Sie als Mitglied ändert sich im Alltag prakti
 ## Was bleibt gleich?
 
 - **Unsere drei EEGs bestehen weiter.** Bestehende Energiegemeinschaften müssen weder neu gegründet noch aufgelöst werden — sie werden in das neue Recht übergeführt.
-- **Reduzierte Netzentgelte** gelten weiterhin für den Strom, den Sie tatsächlich aus der EEG beziehen. Unsere Gemeinschaften liegen im *Regionalbereich*; dort sinkt der Arbeitspreis des Netznutzungsentgelts derzeit um **28 %**.
+- **Reduzierte Netzentgelte** gelten weiterhin für den Strom, den Sie tatsächlich aus der EEG beziehen. Unsere Gemeinschaften liegen im *Regionalbereich*; dort sinkt der Arbeitspreis des Netznutzungsentgelts derzeit um **28 %** (laut Tarifentwurf ab 2027 um 22 %, siehe [Netzentgelte 2027](/blog/netzentgelte-2027-eeg-abschlag)).
 - **Steuerliche Vorteile:** Für EEG-Strom entfallen weiterhin Elektrizitätsabgabe und Erneuerbaren-Förderbeitrag. Diese Begünstigung bleibt den Erneuerbare-Energie-Gemeinschaften vorbehalten.
 - **Ihre Daten:** Die Freigabe Ihrer Viertelstundenwerte erteilen weiterhin Sie selbst beim Netzbetreiber — niemand kann das stellvertretend für Sie erledigen.
 
@@ -49,7 +50,7 @@ Ob und ab wann diese Pflichten für unsere Gemeinschaften greifen, prüfen wir g
 
 ## Was ist noch offen?
 
-- **Netzentgelte ab 2027:** Die Höhe der Reduktion legt die E-Control per Verordnung fest. Die neue Systemnutzungsentgelte-Verordnung soll voraussichtlich mit **1. Jänner 2027** in Kraft treten. Bis Ende 2026 erhalten nur Mitglieder lokaler und regionaler EEGs den reduzierten Netzarbeitspreis.
+- **Netzentgelte ab 2027:** Die Höhe der Reduktion legt die E-Control per Verordnung fest. Die neue Systemnutzungsentgelte-Verordnung soll voraussichtlich mit **1. Jänner 2027** in Kraft treten. Bis Ende 2026 erhalten nur Mitglieder lokaler und regionaler EEGs den reduzierten Netzarbeitspreis. Inzwischen liegt der Entwurf vor, siehe [Netzentgelte 2027](/blog/netzentgelte-2027-eeg-abschlag).
 - **Über Netzgrenzen hinweg:** Die neuen Möglichkeiten funktionieren vorerst nur mit Zählpunkten beim selben Netzbetreiber. Netzübergreifende Modelle sollen voraussichtlich ab **April 2027** möglich sein.
 - **Gemeinschaftsspeicher:** Ein gemeinsamer Batteriespeicher für die EEG ist derzeit noch nicht zulässig. Die E-Control soll dafür erst standardisierte Messkonzepte festlegen.
 
