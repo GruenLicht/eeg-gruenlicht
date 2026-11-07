@@ -7,7 +7,7 @@ summary: "Der Entwurf der Netztarife 2027 ist da. Für Strom aus der Energiegeme
 draft: false
 ---
 
-Seit 29. Oktober 2026 liegt der Entwurf der neuen Netztarife in Begutachtung: die Systemnutzungsentgelte-Tarife-Verordnung 2027 (SNT-V 2027) der E-Control. Sie legt fest, was die Nutzung des Stromnetzes ab 1. Jänner 2027 kostet — und wie stark Strom aus einer Energiegemeinschaft dabei entlastet wird.
+Seit 29. Oktober 2026 liegt der Entwurf der neuen Netztarife in Begutachtung: die Systemnutzungsentgelte-Tarife-Verordnung 2027 (SNE-T-V 2027) der E-Control. Sie legt fest, was die Nutzung des Stromnetzes ab 1. Jänner 2027 kostet — und wie stark Strom aus einer Energiegemeinschaft dabei entlastet wird.
 
 Die wichtigste Nachricht für unsere Mitglieder vorweg: **Der Netzentgelt-Abschlag für EEG-Strom sinkt.** In unserem Regionalbereich beträgt er derzeit 28 %, laut Entwurf ab 2027 nur noch **22 %**.
 

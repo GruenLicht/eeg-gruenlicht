@@ -1,27 +1,14 @@
 ---
-title: "Der EEG-Assistent: Fragen zu Ihren Energiedaten — beantwortet von unserer eigenen KI in Bad Vöslau"
+title: "Unsere eigene, sparsame KI: die Technik hinter dem EEG-Assistenten"
 date: 2026-10-27
+updated: 2026-11-07
 author: Christoph Fabianek
 category: Digitales
-summary: "Im Abrechnungsportal testen wir einen neuen Helfer: den EEG-Assistenten. Er beantwortet Fragen zu Ihren eigenen Energiedaten in ganzen Sätzen. Das Besondere: Die KI dahinter läuft nicht in einem fernen Rechenzentrum, sondern auf einem sparsamen Rechner bei uns in Bad Vöslau — mit Strom aus unserer Energiegemeinschaft."
+summary: "Der EEG-Assistent im Mitgliederportal läuft nicht in einem fernen Rechenzentrum, sondern auf einem sparsamen Rechner bei uns in Bad Vöslau — mit Strom aus unserer Energiegemeinschaft. Wir zeigen, welche Technik dahintersteckt und warum Ihre Daten dabei bei uns bleiben."
 draft: false
-unlisted: true
 ---
 
-Wie viel Strom habe ich im letzten Monat erzeugt? Wie viel davon ist in der Gemeinschaft geblieben? Wann war meine höchste Lastspitze? Die Antworten stecken in Ihren Messdaten — bisher mussten Sie sie aber selbst aus Tabellen und Grafiken herauslesen.
-
-Dafür testen wir derzeit den **EEG-Assistenten**: einen Chat im [Abrechnungsportal](https://abrechnung.eeg-gruenlicht.at/portal), dem Sie Fragen in Alltagssprache stellen. Er sucht die passenden Werte aus Ihren Daten heraus, rechnet nach und antwortet in ganzen Sätzen.
-
-## Was der EEG-Assistent kann
-
-Sie finden ihn im Portal im Reiter **„EEG-Assistent"**. Fragen Sie zum Beispiel:
-
-- „Wie viel habe ich im letzten Monat erzeugt und verbraucht?"
-- „Welche Zählpunkte gehören mir?"
-- „Wann war im September meine höchste [Lastspitze](/blog/lastspitze-2027-portal-und-app)?"
-- „Erkläre mir die Informationen in der [monatlichen Abrechnung](/blog/abrechnung-erklaert)!"
-
-Wo es hilft, zeigt der Assistent auch den Rechenweg. Ein Beispiel aus unserem Test: Auf die Frage, ob in einer Viertelstunde im August mehr als 10 kWh bezogen wurden, rechnete er vor, dass dafür eine Leistung von 40 kW nötig wäre (10 kWh in einer Viertelstunde), die höchste gemessene Spitze aber bei 4,07 kW lag — also eindeutig nein.
+Im Mitgliederportal beantwortet der **EEG-Assistent** Fragen zu Ihren eigenen Energiedaten in ganzen Sätzen. Was er alles kann und wie Sie ihn nutzen, zeigen wir im Beitrag [Der EEG-Assistent im Mitgliederportal](/blog/eeg-assistent-mitgliederportal). Hier geht es um die Technik dahinter: wo die KI läuft, warum wir sie selbst betreiben und was das für Ihre Daten bedeutet.
 
 ## Unsere eigene, sparsame KI — mitten in Bad Vöslau
 
@@ -41,15 +28,12 @@ Der Preis dafür: Ein kleiner Rechner ist langsamer als ein Rechenzentrum. Einfa
 
 - **Kein großer KI-Anbieter:** Ihre Fragen und Ihre Energiedaten gehen an keinen KI-Dienst eines Konzerns. Betrieben wird der Assistent von unserem Verein selbst.
 - **Nur Ihre eigenen Daten:** Für jede Frage stellt das Portal einen Zugangsschlüssel aus, der nur wenige Minuten gilt und nur zu Ihrem Konto passt. Die Daten anderer Mitglieder kann der Assistent nicht abrufen.
-- **Nur lesen:** Der Assistent kann nichts ändern — keine Stammdaten, keine Einstellungen, keine Abrechnung.
-
-## Noch in der Testphase
-
-Derzeit probiert eine kleine Gruppe von Mitgliedern den Assistenten aus. Wenn er sich bewährt, schalten wir ihn schrittweise für alle frei.
+- **Nur lesen bei Messdaten und Abrechnung:** An Ihren Messdaten, Stammdaten und Abrechnungen kann der Assistent nichts ändern. Speichern kann er nur, was Sie ihm ausdrücklich über Ihren Haushalt erzählen — unter Profil › Meine Angaben können Sie das jederzeit einsehen und löschen.
+- **Gespräche werden nicht gespeichert** — weder im Portal noch beim Assistenten, außer Sie hängen beim Feedback ausdrücklich den Verlauf an.
 
 **Die Antworten erzeugt eine KI — sie können Fehler enthalten.** Maßgeblich sind immer Ihre Abrechnungen und die Werte im Portal. Wenn Ihnen eine Antwort seltsam vorkommt, prüfen Sie sie dort nach.
 {: .blog-info}
 
-Gerade jetzt sind Rückmeldungen besonders wertvoll. Neben dem Eingabefeld gibt es dafür die Schaltfläche **„Feedback"**: Sie vergeben ein bis fünf Sterne, können eine Nachricht schreiben und auf Wunsch den Verlauf der Unterhaltung mitschicken — wenn Sie möchten, auch anonym.
+Rückmeldungen helfen uns, den Assistenten besser zu machen. Neben dem Eingabefeld gibt es dafür die Schaltfläche **„Feedback"** (Stern): Sie vergeben ein bis fünf Sterne, können eine Nachricht schreiben und auf Wunsch den Verlauf der Unterhaltung mitschicken — wenn Sie möchten, auch anonym.
 
 Haben Sie Fragen oder Ideen, was der Assistent noch können sollte? [Schreiben Sie uns](/#kontakt) — wir freuen uns darauf.

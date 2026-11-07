@@ -1,4 +1,5 @@
 require "test_helper"
+require "minitest/mock"
 
 class BlogPostTest < ActiveSupport::TestCase
   test "all posts have valid frontmatter and render" do
@@ -89,9 +90,15 @@ class BlogPostTest < ActiveSupport::TestCase
   end
 
   test "unlisted posts are found by slug but not listed" do
-    assert BlogPost.find("eeg-assistent").unlisted?
-    assert_not_includes BlogPost.all.map(&:slug), "eeg-assistent"
-    assert_not_includes BlogPost.all(include_drafts: true).map(&:slug), "eeg-assistent"
-    assert_includes BlogPost.all(include_unlisted: true).map(&:slug), "eeg-assistent"
+    listed = BlogPost.new(slug: "gelistet-test", meta: { "title" => "Gelistet", "date" => Date.new(2026, 1, 2), "summary" => "Gelistet." }, markdown: "Text.")
+    hidden = BlogPost.new(slug: "nicht-gelistet-test", meta: { "title" => "Nicht gelistet", "date" => Date.new(2026, 1, 1), "summary" => "Nur per Direktlink.", "unlisted" => true }, markdown: "Text.")
+
+    BlogPost.stub(:load_all, [ listed, hidden ]) do
+      assert BlogPost.find("nicht-gelistet-test").unlisted?
+      assert_includes BlogPost.all.map(&:slug), "gelistet-test"
+      assert_not_includes BlogPost.all.map(&:slug), "nicht-gelistet-test"
+      assert_not_includes BlogPost.all(include_drafts: true).map(&:slug), "nicht-gelistet-test"
+      assert_includes BlogPost.all(include_unlisted: true).map(&:slug), "nicht-gelistet-test"
+    end
   end
 end

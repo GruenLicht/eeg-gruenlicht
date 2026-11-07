@@ -1,4 +1,5 @@
 require "test_helper"
+require "minitest/mock"
 
 class BlogControllerTest < ActionDispatch::IntegrationTest
   def with_env(vars)
@@ -88,29 +89,44 @@ class BlogControllerTest < ActionDispatch::IntegrationTest
       end
     end
   end
+  # Fester nicht gelisteter Testbeitrag, damit der Test nicht davon abhängt,
+  # ob unter app/content/blog gerade ein Beitrag mit unlisted: true liegt.
+  def with_unlisted_test_post
+    hidden = BlogPost.new(
+      slug: "nicht-gelistet-test",
+      meta: { "title" => "Nicht gelisteter Testbeitrag", "date" => Date.new(2026, 1, 1),
+              "summary" => "Nur per Direktlink erreichbar.", "category" => "Digitales", "unlisted" => true },
+      markdown: "Testinhalt."
+    )
+    posts = (BlogPost.all(include_drafts: true, include_unlisted: true) + [ hidden ]).sort_by { |post| [ post.date, post.slug ] }.reverse
+    BlogPost.stub(:load_all, posts) { yield }
+  end
+
   test "unlisted post is reachable by direct link only" do
-    unlisted = BlogPost.all(include_unlisted: true).select(&:unlisted?)
-    assert unlisted.any?, "expected at least one unlisted post (eeg-assistent)"
+    with_unlisted_test_post do
+      unlisted = BlogPost.all(include_unlisted: true).select(&:unlisted?)
+      assert unlisted.any?, "expected at least one unlisted post"
 
-    get blog_url, headers: BROWSER_HEADERS
-    unlisted.each { |post| assert_not_includes response.body, blog_post_path(post) }
+      get blog_url, headers: BROWSER_HEADERS
+      unlisted.each { |post| assert_not_includes response.body, blog_post_path(post) }
 
-    get root_url, headers: BROWSER_HEADERS
-    unlisted.each { |post| assert_not_includes response.body, blog_post_path(post) }
+      get root_url, headers: BROWSER_HEADERS
+      unlisted.each { |post| assert_not_includes response.body, blog_post_path(post) }
 
-    get sitemap_url, headers: BROWSER_HEADERS
-    unlisted.each { |post| assert_not_includes response.body, blog_post_path(post) }
+      get sitemap_url, headers: BROWSER_HEADERS
+      unlisted.each { |post| assert_not_includes response.body, blog_post_path(post) }
 
-    unlisted.each do |post|
-      get blog_post_url(post), headers: BROWSER_HEADERS
-      assert_response :success
-      assert_select "h1", text: post.title
-      assert_select "meta[name=robots][content=?]", "noindex,follow"
-    end
+      unlisted.each do |post|
+        get blog_post_url(post), headers: BROWSER_HEADERS
+        assert_response :success
+        assert_select "h1", text: post.title
+        assert_select "meta[name=robots][content=?]", "noindex,follow"
+      end
 
-    BlogPost.all.each do |post|
-      get blog_post_url(post), headers: BROWSER_HEADERS
-      unlisted.each { |hidden| assert_not_includes response.body, blog_post_path(hidden), "#{post.slug} links to #{hidden.slug}" }
+      BlogPost.all.each do |post|
+        get blog_post_url(post), headers: BROWSER_HEADERS
+        unlisted.each { |hidden| assert_not_includes response.body, blog_post_path(hidden), "#{post.slug} links to #{hidden.slug}" }
+      end
     end
   end
 
@@ -123,5 +139,6 @@ class BlogControllerTest < ActionDispatch::IntegrationTest
         assert_not_includes post.markdown, "/blog/#{hidden.slug}", "#{post.slug} links to unlisted #{hidden.slug}"
       end
     end
+    pass
   end
 end
