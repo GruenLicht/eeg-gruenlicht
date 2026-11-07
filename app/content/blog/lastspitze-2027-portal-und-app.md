@@ -1,19 +1,19 @@
 ---
 title: "Ab 2027 zählt die Lastspitze: Was das bedeutet — und wo Sie Ihre sehen"
 date: 2026-10-10
-updated: 2026-11-06
+updated: 2026-11-07
 author: Christoph Fabianek
 category: Abrechnung
 summary: "Ab 2027 hängt das Netzentgelt auch davon ab, wie viel Strom Sie gleichzeitig beziehen. Wir erklären, was sich ändert, was das für EEG-Mitglieder heißt — und zeigen unseren Mitgliedern ihre eigene Lastspitze schon heute im Portal und in der App."
 draft: false
 ---
 
-**Aktualisiert am 6. November 2026:** Tarifentwurf 2027 eingearbeitet.
+**Aktualisiert am 7. November 2026:** Tarifentwurf 2027 und das neue Mitgliederportal eingearbeitet.
 {: .blog-info}
 
 Bisher war beim Netzentgelt vor allem eines entscheidend: **wie viel** Strom Sie im Jahr verbrauchen. Ab 2027 kommt eine zweite Frage dazu: **wie viel gleichzeitig.** Wer viele große Geräte zur selben Zeit laufen lässt, belastet das Netz stärker — und soll dafür künftig mehr beitragen.
 
-Damit unsere Mitglieder nicht bis zur ersten Netzrechnung 2027 warten müssen, um zu sehen, wo sie stehen, zeigen wir ihnen ihre Lastspitze ab sofort im Abrechnungsportal und in unserer App.
+Damit unsere Mitglieder nicht bis zur ersten Netzrechnung 2027 warten müssen, um zu sehen, wo sie stehen, zeigen wir ihnen ihre Lastspitze im Mitgliederportal und in unserer App.
 
 ## Was ändert sich 2027?
 
@@ -54,24 +54,27 @@ Anders ist es mit einer **eigenen PV-Anlage**: Was sie gerade erzeugt und Sie di
 
 ## Ein Service für unsere Mitglieder: Ihre Lastspitze im Portal
 
-Im [Abrechnungsportal](https://abrechnung.eeg-gruenlicht.at/portal) finden Mitglieder mit Verbrauchs-Zählpunkt den neuen Reiter **„Lastspitze"**. Dort sehen Sie:
+Im [Mitgliederportal](https://abrechnung.eeg-gruenlicht.at/portal) finden Sie Ihre Lastspitze unter **„Meine Energie"** im Bereich **„Lastspitze"**: Ihre höchste Viertelstunde im gewählten Monat mit Datum und Uhrzeit, dazu die drei höchsten Spitzen an verschiedenen Tagen. Wie der Bereich „Meine Energie" insgesamt aufgebaut ist, zeigen wir im [Beitrag zu „Meine Energie"](/blog/meine-energie-im-mitgliederportal).
+
+Mit **„Verlauf der letzten 12 Monate und alle Viertelstunden anzeigen"** öffnet sich die ausführliche Ansicht. Dort sehen Sie:
 
 - Ihre höchste Viertelstunde je Monat für die letzten 12 Monate — als Säulen, mit einer Linie bei 10 kW und einem Band für die 2-kW-Mindestleistung,
-- Datum und Uhrzeit der Spitze,
-- wie viele Viertelstunden über 10 kW lagen und an wie vielen Tagen,
-- eine Übersicht aller Viertelstunden des Monats, die fünf höchsten Werte und Tipps.
+- wie viele Viertelstunden über 10 kW lagen und den höchsten Wert der letzten 12 Monate,
+- eine Übersicht aller Viertelstunden des gewählten Monats, die fünf höchsten Werte und Tipps.
 
-[![Reiter „Lastspitze" im Abrechnungsportal: Kennzahlen und Monatsspitzen der letzten 12 Monate mit 10-kW-Linie](/blog-assets/lastspitze/portal-monatsspitzen.png){: loading="lazy"}](/blog-assets/lastspitze/portal-monatsspitzen.png){: target="_blank" rel="noopener"}
+[![Monatsspitzen der letzten 12 Monate im Mitgliederportal: Säulen je Monat mit 10-kW-Linie und Band für die Mindestleistung von 2 kW](/blog-assets/lastspitze/portal-monatsspitzen.jpg){: loading="lazy"}](/blog-assets/lastspitze/portal-monatsspitzen.jpg){: target="_blank" rel="noopener"}
 
-Monatsspitzen der letzten 12 Monate im Portal. Eine blasse Säule bedeutet: Die Daten des Monats sind noch nicht vollständig.
+Monatsspitzen der letzten 12 Monate. Eine blasse Säule bedeutet: Die Daten des Monats sind noch nicht vollständig. Ein Klick auf einen Monat zeigt dessen Details.
 {: .blog-caption}
 
 Besonders aufschlussreich ist die Monatsübersicht: Jede Zeile ist ein Tag, jedes Kästchen eine Viertelstunde. So erkennen Sie auf einen Blick, wann bei Ihnen viel gleichzeitig läuft.
 
-[![Übersicht aller Viertelstunden eines Monats im Portal, daneben die fünf höchsten Viertelstunden](/blog-assets/lastspitze/portal-viertelstunden.png){: loading="lazy"}](/blog-assets/lastspitze/portal-viertelstunden.png){: target="_blank" rel="noopener"}
+[![Übersicht aller Viertelstunden eines Monats im Mitgliederportal, daneben die fünf höchsten Viertelstunden](/blog-assets/lastspitze/portal-viertelstunden.jpg){: loading="lazy"}](/blog-assets/lastspitze/portal-viertelstunden.jpg){: target="_blank" rel="noopener"}
 
 Jede Viertelstunde des Monats — je dunkler, desto höher die Leistung.
 {: .blog-caption}
+
+Was Ihre Lastspitze nach dem Tarifentwurf kosten würde, rechnet der Bereich **„Ausblick"** unter „Meine Energie" Monat für Monat mit Ihren eigenen Werten durch — immer mit dem Hinweis, dass es sich um einen Entwurf handelt. Auch unser [EEG-Assistent](/blog/eeg-assistent-mitgliederportal) nennt auf Nachfrage Beträge nach dem Tarifentwurf.
 
 ## … und in der App
 
@@ -82,7 +85,7 @@ Auch in der App „EEG GrünLicht" sehen Sie Ihre Lastspitze: als Karte im Reite
 Links die Karte im Reiter „Energie", rechts die Detailansicht.
 {: .blog-caption}
 
-Euro-Beträge zeigen wir in Portal und App bewusst noch nicht an — solange die Preise nicht feststehen, wären sie nur geraten. Unser EEG-Assistent im Portal nennt auf Nachfrage bereits Beträge nach dem Tarifentwurf — immer mit dem Hinweis, dass es sich um einen Entwurf handelt. Die Werte sind Viertelstundenwerte des Netzbetreibers, die wir für die Abrechnung ohnehin erhalten; sie kommen mit etwas Verzögerung.
+Die Werte in Portal und App sind Viertelstundenwerte des Netzbetreibers, die wir für die Abrechnung ohnehin erhalten; sie kommen mit etwas Verzögerung.
 
 Möglich ist dieser Rückblick, weil wir die Werte seit dem Beitritt jedes Mitglieds auswerten können. Je länger jemand dabei ist, desto aussagekräftiger wird das Bild.
 
