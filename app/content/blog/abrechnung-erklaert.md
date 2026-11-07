@@ -89,4 +89,4 @@ Der bisherige Betrag im Portal (oben) und in der App. „Guthaben" heißt: Sie b
 
 Die Abrechnungsinformation betrifft nur den Strom, der innerhalb der EEG geteilt wird. Den übrigen Strom verrechnet wie bisher Ihr Stromlieferant, die Netzentgelte der Netzbetreiber — für den EEG-Anteil mit reduziertem Arbeitspreis (mehr dazu im [Beitrag zum ElWG](/blog/elwg-2026-was-sich-fuer-energiegemeinschaften-aendert)).
 
-Ihre eigenen Werte und alle bisherigen Abrechnungen finden Sie jederzeit im [Abrechnungsportal](https://abrechnung.eeg-gruenlicht.at/portal) und in der App. Fragen zur Abrechnung beantworten wir gerne.
+Ihre eigenen Werte und alle bisherigen Abrechnungen finden Sie jederzeit im [Mitgliederportal](https://abrechnung.eeg-gruenlicht.at/portal) und in der App. Fragen zur Abrechnung beantworten wir gerne.

@@ -1,7 +1,7 @@
 ---
 title: "Mehr als Strom: Gemeinsam lernen, teilen und vergleichen"
 date: 2026-09-05
-updated: 2026-10-11
+updated: 2026-11-07
 author: Christoph Fabianek
 category: Gemeinschaft
 summary: "Eine Energiegemeinschaft ist nicht nur ein Abrechnungsmodell. Wer mitmacht, versteht den eigenen Verbrauch besser, profitiert von den Erfahrungen anderer — und sieht, was wir gemeinsam schaffen."
@@ -45,9 +45,9 @@ Genaue Uhrzeiten und Details geben wir rechtzeitig in der monatlichen Abrechnung
 
 Vergleiche motivieren, wenn sie fair sind und freiwillig bleiben. Deshalb gibt es bei uns drei Blickrichtungen:
 
-**Mit sich selbst.** Wie hat sich mein Verbrauch über die Monate entwickelt, und wie viel davon kam aus der EEG? Im [Abrechnungsportal](https://abrechnung.eeg-gruenlicht.at/portal) sehen Sie das im Reiter „Energiedaten" — wahlweise nach Jahr, Monat, Tag oder Viertelstunde.
+**Mit sich selbst.** Wie hat sich mein Verbrauch über die Monate entwickelt, und wie viel davon kam aus der EEG? Im [Mitgliederportal](https://abrechnung.eeg-gruenlicht.at/portal) sehen Sie das unter „Meine Energie" im Bereich „Energiedaten" — wahlweise für ein Jahr, einen Monat oder einen Tag, in der Tagesansicht je Viertelstunde. Mehr dazu im [Beitrag zu „Meine Energie"](/blog/meine-energie-im-mitgliederportal).
 
-[![Reiter „Energiedaten" im Abrechnungsportal: Monatswerte für Bezug und Einspeisung](/blog-assets/gemeinschaft/portal-energiedaten.png){: loading="lazy"}](/blog-assets/gemeinschaft/portal-energiedaten.png){: target="_blank" rel="noopener"}
+[![Energiedaten im Mitgliederportal: Monatswerte für Bezug und Einspeisung](/blog-assets/meine-energie/energiedaten-jahr.jpg){: loading="lazy"}](/blog-assets/meine-energie/energiedaten-jahr.jpg){: target="_blank" rel="noopener"}
 
 Monatswerte im Portal: Bezug aus der EEG und aus dem Netz, Einspeisung in die EEG und ins Netz.
 {: .blog-caption}
