@@ -47,7 +47,7 @@ Vergleiche motivieren, wenn sie fair sind und freiwillig bleiben. Deshalb gibt e
 
 **Mit sich selbst.** Wie hat sich mein Verbrauch über die Monate entwickelt, und wie viel davon kam aus der EEG? Im [Mitgliederportal](https://abrechnung.eeg-gruenlicht.at/portal) sehen Sie das unter „Meine Energie" im Bereich „Energiedaten" — wahlweise für ein Jahr, einen Monat oder einen Tag, in der Tagesansicht je Viertelstunde. Mehr dazu im [Beitrag zu „Meine Energie"](/blog/meine-energie-im-mitgliederportal).
 
-[![Energiedaten im Mitgliederportal: Monatswerte für Bezug und Einspeisung](/blog-assets/meine-energie/energiedaten-jahr.jpg){: loading="lazy"}](/blog-assets/meine-energie/energiedaten-jahr.jpg){: target="_blank" rel="noopener"}
+[![Energiedaten im Mitgliederportal: Monatswerte für Bezug und Einspeisung](/blog-assets/meine-energie/energiedaten-jahr-2026.jpg){: loading="lazy"}](/blog-assets/meine-energie/energiedaten-jahr-2026.jpg){: target="_blank" rel="noopener"}
 
 Monatswerte im Portal: Bezug aus der EEG und aus dem Netz, Einspeisung in die EEG und ins Netz.
 {: .blog-caption}

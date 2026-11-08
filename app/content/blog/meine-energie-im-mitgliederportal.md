@@ -37,7 +37,7 @@ Ein Klick auf eine Kennzahl führt zum passenden Bereich darunter: **Energiedate
 
 Unter **Energiedaten** sehen Sie Ihren Bezug und Ihre Einspeisung als Säulen — in der Jahresansicht je Monat, in der Monatsansicht je Tag, in der Tagesansicht je Viertelstunde. Die Farben unterscheiden, was aus der Gemeinschaft kam bzw. an sie ging und was nicht (Restbezug und Resteinspeisung). Unter der Grafik stehen dieselben Werte als Tabelle.
 
-[![Energiedaten für das Jahr 2026: Säulen je Monat für Bezug aus der Gemeinschaft, Restbezug, Einspeisung an die Gemeinschaft und Resteinspeisung](/blog-assets/meine-energie/energiedaten-jahr.jpg){: loading="lazy"}](/blog-assets/meine-energie/energiedaten-jahr.jpg){: target="_blank" rel="noopener"}
+[![Energiedaten für das Jahr 2026: Säulen je Monat für Bezug aus der Gemeinschaft, Restbezug, Einspeisung an die Gemeinschaft und Resteinspeisung](/blog-assets/meine-energie/energiedaten-jahr-2026.jpg){: loading="lazy"}](/blog-assets/meine-energie/energiedaten-jahr-2026.jpg){: target="_blank" rel="noopener"}
 
 Die Jahresansicht: Im Sommer speist die PV-Anlage viel ein, im Herbst steigt der Bezug.
 {: .blog-caption}
@@ -93,7 +93,7 @@ Alle Beträge im Ausblick beruhen auf dem Entwurf der Netztarife 2027 und könne
 
 Der Bereich **Gemeinschaft** stellt Ihre Werte neben die der ganzen Energiegemeinschaft. Oben stehen Kennzahlen wie die Gesamterzeugung der EEG im gewählten Zeitraum, Ihr Bezug aus der Gemeinschaft und aus dem Netz und der Autarkiegrad. Die Grafik zeigt Ihren täglichen Bezug als Säulen und die Erzeugung der ganzen Gemeinschaft als Linie — so sehen Sie, an welchen Tagen viel Sonnenstrom da war und ob Sie ihn genutzt haben. Darunter folgt dasselbe für die Einspeisung.
 
-[![Bereich Gemeinschaft für September 2026: Kennzahlen, Tagessäulen für Bezug aus der Gemeinschaft und aus dem Netz, Linie für die Gesamterzeugung der EEG](/blog-assets/meine-energie/gemeinschaft.jpg){: loading="lazy"}](/blog-assets/meine-energie/gemeinschaft.jpg){: target="_blank" rel="noopener"}
+[![Bereich Gemeinschaft für September 2026: Kennzahlen, Tagessäulen für Bezug aus der Gemeinschaft und aus dem Netz, Linie für die Gesamterzeugung der EEG](/blog-assets/meine-energie/gemeinschaft-september.jpg){: loading="lazy"}](/blog-assets/meine-energie/gemeinschaft-september.jpg){: target="_blank" rel="noopener"}
 
 Ihr Bezug (Säulen) und die Erzeugung der ganzen Gemeinschaft (Linie).
 {: .blog-caption}
