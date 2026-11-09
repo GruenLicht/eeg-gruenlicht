@@ -103,14 +103,16 @@
                 <div class="mt-5 space-y-4 leading-7">
                     <p>
                         Die App richtet sich ausschließlich an Mitglieder der Energiegemeinschaft. Eine Nutzung ohne
-                        bestehende Mitgliedschaft ist nicht möglich.
+                        bestehende Mitgliedschaft ist nicht möglich. Die App spricht nur mit unserer eigenen Schnittstelle
+                        (api.eeg-gruenlicht.at) und unserer Mitgliederverwaltung.
                     </p>
 
                     <h3 class="pt-2 font-medium text-slate-900">Anmeldung und Gerätebindung</h3>
 
                     <p>
-                        Die Anmeldung erfolgt über einen QR-Code aus dem Mitgliederportal, der zusätzlich im Portal
-                        bestätigt werden muss. Dabei erzeugt die App auf Ihrem Gerät ein Schlüsselpaar. Der
+                        Die Anmeldung erfolgt über einen QR-Code oder einen Kurzcode aus dem Mitgliederportal, der im Portal
+                        bestätigt werden muss, oder über einen Link, den wir an die bei uns hinterlegte E-Mail-Adresse senden.
+                        Dabei erzeugt die App auf Ihrem Gerät ein Schlüsselpaar. Der
                         <span class="font-medium text-slate-900">private Schlüssel verlässt den Sicherheitschip Ihres
                         Geräts niemals</span>. An uns übermittelt und gespeichert werden ausschließlich:
                     </p>
@@ -121,22 +123,79 @@
                             Mitgliederportal wiedererkennen und jederzeit entziehen können</li>
                     </ul>
 
+                    <p>
+                        Über jede neue Verbindung informieren wir Sie per E-Mail.
+                    </p>
+
                     <h3 class="pt-2 font-medium text-slate-900">In der App angezeigte Daten</h3>
 
                     <p>
-                        Nach der Anmeldung zeigt die App Ihnen Ihre eigenen Stammdaten an:
+                        Nach der Anmeldung zeigt die App Ihnen ausschließlich Ihre eigenen Daten und Daten der
+                        Gemeinschaft an:
                     </p>
 
                     <ul class="list-disc space-y-2 pl-6">
-                        <li>Name</li>
-                        <li>Mitgliedsnummer</li>
-                        <li>zugeordnete Energiegemeinschaft</li>
-                        <li>Rolle (z. B. Verbraucher, Einspeiser, Prosumer)</li>
-                        <li>Zählpunkte</li>
+                        <li>Stammdaten: Name, Mitgliedsnummer, zugeordnete Energiegemeinschaft, Rolle (z. B. Verbraucher,
+                            Einspeiser, Prosumer) und Zählpunkte</li>
+                        <li>Energiedaten Ihrer Zählpunkte (Viertelstunden-, Tages-, Monats- und Jahreswerte, Anteil aus der
+                            Gemeinschaft, Lastspitze)</li>
+                        <li>Summenwerte der gesamten Energiegemeinschaft und eine Kurzfrist-Prognose („EEG live"), ohne
+                            Bezug auf einzelne Mitglieder</li>
+                        <li>Ihre Rechnungen und den offenen Betrag; Rechnungen öffnen sich über einen kurzlebigen,
+                            nur für Sie gültigen Link</li>
+                        <li>Neuigkeiten der Energiegemeinschaft</li>
                     </ul>
 
                     <p>
-                        Diese Daten stammen aus der Mitgliederverwaltung und werden ausschließlich Ihnen selbst angezeigt.
+                        Diese Daten stammen aus der Mitgliederverwaltung und der Abrechnung. Auf Ihrem Gerät bleibt nur
+                        eine Kopie Ihrer Stammdaten im gesicherten Speicher, damit die App auch ohne Verbindung startet.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Änderungen in „Mein Konto"</h3>
+
+                    <p>
+                        In der App können Sie dieselben Einstellungen ändern wie im Mitgliederportal: E-Mail-Adresse
+                        (wirksam erst nach Bestätigung über einen Link an die neue Adresse), Passwort für das
+                        Mitgliederportal, Bankverbindung, Teilnahmefaktor Ihrer Zählpunkte, Vergleichspreis und die
+                        Detaildarstellung in der Abrechnungsinformation. Die Änderungen speichern wir in der
+                        Mitgliederverwaltung. Bei einer neuen Bankverbindung erteilen Sie ein SEPA-Lastschriftmandat;
+                        zum Nachweis speichern wir Zeitpunkt und IP-Adresse der Erteilung. Eine Änderung des
+                        Teilnahmefaktors übermitteln wir an den Netzbetreiber.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">EEG-Assistent (KI)</h3>
+
+                    <p>
+                        Der EEG-Assistent beantwortet Fragen zu Ihrem Energieverbrauch und zur Energiegemeinschaft und
+                        schlägt Ihnen unter „Empfehlungen" Möglichkeiten vor, mehr Strom aus der Gemeinschaft zu nutzen.
+                        Die Nutzung ist freiwillig.
+                    </p>
+
+                    <ul class="list-disc space-y-2 pl-6">
+                        <li>Ihre Fragen und der bisherige Verlauf der Unterhaltung werden an unseren Server übermittelt.
+                            Die Antworten erzeugt ein Sprachmodell, das wir <span class="font-medium text-slate-900">auf
+                            einem eigenen Server betreiben</span>. Es werden keine Daten an externe KI-Anbieter
+                            weitergegeben.</li>
+                        <li>Für die Antworten nutzt der Assistent Ihre Stamm- und Energiedaten, Summenwerte der
+                            Gemeinschaft und – falls Sie welche gemacht haben – Ihre Angaben unter „Meine Angaben".</li>
+                        <li>Die Unterhaltung wird nicht auf Ihrem Gerät gespeichert und ist beim Verlassen des
+                            Assistenten bzw. beim Abmelden weg. Die Nutzung des Assistenten protokollieren wir
+                            pseudonymisiert und ohne Inhalte der Fragen und Antworten.</li>
+                        <li>„Meine Angaben" sind freiwillige Angaben zu Ihrem Haushalt (z. B. Anzahl der Personen,
+                            Wärmepumpe, Elektroauto). Wir speichern sie, bis Sie sie in der App oder im Mitgliederportal
+                            einzeln oder vollständig löschen.</li>
+                        <li>Ihre Rückmeldungen zu Empfehlungen („Passt für mich" / „Passt nicht") speichern wir, damit
+                            Ihnen passende Empfehlungen angezeigt werden.</li>
+                        <li>Über „Feedback" bzw. „Antwort melden" können Sie uns eine Bewertung, eine Nachricht und auf
+                            Wunsch den Verlauf der Unterhaltung senden. Das Feedback geht per E-Mail an das Team der
+                            Energiegemeinschaft, mit Ihrem Namen, Ihrer Mitgliedsnummer und Ihrer E-Mail-Adresse, damit
+                            wir antworten können – oder auf Wunsch anonym. Dazu übermittelt die App ihre Versionsnummer
+                            und das Betriebssystem.</li>
+                    </ul>
+
+                    <p>
+                        Antworten eines Sprachmodells können Fehler enthalten. Bitte prüfen Sie wichtige Angaben, etwa
+                        zu Beträgen, anhand Ihrer Rechnung.
                     </p>
 
                     <h3 class="pt-2 font-medium text-slate-900">Kamera</h3>
@@ -157,28 +216,32 @@
 
                     <p>
                         Beim Zugriff auf unsere Schnittstelle werden aus Sicherheitsgründen technische Daten (IP-Adresse,
-                        Zeitpunkt und Art des Zugriffs) protokolliert. Rechtsgrundlage ist unser berechtigtes Interesse an
-                        einem sicheren Betrieb gemäß Art. 6 Abs. 1 lit. f DSGVO.
+                        Zeitpunkt und Art des Zugriffs) protokolliert, ohne Inhalte. Rechtsgrundlage ist unser berechtigtes
+                        Interesse an einem sicheren Betrieb gemäß Art. 6 Abs. 1 lit. f DSGVO.
                     </p>
 
                     <h3 class="pt-2 font-medium text-slate-900">Kein Tracking</h3>
 
                     <p>
                         Die App enthält keine Analyse-, Tracking- oder Werbefunktionen und bindet keine Dienste Dritter ein.
+                        Auch der EEG-Assistent nutzt keine externen KI-Dienste.
                     </p>
 
                     <h3 class="pt-2 font-medium text-slate-900">Rechtsgrundlage</h3>
 
                     <p>
                         Die Verarbeitung erfolgt zur Erfüllung des Mitgliedschaftsverhältnisses (Art. 6 Abs. 1 lit. b DSGVO)
-                        sowie aus berechtigtem Interesse an einem sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO).
+                        sowie aus berechtigtem Interesse an einem sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO). „Meine
+                        Angaben" und Feedback geben Sie freiwillig; Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1
+                        lit. a DSGVO), die Sie jederzeit durch Löschen der Angaben widerrufen können.
                     </p>
 
                     <h3 class="pt-2 font-medium text-slate-900">Speicherdauer und Löschung</h3>
 
                     <p>
                         Die Gerätebindung besteht, bis Sie sie im Mitgliederportal entziehen oder sich in der App abmelden.
-                        Die Löschung Ihrer Daten können Sie jederzeit unter
+                        „Meine Angaben" können Sie in der App jederzeit selbst löschen. Die Löschung Ihrer Daten können Sie
+                        jederzeit unter
                         <%= mail_to "office@eeg-gruenlicht.at", "office@eeg-gruenlicht.at", class: "text-green-700 hover:text-green-800" %>
                         verlangen. Eine Schritt-für-Schritt-Anleitung sowie Angaben dazu, welche Daten gelöscht und
                         welche aus gesetzlichen Gründen aufbewahrt werden, finden Sie auf der Seite
@@ -266,6 +329,10 @@
                 <div class="mt-5 space-y-4 leading-7">
                     <p>
                         Wir behalten uns vor, diese Datenschutzinformation bei Bedarf anzupassen, insbesondere bei Änderungen der Website, der App oder der rechtlichen Rahmenbedingungen.
+                    </p>
+
+                    <p>
+                        Stand: November 2026
                     </p>
                 </div>
             </section>
