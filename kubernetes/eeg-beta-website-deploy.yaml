@@ -34,13 +34,22 @@ spec:
           - name: NO_REPLY_EMAIL
             value: 'no-reply@eeg-gruenlicht.at'
           - name: SMTP_USERNAME
-            value: 'no-reply@eeg-gruenlicht.at'
+            valueFrom:
+              secretKeyRef:
+                name: eeg-website-smtp
+                key: username
           - name: SMTP_PASSWORD
-            value: 'asdf'
+            valueFrom:
+              secretKeyRef:
+                name: eeg-website-smtp
+                key: password
           - name: SMTP_SECURITY
             value: ssl
           - name: SMTP_ADDRESS
-            value: 'REDACTED'
+            valueFrom:
+              secretKeyRef:
+                name: eeg-website-smtp
+                key: address
           - name: SMTP_PORT
             value: '465'
           - name: SMTP_DOMAIN
