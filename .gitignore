@@ -40,3 +40,7 @@
 
 # SQLite test database
 /db/test.sqlite3*
+
+# macOS-Metadaten und lokale Arbeitsablage
+.DS_Store
+/Claude outputs/
