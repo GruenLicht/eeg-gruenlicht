@@ -43,6 +43,18 @@ class LandingControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "start page offers membership only in EEG Bad Vöslau" do
+    get root_url, headers: BROWSER_HEADERS
+
+    assert_response :success
+    assert_includes response.body, "Umspannwerk Baden"
+    assert_includes response.body, "https://abrechnung.eeg-gruenlicht.at/onboarding/437a846f-a56f-4f35-86b0-0ff31041b915"
+    assert_includes response.body, %(id="beitrittsformular")
+    assert_includes response.body, "00BA21, 00BA22 oder 00BA23"
+    refute_includes response.body, "cb81cc8e-a2a3-4660-b4cc-067c15d9b277"
+    refute_includes response.body, "e10c2146-c551-4e73-8515-573c30be6c7e"
+  end
+
   test "static pages render" do
     [ preise_url, unterstuetzer_url, impressum_url, datenschutz_url, app_datenloeschung_url ].each do |url|
       get url, headers: BROWSER_HEADERS

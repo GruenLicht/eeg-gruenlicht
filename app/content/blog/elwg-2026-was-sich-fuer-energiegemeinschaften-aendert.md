@@ -1,7 +1,7 @@
 ---
 title: "Das neue ElWG ist da: Was sich für unsere Energiegemeinschaft ändert"
 date: 2026-10-01
-updated: 2026-11-06
+updated: 2026-11-11
 author: Christoph Fabianek
 category: Recht & Regeln
 summary: "Seit 1. Oktober 2026 gilt das neue Elektrizitätswirtschaftsgesetz. Für Mitglieder unserer EEGs ändert sich im Alltag wenig — rundherum aber einiges. Ein Überblick, was neu ist, was bleibt und was noch offen ist."
@@ -14,12 +14,18 @@ Die gute Nachricht vorweg: **Für Sie als Mitglied ändert sich im Alltag prakti
 
 ## Was bleibt gleich?
 
-- **Unsere drei EEGs bestehen weiter.** Bestehende Energiegemeinschaften müssen weder neu gegründet noch aufgelöst werden — sie werden in das neue Recht übergeführt.
+- **Bestehende Energiegemeinschaften bleiben bestehen.** Sie müssen weder neu gegründet noch aufgelöst werden — sie werden in das neue Recht übergeführt. Was das für neue Mitglieder bedeutet, lesen Sie im nächsten Abschnitt.
 - **Reduzierte Netzentgelte** gelten weiterhin für den Strom, den Sie tatsächlich aus der EEG beziehen. Unsere Gemeinschaften liegen im *Regionalbereich*; dort sinkt der Arbeitspreis des Netznutzungsentgelts derzeit um **28 %** (laut Tarifentwurf ab 2027 um 22 %, siehe [Netzentgelte 2027](/blog/netzentgelte-2027-eeg-abschlag)).
 - **Steuerliche Vorteile:** Für EEG-Strom entfallen weiterhin Elektrizitätsabgabe und Erneuerbaren-Förderbeitrag. Diese Begünstigung bleibt den Erneuerbare-Energie-Gemeinschaften vorbehalten.
 - **Ihre Daten:** Die Freigabe Ihrer Viertelstundenwerte erteilen weiterhin Sie selbst beim Netzbetreiber — niemand kann das stellvertretend für Sie erledigen.
 
 ## Was ist neu?
+
+### Eine EEG für das ganze Umspannwerk Baden (Update November 2026)
+
+Zum Regionalbereich zählen laut ElWG alle Mittelspannungs-Sammelschienen eines Umspannwerks, die ohne Umspannung miteinander verschaltet werden können. Seit der Umstellung beim Netzbetreiber können damit alle Zählpunkte am **Umspannwerk Baden** in einer gemeinsamen Energiegemeinschaft teilnehmen — die bisherige Aufteilung auf die EEGs Bad Vöslau, Bad Vöslau-Flugfeld und Bad Vöslau/Sooß ist nicht mehr notwendig.
+
+Neue Mitglieder nehmen wir deshalb nur mehr in der **EEG Bad Vöslau** auf. Voraussetzung ist, dass Ihr Zählpunkt am Umspannwerk Baden angeschlossen ist — erkennbar an der Beauskunftungskennzahl, die mit 00BA21, 00BA22 oder 00BA23 beginnt. Zum [Beitrittsantrag](/#beitritt).
 
 ### Neue Namen für die Nahebereiche
 

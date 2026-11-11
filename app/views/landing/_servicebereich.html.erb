@@ -77,132 +77,43 @@
                         Beitritt zur Energiegemeinschaft
                     </h3>
 
+                    <%
+                        beitritt_eeg_name = "EEG Bad Vöslau"
+                        beitritt_onboarding_url = "https://abrechnung.eeg-gruenlicht.at/onboarding/437a846f-a56f-4f35-86b0-0ff31041b915"
+                    %>
+
                     <p class="mt-3 text-base leading-7 text-slate-600">
-                        Wir betreiben drei regionale Energiegemeinschaften. Welche für Sie zuständig
-                        ist, hängt vom Netzbereich Ihres Zählpunkts ab — maßgeblich ist Ihre
-                        <strong>Beauskunftungskennzahl</strong> (sie beginnt mit 00BA21, 00BA22 oder 00BA23).
+                        Neue Mitglieder nehmen wir in der <strong><%= beitritt_eeg_name %></strong> auf.
+                        Voraussetzung: Ihr Zählpunkt ist am <strong>Umspannwerk Baden</strong> angeschlossen
+                        (Beauskunftungskennzahl beginnt mit 00BA21, 00BA22 oder 00BA23 –
+                        <a
+                            href="https://www.wienernetze.at/beauskunftungskennzahl-abfragen"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:text-green-800"
+                        >bei den Wiener Netzen abfragen</a>).
                     </p>
 
-                    <div
-                        class="mt-6"
-                        data-controller="eeg-select"
-                        data-eeg-select-base-value="https://abrechnung.eeg-gruenlicht.at/onboarding/"
-                    >
-                        <p class="text-sm font-semibold text-slate-700">
-                            Schritt 1: Wählen Sie Ihre Energiegemeinschaft
+                    <div id="beitrittsformular" class="mt-6 scroll-mt-28">
+                        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                            <iframe
+                                src="<%= beitritt_onboarding_url %>"
+                                title="Beitrittsantrag zur <%= beitritt_eeg_name %>"
+                                loading="lazy"
+                                class="block h-[900px] w-full border-0"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                            ></iframe>
+                        </div>
+
+                        <p class="mt-4 text-sm leading-6 text-slate-500">
+                            Falls das Formular in Ihrem Browser nicht angezeigt wird, können Sie den
+                            <a
+                                href="<%= beitritt_onboarding_url %>"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="font-medium text-green-700 hover:text-green-800"
+                            >Beitrittsantrag in einem neuen Fenster öffnen</a>.
                         </p>
-
-                        <p class="mt-1 text-sm text-slate-500">
-                            Nicht sicher, welche die richtige ist? Sie können uns natürlich auch einfach eine
-                            <button
-                                type="button"
-                                data-action="eeg-select#openKontakt"
-                                class="font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:text-green-800"
-                            >Kontaktanfrage</button>
-                            schicken — wir helfen Ihnen gerne bei der Auswahl der passenden Energiegemeinschaft.
-                        </p>
-
-                        <div class="mt-3 grid gap-3 sm:grid-cols-3">
-                            <button
-                                type="button"
-                                data-eeg-select-target="card"
-                                data-action="eeg-select#selectCard"
-                                data-bkz="00BA21"
-                                data-eeg-id="cb81cc8e-a2a3-4660-b4cc-067c15d9b277"
-                                data-eeg-name="EEG Bad Vöslau/Sooß"
-                                class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600"
-                            >
-                                <span class="block text-sm font-semibold text-slate-900">EEG Bad Vöslau/Sooß</span>
-                                <span class="mt-1 block text-xs text-slate-500">Kennzahl 00BA21-…</span>
-                            </button>
-
-                            <button
-                                type="button"
-                                data-eeg-select-target="card"
-                                data-action="eeg-select#selectCard"
-                                data-bkz="00BA22"
-                                data-eeg-id="437a846f-a56f-4f35-86b0-0ff31041b915"
-                                data-eeg-name="EEG Bad Vöslau"
-                                class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600"
-                            >
-                                <span class="block text-sm font-semibold text-slate-900">EEG Bad Vöslau</span>
-                                <span class="mt-1 block text-xs text-slate-500">Kennzahl 00BA22-…</span>
-                            </button>
-
-                            <button
-                                type="button"
-                                data-eeg-select-target="card"
-                                data-action="eeg-select#selectCard"
-                                data-bkz="00BA23"
-                                data-eeg-id="e10c2146-c551-4e73-8515-573c30be6c7e"
-                                data-eeg-name="EEG Bad Vöslau-Flugfeld"
-                                class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600"
-                            >
-                                <span class="block text-sm font-semibold text-slate-900">EEG Bad Vöslau-Flugfeld</span>
-                                <span class="mt-1 block text-xs text-slate-500">Kennzahl 00BA23-…</span>
-                            </button>
-                        </div>
-
-                        <div class="mt-5">
-                            <label for="bkz-input" class="block text-sm text-slate-600">
-                                Nicht sicher? Geben Sie hier Ihre Beauskunftungskennzahl ein:
-                            </label>
-                            <div class="mt-2 flex flex-wrap gap-2">
-                                <input
-                                    id="bkz-input"
-                                    type="text"
-                                    placeholder="00BA…"
-                                    data-eeg-select-target="input"
-                                    data-action="keydown->eeg-select#keydown"
-                                    class="min-w-[200px] flex-1 rounded-xl border border-slate-300 px-3 py-2 text-base focus:border-green-600 focus:outline-none focus:ring-2 focus:ring-green-600"
-                                />
-                                <button
-                                    type="button"
-                                    data-action="eeg-select#checkBkz"
-                                    class="rounded-xl bg-green-700 px-5 py-2 text-sm font-semibold text-white transition hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
-                                >
-                                    Prüfen
-                                </button>
-                            </div>
-                            <p class="mt-2 text-xs text-slate-500">
-                                Kennzahl unbekannt? Mit Ihrer Zählernummer
-                                <a
-                                    href="https://www.wienernetze.at/beauskunftungskennzahl-abfragen"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="font-medium text-green-700 hover:text-green-800"
-                                >hier bei den Wiener Netzen abfragen</a>.
-                            </p>
-                            <p data-eeg-select-target="message" class="mt-2 text-sm" hidden></p>
-                        </div>
-
-                        <div class="mt-8" data-eeg-select-target="form" hidden>
-                            <p class="text-sm font-semibold text-slate-700">
-                                Schritt 2: Beitrittsantrag ausfüllen — <span data-eeg-select-target="name"></span>
-                            </p>
-
-                            <div class="mt-3 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                                <iframe
-                                    data-eeg-select-target="frame"
-                                    src=""
-                                    title="Beitrittsantrag zur Energiegemeinschaft"
-                                    loading="lazy"
-                                    class="block h-[900px] w-full border-0"
-                                    referrerpolicy="strict-origin-when-cross-origin"
-                                ></iframe>
-                            </div>
-
-                            <p class="mt-4 text-sm leading-6 text-slate-500">
-                                Falls das Formular in Ihrem Browser nicht angezeigt wird, können Sie den
-                                <a
-                                    data-eeg-select-target="link"
-                                    href="#"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="font-medium text-green-700 hover:text-green-800"
-                                >Beitrittsantrag in einem neuen Fenster öffnen</a>.
-                            </p>
-                        </div>
                     </div>
                 </div>
 

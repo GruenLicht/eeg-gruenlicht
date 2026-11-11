@@ -203,26 +203,25 @@ function initializeServiceTabs() {
     })
 }
 
-// Wählt bei "#beitritt-00BA21" die passende Energiegemeinschaft vor, indem die
-// zugehörige Karte geklickt wird. Die Karte trägt die Zuordnung (BKZ -> Onboarding)
-// bereits als data-Attribute, daher wird die Logik des eeg-select-Controllers
-// unverändert wiederverwendet. Rückgabe: true, wenn eine Karte gewählt wurde.
-function selectEegCardFromSuffix(container, suffix) {
+// Direktlinks wie "#beitritt-00BA21" (z. B. aus Flyern oder QR-Codes) führen
+// direkt zum Beitrittsformular. Seit alle neuen Mitglieder in die EEG Bad Vöslau
+// aufgenommen werden, gibt es nur noch ein Formular — jeder Zusatz nach
+// "#beitritt-" landet dort. Rückgabe: true, wenn zum Formular gescrollt wird.
+function scrollToBeitrittsformular(container, suffix) {
     if (!suffix) {
         return false
     }
 
-    const normalized = suffix.trim().toUpperCase()
-    const cards = Array.from(container.querySelectorAll("[data-bkz]"))
-    const card = cards.find((c) => normalized.indexOf(c.dataset.bkz) === 0)
+    const form = container.querySelector("#beitrittsformular")
 
-    if (!card) {
+    if (!form) {
         return false
     }
 
-    // Ein Frame warten, damit das Panel sichtbar ist und der Stimulus-Controller
-    // verbunden ist, bevor der Klick das Formular lädt und dorthin scrollt.
-    window.requestAnimationFrame(() => card.click())
+    // Ein Frame warten, damit das Panel sichtbar ist, bevor gescrollt wird.
+    window.requestAnimationFrame(() => {
+        form.scrollIntoView({ behavior: "smooth", block: "start" })
+    })
 
     return true
 }
@@ -246,9 +245,8 @@ function openServiceTabFromHash() {
         return
     }
 
-    // Direktlink auf ein bestimmtes Beitrittsformular (z. B. "#beitritt-00BA21"):
-    // Karte vorwählen und zu Schritt 2 scrollen. Der Klick übernimmt das Scrollen.
-    if (parsed.tab === "beitritt" && selectEegCardFromSuffix(container, parsed.suffix)) {
+    // Direktlink mit Kennzahl (z. B. "#beitritt-00BA21"): direkt zum Formular.
+    if (parsed.tab === "beitritt" && scrollToBeitrittsformular(container, parsed.suffix)) {
         return
     }
 
