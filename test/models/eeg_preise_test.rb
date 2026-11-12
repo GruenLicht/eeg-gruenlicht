@@ -71,13 +71,28 @@ class EegPreiseTest < ActiveSupport::TestCase
     assert_equal [ Date.new(2026, 1, 1) ], g.historie.map(&:von)
   end
 
-  test "default nach dem letzten Tarifeintrag ist noch nicht festgelegt" do
+  test "nach dem letzten Tarifeintrag gilt der letzte Tarif weiter, ein default wird nie gezeigt" do
     stub_fetcher(antwort(bad_voeslau))
 
     g = EegPreise.current.gemeinschaften.first
 
     assert_empty g.kuenftig
-    assert_equal Date.new(2027, 1, 1), g.offen_ab
+    assert_equal Date.new(2026, 7, 1), g.aktuell.von
+    assert_nil g.aktuell.bis
+    refute g.anzeige.any? { |z| z.einspeisung.zero? }
+  end
+
+  test "gleiche Preise hintereinander werden zusammengefasst" do
+    eeg = bad_voeslau
+    eeg["upcoming"] = [ zeitraum("2027-01-01", nil, 11, 11) ]
+    stub_fetcher(antwort(eeg))
+
+    g = EegPreise.current.gemeinschaften.first
+
+    assert_empty g.kuenftig
+    assert_equal Date.new(2026, 7, 1), g.aktuell.von
+    assert_nil g.aktuell.bis
+    assert_equal 2, g.anzeige.size
   end
 
   test "default zwischen zwei Tarifeinträgen ist ein echter Preis" do
@@ -96,7 +111,8 @@ class EegPreiseTest < ActiveSupport::TestCase
 
     assert_equal [ Date.new(2027, 1, 1), Date.new(2027, 4, 1) ], g.kuenftig.map(&:von)
     assert_equal BigDecimal("9.3"), g.kuenftig.last.bezug
-    assert_equal Date.new(2028, 1, 1), g.offen_ab
+    assert_nil g.kuenftig.last.bis
+    assert_equal Date.new(2026, 12, 31), g.aktuell.bis
   end
 
   test "der aktuelle Zeitraum folgt dem heutigen Datum, auch bei einem älteren Stand" do
@@ -105,9 +121,9 @@ class EegPreiseTest < ActiveSupport::TestCase
     travel_to Time.zone.local(2027, 1, 2, 12) do
       g = EegPreise.current.gemeinschaften.first
 
-      assert_nil g.aktuell
-      assert_equal Date.new(2027, 1, 1), g.offen_ab
-      assert_equal [ Date.new(2026, 7, 1), Date.new(2026, 1, 1) ], g.historie.map(&:von)
+      assert_equal Date.new(2026, 7, 1), g.aktuell.von
+      assert_equal 11, g.aktuell.bezug
+      assert_equal [ Date.new(2026, 1, 1) ], g.historie.map(&:von)
     end
   end
 

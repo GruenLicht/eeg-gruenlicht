@@ -17,12 +17,15 @@ require "json"
 # (rails eeg_preise:snapshot). Eine leere Stelle gibt es also nie. Nach einem
 # Fehler folgt ein neuer Versuch frühestens nach 2 min.
 #
-# Anzeige-Regel (Teil des Vertrags mit der Abrechnung): Ein Zeitraum mit
-# source "default" NACH dem letzten Tarifeintrag ist „noch nicht festgelegt“
-# und wird nicht als Preis gezeigt; ein "default" zwischen zwei Einträgen ist
-# ein echter Preis. Welcher Zeitraum aktuell ist, rechnen wir selbst aus dem
-# heutigen Datum (Europe/Vienna) — so stimmt die Zuordnung auch dann, wenn
-# gerade nur ein älterer Stand vorliegt.
+# Anzeige-Regeln:
+# - Ein "default" zwischen zwei Tarifeinträgen ist ein echter Preis.
+# - Ein "default" NACH dem letzten Tarifeintrag wird nie als Preis gezeigt.
+#   Entscheidung Christoph (12.11.2026): Die Website sagt dann nicht „noch nicht
+#   festgelegt“, sondern der letzte Tarif gilt weiter („seit …“, ohne Ende).
+# - Aufeinanderfolgende Zeiträume mit gleichen Preisen werden zusammengefasst
+#   (z.B. Jahrestarif 2026 und 2027 mit je 11 ct -> „seit 1. Juli 2026“).
+# Welcher Zeitraum aktuell ist, rechnen wir selbst aus dem heutigen Datum
+# (Europe/Vienna) — so stimmt die Zuordnung auch mit einem älteren Stand.
 class EegPreise
   DEFAULT_URL = "https://abrechnung.eeg-gruenlicht.at/api/v1/public/prices".freeze
   SNAPSHOT_PATH = Rails.root.join("config", "eeg_preise.json")
@@ -42,10 +45,14 @@ class EegPreise
   }.freeze
 
   # Preise in ct/kWh. bezug = Bezugspreis brutto (für Haushalte maßgeblich),
-  # bezug_netto = netto, einspeisung = Einspeisepreis (netto).
+  # bezug_netto = netto, einspeisung = Einspeisepreis.
   Zeitraum = Struct.new(:von, :bis, :bezug, :bezug_netto, :einspeisung, :quelle, :festgelegt, keyword_init: true) do
     def festgelegt?
       festgelegt
+    end
+
+    def gleicher_preis?(other)
+      [ bezug, bezug_netto, einspeisung ] == [ other.bezug, other.bezug_netto, other.einspeisung ]
     end
 
     def gilt_am?(datum)
@@ -63,25 +70,36 @@ class EegPreise
       ANKER.fetch(rc_number) { rc_number.to_s.downcase.presence || eeg_id }
     end
 
-    # Der heute gültige Zeitraum — nur, wenn sein Preis festgelegt ist.
+    # Zeiträume für die Anzeige, chronologisch: nur festgelegte Preise,
+    # gleiche Preise zusammengefasst, der letzte Tarif ohne Ende.
+    def anzeige
+      @anzeige ||= begin
+        liste = zeitraeume.select(&:festgelegt?).map(&:dup).each_with_object([]) do |z, ergebnis|
+          vorher = ergebnis.last
+          if vorher&.bis && vorher.bis + 1 == z.von && vorher.gleicher_preis?(z)
+            vorher.bis = z.bis
+          else
+            ergebnis << z
+          end
+        end
+        liste.last.bis = nil if liste.any?
+        liste
+      end
+    end
+
+    # Der heute gültige Zeitraum.
     def aktuell
-      zeitraum = zeitraeume.find { |z| z.gilt_am?(heute) }
-      zeitraum if zeitraum&.festgelegt?
+      anzeige.find { |z| z.gilt_am?(heute) }
     end
 
-    # Ab wann der Preis noch nicht festgelegt ist (oder nil).
-    def offen_ab
-      zeitraeume.find { |z| !z.festgelegt? && (z.bis.nil? || z.bis >= heute) }&.von
-    end
-
-    # Festgelegte künftige Preise, der nächste zuerst.
+    # Beschlossene künftige Preise, der nächste zuerst.
     def kuenftig
-      zeitraeume.select { |z| z.festgelegt? && z.von > heute }
+      anzeige.select { |z| z.von > heute }
     end
 
     # Vergangene Preise, der jüngste zuerst.
     def historie
-      zeitraeume.select { |z| z.festgelegt? && z.bis && z.bis < heute }.reverse
+      anzeige.select { |z| z.bis && z.bis < heute }.reverse
     end
 
     def ust_frei?
@@ -179,11 +197,9 @@ class EegPreise
       data = JSON.parse(body)
       return nil unless data.is_a?(Hash) && data["schema_version"] == SCHEMA_VERSION
 
-      gemeinschaften = Array(data["communities"]).reject { |c| c["demo"] }
-      return nil if gemeinschaften.empty?
-
       # Probeweise aufbauen: wirft bei fehlenden oder kaputten Feldern.
-      build(data, quelle: :api)
+      return nil if build(data, quelle: :api).gemeinschaften.empty?
+
       data
     rescue JSON::ParserError, TypeError, ArgumentError, NoMethodError, KeyError
       nil
@@ -201,6 +217,7 @@ class EegPreise
       gemeinschaften = Array(data.fetch("communities"))
                          .reject { |c| c["demo"] }
                          .map { |c| gemeinschaft(c, datum) }
+                         .select { |g| g.anzeige.any? }
       erzeugt_am = data["generated_at"].presence && Time.zone.parse(data["generated_at"])&.in_time_zone(ZEITZONE)
       Stand.new(gemeinschaften: gemeinschaften, erzeugt_am: erzeugt_am, quelle: quelle)
     end

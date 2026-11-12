@@ -174,7 +174,6 @@
                                 <% if (aenderungen = preisaenderungen).any? %>
                                     Bereits beschlossen: <%= aenderungen.join("; ") %>.
                                 <% end %>
-                                <%= offene_preise_satz %>
                                 Den aktuellen und alle bisherigen Preise finden Sie auf der Seite
                                 <%= link_to "Preise", preise_path, class: "font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:text-green-800" %>.
                             </p>
@@ -391,7 +390,7 @@
                                         Für Überschusseinspeiser:innen. Ihre Anlage bleibt vollständig in Ihrem Eigentum,
                                         Ihr Eigenverbrauch bleibt unberührt — die EEG darf lediglich den ins Netz
                                         eingespeisten Überschuss innerhalb der Gemeinschaft zuweisen und vergütet ihn mit dem
-                                        jeweils gültigen Einspeisepreis (derzeit <%= einspeisepreis_kurz %>). Die Vereinbarung läuft fünf Jahre und ist mit drei Monaten zum
+                                        jeweils gültigen Einspeisepreis (derzeit <%= einspeisepreis_kurz %> <%= PreiseHelper::EINSPEISUNG_UST %>). Die Vereinbarung läuft fünf Jahre und ist mit drei Monaten zum
                                         Monatsletzten ordentlich kündbar.
                                     </p>
                                 </div>

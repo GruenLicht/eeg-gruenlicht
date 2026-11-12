@@ -43,12 +43,14 @@ class PreiseTest < ActionDispatch::IntegrationTest
     %w[bad-voeslau flugfeld voeslau-sooss].each do |anker|
       assert_includes response.body, %(id="preise-#{anker}")
     end
-    assert_includes body, "Aktueller Preis, gültig 1. Juli bis 31. Dezember 2026"
-    assert_includes body, "Aktueller Preis, gültig 1. Juni bis 31. Dezember 2026"
-    assert_includes body, "1. Jänner bis 30. Juni 2026 12 ct/kWh USt-frei 12 ct/kWh netto Historisch"
-    assert_includes body, "1. Mai bis 30. Juni 2026 12 ct/kWh USt-frei 12 ct/kWh netto Historisch"
-    assert_includes body, "ab 1. Jänner 2027 noch nicht festgelegt"
+    assert_includes body, "Aktueller Preis, gültig seit 1. Juli 2026"
+    assert_includes body, "Aktueller Preis, gültig seit 1. Juni 2026"
+    assert_includes body, "Einspeisepreis 11 ct/kWh inkl. allfälliger USt"
+    assert_includes body, "1. Mai bis 30. Juni 2026 12 ct/kWh USt-frei 12 ct/kWh inkl. allfälliger USt Historisch"
     assert_includes body, "steuerbefreit gem. § 6 Abs. 1 Z 27 UStG"
+    refute_includes body, "festgelegt"
+    refute_includes body, "2027"
+    refute_includes body, "netto"
     refute_includes body, "Demo"
     refute_includes body, "Messstellengebühr"
   end
@@ -72,9 +74,10 @@ class PreiseTest < ActionDispatch::IntegrationTest
     assert_includes response.body, %(<meta name="description" content="EEG Grünes Licht Bad Vöslau: regionale Energiegemeinschaft mit 11 ct/kWh USt-frei)
     assert_includes body, "11 ct/kWh USt-frei (für Einspeiser/Abnehmer gleich)"
     assert_includes body, "derselbe Energiepreis: 11 ct/kWh USt-frei"
-    assert_includes body, "Mit diesem Preis erstellt die Abrechnung der EEG die Rechnungen. Der Preis ab 1. Jänner 2027 ist noch nicht festgelegt."
+    assert_includes body, "Mit diesem Preis erstellt die Abrechnung der EEG die Rechnungen. Den aktuellen"
+    refute_includes body, "noch nicht festgelegt"
     assert_includes body, "Regelt die Teilnahme mit Ihrem Verbrauchszählpunkt: der jeweils gültige Energiepreis (derzeit 11 ct/kWh USt-frei)"
-    assert_includes body, "vergütet ihn mit dem jeweils gültigen Einspeisepreis (derzeit 11 ct/kWh)"
+    assert_includes body, "vergütet ihn mit dem jeweils gültigen Einspeisepreis (derzeit 11 ct/kWh inkl. allfälliger USt)"
     assert_includes response.body, %(id="faq-gesamtkosten")
     assert_includes body, "Was kostet mich eine kWh aus der Energiegemeinschaft insgesamt?"
     assert_includes body, "20 × 11 ct = 2,20 €"
@@ -103,8 +106,9 @@ class PreiseTest < ActionDispatch::IntegrationTest
 
     get preise_path, headers: BROWSER_HEADERS
     body = text(response.body)
-    assert_includes body, "1. Jänner bis 31. Dezember 2027 10,5 ct/kWh USt-frei 10,5 ct/kWh netto Beschlossen"
-    assert_includes body, "ab 1. Jänner 2028 noch nicht festgelegt"
+    assert_includes body, "ab 1. Jänner 2027 10,5 ct/kWh USt-frei 10,5 ct/kWh inkl. allfälliger USt Beschlossen"
+    assert_includes body, "1. Juli bis 31. Dezember 2026 11 ct/kWh"
+    refute_includes body, "2028"
 
     get root_path, headers: BROWSER_HEADERS
     assert_includes text(response.body), "Bereits beschlossen: ab 1. Jänner 2027 in der EEG Grünes Licht Bad Vöslau: Bezug 10,5 ct/kWh"
@@ -122,17 +126,37 @@ class PreiseTest < ActionDispatch::IntegrationTest
     assert_includes text(response.body), "derselbe Energiepreis: 11 ct/kWh USt-frei"
   end
 
-  test "ohne festgelegten Preis steht ein Hinweis statt einer leeren Stelle" do
+  test "nach dem letzten Tarif gilt der Preis weiter, nie „noch nicht festgelegt“" do
     EegPreise.fetcher = -> { nil }
 
     travel_to Time.zone.local(2027, 1, 5, 12) do
       get preise_path, headers: BROWSER_HEADERS
-      assert_includes text(response.body), "Der Preis ab 1. Jänner 2027 ist noch nicht festgelegt."
+      body = text(response.body)
+      assert_includes body, "Aktueller Preis, gültig seit 1. Juli 2026 Bezugspreis 11 ct/kWh USt-frei"
+      refute_includes body, "festgelegt"
 
       get root_path, headers: BROWSER_HEADERS
       assert_response :success
-      assert_includes text(response.body), "noch nicht festgelegt"
+      body = text(response.body)
+      assert_includes body, "derselbe Energiepreis: 11 ct/kWh USt-frei"
+      refute_includes body, "festgelegt"
     end
+  end
+
+  test "ein Tarif 2027 mit gleichem Preis erscheint nicht als Preisänderung" do
+    stub_preis(11, upcoming: [
+      { "valid_from" => "2027-01-01", "valid_to" => nil, "consumption_ct_per_kwh" => 11,
+        "consumption_ct_per_kwh_gross" => 11, "feed_in_ct_per_kwh" => 11, "source" => "tariff" }
+    ])
+
+    get preise_path, headers: BROWSER_HEADERS
+    body = text(response.body)
+    assert_includes body, "Aktueller Preis, gültig seit 1. Juli 2026"
+    refute_includes body, "2027"
+    refute_includes body, "Beschlossen"
+
+    get root_path, headers: BROWSER_HEADERS
+    refute_includes text(response.body), "Bereits beschlossen"
   end
 
   test "/preise steht in der Sitemap" do
