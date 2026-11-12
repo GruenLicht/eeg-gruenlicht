@@ -1,5 +1,5 @@
 <% content_for :title, "Regionale Energiegemeinschaft in Bad Vöslau" %>
-<% content_for :meta_description, "EEG Grünes Licht Bad Vöslau: regionale Energiegemeinschaft mit 11 ct/kWh USt-frei, reduzierten Netzentgelten beim Bezug innerhalb der EEG, keiner Mitgliedsgebühr und monatlicher Abrechnung." %>
+<% content_for :meta_description, "EEG Grünes Licht Bad Vöslau: regionale Energiegemeinschaft mit #{energiepreis_kurz}, reduzierten Netzentgelten beim Bezug innerhalb der EEG, keiner Mitgliedsgebühr und monatlicher Abrechnung." %>
 <% content_for :canonical_path, root_path %>
 <% content_for :og_type, "website" %>
 
@@ -64,12 +64,14 @@
 
         <div class="mt-1 space-y-1">
             <p class="text-base font-semibold text-slate-900">
-                <%= link_to "11 ct/kWh USt-frei",
+                <%= link_to energiepreis_kurz,
                     preise_path,
                     class: "cursor-pointer font-semibold text-slate-900 no-underline hover:underline hover:decoration-slate-500 hover:underline-offset-4" %>
-                <span class="ml-1 text-sm font-normal text-slate-500">
-                    (für Einspeiser/Abnehmer gleich)
-                </span>
+                <% if eeg_preise.gleicher_preis_fuer_bezug_und_einspeisung? %>
+                    <span class="ml-1 text-sm font-normal text-slate-500">
+                        (für Einspeiser/Abnehmer gleich)
+                    </span>
+                <% end %>
             </p>
             <p class="text-base font-semibold text-slate-900">
                 reduzierte Netzentgelte

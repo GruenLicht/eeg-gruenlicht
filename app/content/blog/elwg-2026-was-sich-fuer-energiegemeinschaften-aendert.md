@@ -1,7 +1,7 @@
 ---
 title: "Das neue ElWG ist da: Was sich für unsere Energiegemeinschaft ändert"
 date: 2026-10-01
-updated: 2026-11-11
+updated: 2026-11-12
 author: Christoph Fabianek
 category: Recht & Regeln
 summary: "Seit 1. Oktober 2026 gilt das neue Elektrizitätswirtschaftsgesetz. Für Mitglieder unserer EEGs ändert sich im Alltag wenig — rundherum aber einiges. Ein Überblick, was neu ist, was bleibt und was noch offen ist."
@@ -10,7 +10,7 @@ draft: false
 
 Mit 1. Oktober 2026 sind die neuen Regeln zur **gemeinsamen Energienutzung** im Elektrizitätswirtschaftsgesetz (ElWG) in Kraft getreten. Das ElWG löst das bisherige Elektrizitätswirtschafts- und -organisationsgesetz (ElWOG 2010) ab und fasst viele Regeln, die bisher im Erneuerbaren-Ausbau-Gesetz (EAG) standen, neu zusammen.
 
-Die gute Nachricht vorweg: **Für Sie als Mitglied ändert sich im Alltag praktisch nichts.** Ihr Vertrag läuft weiter, der Preis von 11 ct/kWh USt-frei bleibt, die Aufteilung nach Viertelstunden ebenfalls — und einen Lieferantenwechsel brauchen Sie weiterhin nicht.
+Die gute Nachricht vorweg: **Für Sie als Mitglied ändert sich im Alltag praktisch nichts.** Ihr Vertrag läuft weiter, am Energiepreis ändert das Gesetz nichts (Stand 1. Oktober 2026: 11 ct/kWh USt-frei; die aktuellen Preise stehen unter [Preise](/preise)), die Aufteilung nach Viertelstunden bleibt ebenfalls — und einen Lieferantenwechsel brauchen Sie weiterhin nicht.
 
 ## Was bleibt gleich?
 

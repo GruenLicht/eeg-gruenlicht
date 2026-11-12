@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-12T10:59:09+01:00",
+  "communities": [
+    {
+      "eeg_id": "437a846f-a56f-4f35-86b0-0ff31041b915",
+      "rc_number": "RC107602",
+      "name": "EEG Grünes Licht Bad Vöslau",
+      "display_name": "EEG Grünes Licht Bad Vöslau",
+      "community_type": "EEG",
+      "demo": false,
+      "currency": "EUR",
+      "tariff_name": "Jahrestarif 2026",
+      "vat": {
+        "rate_percent": 0,
+        "note": "USt. (0 %, steuerbefreit gem. § 6 Abs. 1 Z 27 UStG)",
+        "feed_in_note": "Einspeisepreise netto; die USt. auf die Gutschrift hängt vom Mitglied ab (Privatperson 0 %, pauschalierte Landwirtschaft 13 %, Unternehmen mit UID Reverse Charge)"
+      },
+      "current": {
+        "valid_from": "2026-07-01",
+        "valid_to": "2026-12-31",
+        "starts_at": "2026-07-01T00:00:00Z",
+        "ends_before": "2027-01-01T00:00:00Z",
+        "consumption_ct_per_kwh": 11,
+        "consumption_ct_per_kwh_gross": 11,
+        "feed_in_ct_per_kwh": 11,
+        "source": "tariff"
+      },
+      "upcoming": [
+        {
+          "valid_from": "2027-01-01",
+          "valid_to": null,
+          "starts_at": "2027-01-01T00:00:00Z",
+          "ends_before": null,
+          "consumption_ct_per_kwh": 12,
+          "consumption_ct_per_kwh_gross": 12,
+          "feed_in_ct_per_kwh": 0,
+          "source": "default"
+        }
+      ],
+      "history": [
+        {
+          "valid_from": "2026-01-01",
+          "valid_to": "2026-06-30",
+          "starts_at": "2026-01-01T00:00:00Z",
+          "ends_before": "2026-07-01T00:00:00Z",
+          "consumption_ct_per_kwh": 12,
+          "consumption_ct_per_kwh_gross": 12,
+          "feed_in_ct_per_kwh": 12,
+          "source": "tariff"
+        }
+      ],
+      "discount_percent": 0,
+      "free_kwh_per_invoice": 0,
+      "fees": []
+    },
+    {
+      "eeg_id": "e10c2146-c551-4e73-8515-573c30be6c7e",
+      "rc_number": "RC108113",
+      "name": "EEG Grünes Licht Bad Vöslau-Flugfeld",
+      "display_name": "EEG Grünes Licht Bad Vöslau-Flugfeld",
+      "community_type": "EEG",
+      "demo": false,
+      "currency": "EUR",
+      "tariff_name": "Jahrestarif 2026",
+      "vat": {
+        "rate_percent": 0,
+        "note": "USt. (0 %, steuerbefreit gem. § 6 Abs. 1 Z 27 UStG)",
+        "feed_in_note": "Einspeisepreise netto; die USt. auf die Gutschrift hängt vom Mitglied ab (Privatperson 0 %, pauschalierte Landwirtschaft 13 %, Unternehmen mit UID Reverse Charge)"
+      },
+      "current": {
+        "valid_from": "2026-07-01",
+        "valid_to": "2026-12-31",
+        "starts_at": "2026-07-01T00:00:00Z",
+        "ends_before": "2027-01-01T00:00:00Z",
+        "consumption_ct_per_kwh": 11,
+        "consumption_ct_per_kwh_gross": 11,
+        "feed_in_ct_per_kwh": 11,
+        "source": "tariff"
+      },
+      "upcoming": [
+        {
+          "valid_from": "2027-01-01",
+          "valid_to": null,
+          "starts_at": "2027-01-01T00:00:00Z",
+          "ends_before": null,
+          "consumption_ct_per_kwh": 0,
+          "consumption_ct_per_kwh_gross": 0,
+          "feed_in_ct_per_kwh": 0,
+          "source": "default"
+        }
+      ],
+      "history": [
+        {
+          "valid_from": "2026-05-01",
+          "valid_to": "2026-06-30",
+          "starts_at": "2026-05-01T00:00:00Z",
+          "ends_before": "2026-07-01T00:00:00Z",
+          "consumption_ct_per_kwh": 12,
+          "consumption_ct_per_kwh_gross": 12,
+          "feed_in_ct_per_kwh": 12,
+          "source": "tariff"
+        }
+      ],
+      "discount_percent": 0,
+      "free_kwh_per_invoice": 0,
+      "fees": []
+    },
+    {
+      "eeg_id": "cb81cc8e-a2a3-4660-b4cc-067c15d9b277",
+      "rc_number": "RC108354",
+      "name": "EEG Grünes Licht Bad Vöslau/Sooß",
+      "display_name": "EEG Grünes Licht Bad Vöslau/Sooß",
+      "community_type": "EEG",
+      "demo": false,
+      "currency": "EUR",
+      "tariff_name": "Jahrestarif 2026",
+      "vat": {
+        "rate_percent": 0,
+        "note": "USt. (0 %, steuerbefreit gem. § 6 Abs. 1 Z 27 UStG)",
+        "feed_in_note": "Einspeisepreise netto; die USt. auf die Gutschrift hängt vom Mitglied ab (Privatperson 0 %, pauschalierte Landwirtschaft 13 %, Unternehmen mit UID Reverse Charge)"
+      },
+      "current": {
+        "valid_from": "2026-06-01",
+        "valid_to": "2026-12-31",
+        "starts_at": "2026-06-01T00:00:00Z",
+        "ends_before": "2027-01-01T00:00:00Z",
+        "consumption_ct_per_kwh": 11,
+        "consumption_ct_per_kwh_gross": 11,
+        "feed_in_ct_per_kwh": 11,
+        "source": "tariff"
+      },
+      "upcoming": [
+        {
+          "valid_from": "2027-01-01",
+          "valid_to": null,
+          "starts_at": "2027-01-01T00:00:00Z",
+          "ends_before": null,
+          "consumption_ct_per_kwh": 0,
+          "consumption_ct_per_kwh_gross": 0,
+          "feed_in_ct_per_kwh": 0,
+          "source": "default"
+        }
+      ],
+      "history": [],
+      "discount_percent": 0,
+      "free_kwh_per_invoice": 0,
+      "fees": []
+    },
+    {
+      "eeg_id": "00000000-0000-0000-0000-000000000010",
+      "rc_number": "",
+      "name": "Demo Energiegemeinschaft",
+      "display_name": "Demo Energiegemeinschaft",
+      "community_type": "EEG",
+      "demo": true,
+      "currency": "EUR",
+      "tariff_name": "Standard 2024",
+      "vat": {
+        "rate_percent": 20,
+        "note": "USt. (20 %) auf Bezug",
+        "feed_in_note": "Einspeisepreise netto; die USt. auf die Gutschrift hängt vom Mitglied ab (Privatperson 0 %, pauschalierte Landwirtschaft 13 %, Unternehmen mit UID Reverse Charge)"
+      },
+      "current": {
+        "valid_from": "2024-01-01",
+        "valid_to": "2026-12-30",
+        "starts_at": "2024-01-01T00:00:00Z",
+        "ends_before": "2026-12-31T00:00:00Z",
+        "consumption_ct_per_kwh": 8.5,
+        "consumption_ct_per_kwh_gross": 10.2,
+        "feed_in_ct_per_kwh": 6,
+        "source": "tariff"
+      },
+      "upcoming": [
+        {
+          "valid_from": "2026-12-31",
+          "valid_to": null,
+          "starts_at": "2026-12-31T00:00:00Z",
+          "ends_before": null,
+          "consumption_ct_per_kwh": 8.5,
+          "consumption_ct_per_kwh_gross": 10.2,
+          "feed_in_ct_per_kwh": 6,
+          "source": "default"
+        }
+      ],
+      "history": [],
+      "discount_percent": 0,
+      "free_kwh_per_invoice": 0,
+      "fees": [
+        {
+          "key": "meter_fee",
+          "name": "Messstellengebühr",
+          "amount": 2,
+          "unit": "EUR",
+          "per": "month",
+          "vat_rate_percent": 20
+        },
+        {
+          "key": "participation_fee",
+          "name": "Teilnahmegebühr",
+          "amount": 5,
+          "unit": "EUR",
+          "per": "month",
+          "vat_rate_percent": 20
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 ---
 title: "Netzentgelte 2027: Der EEG-Abschlag sinkt — was das für unsere Mitglieder heißt"
 date: 2026-11-06
+updated: 2026-11-12
 author: Christoph Fabianek
 category: Recht & Regeln
 summary: "Der Entwurf der Netztarife 2027 ist da. Für Strom aus der Energiegemeinschaft sinkt der Netzentgelt-Abschlag in unserem Regionalbereich von 28 auf 22 %. Wir rechnen vor, was das in Cent bedeutet, warum der Unterschied mittags im Sommer besonders klein wird — und was gleich bleibt."
@@ -68,7 +69,7 @@ Mittags im Sommer bringt EEG-Strom beim Netzentgelt also künftig kaum noch eine
 
 ## Was gleich bleibt
 
-- Der **Energiepreis** in der Gemeinschaft: 11 ct/kWh USt-frei, ohne Mitgliedsgebühr.
+- Der **Energiepreis** in der Gemeinschaft hängt nicht von den Netztarifen ab und wird von der EEG selbst beschlossen (Stand 6. November 2026: 11 ct/kWh USt-frei; die aktuellen und beschlossenen Preise stehen unter [Preise](/preise)). Eine Mitgliedsgebühr gibt es nicht.
 - Für EEG-Strom entfallen weiterhin **Elektrizitätsabgabe und Erneuerbaren-Förderbeitrag**.
 - Die **Abrechnung**: Die Netzentgelte verrechnet wie bisher Ihr Netzbetreiber, den Abschlag für den EEG-Anteil berücksichtigt er dabei. An unserer monatlichen Abrechnungsinformation ändert sich nichts.
 

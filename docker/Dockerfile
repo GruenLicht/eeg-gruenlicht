@@ -42,6 +42,10 @@ RUN bundle install && \
 # App kopieren
 COPY . .
 
+# Preise der EEG-Abrechnung als Rückfall ins Image übernehmen (config/eeg_preise.json).
+# Antwortet die Schnittstelle nicht, bleibt der Schnappschuss aus dem Repo; der Build bricht nicht ab.
+RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails eeg_preise:snapshot || true
+
 # Bootsnap / Assets
 RUN bundle exec bootsnap precompile app/ lib/
 

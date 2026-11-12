@@ -1,6 +1,7 @@
 ---
 title: "Die monatliche Abrechnungsinformation erklärt: Autarkie, Eigenverbrauch & Co."
 date: 2026-10-06
+updated: 2026-11-12
 author: Christoph Fabianek
 category: Abrechnung
 summary: "Einmal im Monat bekommen alle Mitglieder unsere Abrechnungsinformation. Wir zeigen Schritt für Schritt, was die Grafik darstellt, was hinter Autarkie und Eigenverbrauch steckt und wie Sie die Tabelle lesen."
@@ -55,7 +56,7 @@ Nicht verwechseln: Bei einer PV-Anlage meint „Eigenverbrauch" sonst den Anteil
 
 [![Kasten mit den Eckdaten: Energiegemeinschaft, Zeitraum, Zählpunkte, Summen und Preise](/blog-assets/abrechnung/anlage.png){: loading="lazy" .blog-medium}](/blog-assets/abrechnung/anlage.png){: target="_blank" rel="noopener"}
 
-Hier stehen Energiegemeinschaft, Abrechnungsdatum und -zeitraum sowie die Zahl der Zählpunkte (im Beispiel 11: 8 für Verbrauch, 3 für Erzeugung). Darunter die drei Summen des Monats in kWh und die Preise: 11 ct/kWh für eingespeisten und für bezogenen Strom, ohne Umsatzsteuer.
+Hier stehen Energiegemeinschaft, Abrechnungsdatum und -zeitraum sowie die Zahl der Zählpunkte (im Beispiel 11: 8 für Verbrauch, 3 für Erzeugung). Darunter die drei Summen des Monats in kWh und die Preise des Abrechnungsmonats, im Beispiel 11 ct/kWh für eingespeisten und für bezogenen Strom, ohne Umsatzsteuer. Die aktuellen Preise stehen unter [Preise](/preise).
 
 ## Die Tabelle: eine Zeile pro Mitglied
 
@@ -65,7 +66,7 @@ Mit eigener Zeile erscheinen nur Mitglieder, die der [Detaildarstellung](/blog/g
 
 - **ID und Typ:** Mitgliedsnummer; „Verbraucher" beziehen nur, „Prosumer" speisen auch ein.
 - **Bezug aus EG / Einspeisung:** Ihre geteilten kWh im Monat.
-- **Verrechnung:** Bezug mal 11 ct minus Einspeisung mal 11 ct. Ein **Plus** heißt, Sie zahlen — etwa 236,85 kWh × 11 ct = 26,05 €. Ein **Minus** (rot) heißt, Sie bekommen Geld — Mitglied 0002 hat 448,08 kWh eingespeist und 20,97 kWh bezogen und erhält 46,98 €.
+- **Verrechnung:** Bezug mal Bezugspreis minus Einspeisung mal Einspeisepreis, im Beispiel je 11 ct. Ein **Plus** heißt, Sie zahlen — etwa 236,85 kWh × 11 ct = 26,05 €. Ein **Minus** (rot) heißt, Sie bekommen Geld — Mitglied 0002 hat 448,08 kWh eingespeist und 20,97 kWh bezogen und erhält 46,98 €.
 - **EEG-Deckung:** Ihre persönliche Autarkie, also der Anteil Ihres Verbrauchs aus der Gemeinschaft.
 - **CO₂-Ersparnis:** die rechnerische Einsparung durch den bezogenen EEG-Strom. Wie wir sie berechnen, erklären wir in einem [eigenen Beitrag](/blog/co2-einsparung-in-der-eeg).
 - **Anteil an EG:** Ihr Anteil am gesamten Austausch des Monats, Bezug und Einspeisung zusammen.

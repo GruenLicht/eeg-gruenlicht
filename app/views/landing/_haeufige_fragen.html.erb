@@ -157,9 +157,26 @@
                         </summary>
 
                         <div class="mt-4 border-t border-slate-200 pt-4 text-sm leading-7 text-slate-600">
-                            <p>
-                                Innerhalb unserer EEG gilt für Einspeiser:innen und Bezieher:innen derselbe Energiepreis: <strong>11 ct/kWh USt-frei</strong>.
-                                Damit ist die Preisgestaltung einfach, transparent und für alle Beteiligten nachvollziehbar.
+                            <% if eeg_preise.gleicher_preis_fuer_bezug_und_einspeisung? %>
+                                <p>
+                                    Innerhalb unserer EEG gilt für Einspeiser:innen und Bezieher:innen derselbe Energiepreis: <strong><%= energiepreis_kurz %></strong>.
+                                    Damit ist die Preisgestaltung einfach, transparent und für alle Beteiligten nachvollziehbar.
+                                </p>
+                            <% else %>
+                                <p>
+                                    Innerhalb unserer EEG gilt derzeit ein Bezugspreis von <strong><%= bezugspreis_kurz %></strong>
+                                    und ein Einspeisepreis von <strong><%= einspeisepreis_kurz %></strong>.
+                                </p>
+                            <% end %>
+
+                            <p class="mt-4">
+                                Mit diesem Preis erstellt die Abrechnung der EEG die Rechnungen.
+                                <% if (aenderungen = preisaenderungen).any? %>
+                                    Bereits beschlossen: <%= aenderungen.join("; ") %>.
+                                <% end %>
+                                <%= offene_preise_satz %>
+                                Den aktuellen und alle bisherigen Preise finden Sie auf der Seite
+                                <%= link_to "Preise", preise_path, class: "font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:text-green-800" %>.
                             </p>
 
                             <p class="mt-4">
@@ -191,7 +208,7 @@
                             </p>
 
                             <p class="mt-4">
-                                Die Höhe der Reduktion hängt von der jeweiligen Netzebene ab. Unsere EEG liegt im <em>Regionalbereich</em>; dort sinkt der Arbeitspreis für das Netznutzungsentgelt derzeit um <strong>28&nbsp;%</strong>.
+                                Die Höhe der Reduktion hängt von der jeweiligen Netzebene ab. Unsere EEG liegt im <em>Regionalbereich</em>; dort sinkt der Arbeitspreis für das Netznutzungsentgelt <strong><%= netz_ermaessigung_text %></strong>.
                             </p>
 
                             <p class="mt-4">
@@ -201,6 +218,64 @@
                             <p class="mt-4">
                                 Details zu den reduzierten Netzentgelten finden Sie bei der
                                 <a href="https://www.e-control.at/gewerbe-newsletter-2/2021/-/asset_publisher/TdM8ACFVYDEA/content/vorteil-fur-erneuerbare-energie-gemeinschaften-ortsnetztarife" target="_blank" rel="noopener noreferrer" class="font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:text-green-800">E-Control</a>. Weitere Informationen zu Netzebenen, der Grafik zu Energiegemeinschaften und der Nahbereichsabfrage finden Sie auf der Seite der <a href="https://energiegemeinschaften.gv.at/erneuerbare-energie-gemeinschaften-eeg/" target="_blank" rel="noopener noreferrer" class="font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:text-green-800">Österreichischen Koordinationsstelle für Energiegemeinschaften</a>.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details id="faq-gesamtkosten" class="group scroll-mt-28 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 shadow-sm">
+                        <summary class="disclosure-summary flex items-center justify-between gap-4 text-left">
+                            <h3 class="text-base font-semibold text-slate-900">
+                                Was kostet mich eine kWh aus der Energiegemeinschaft insgesamt?
+                            </h3>
+
+                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-lg font-medium text-green-700 transition group-open:rotate-45">
+                                +
+                            </span>
+                        </summary>
+
+                        <div class="mt-4 border-t border-slate-200 pt-4 text-sm leading-7 text-slate-600">
+                            <p>
+                                Eine kWh aus der Energiegemeinschaft setzt sich aus zwei Teilen zusammen:
+                            </p>
+
+                            <ul class="mt-3 list-disc space-y-2 pl-5">
+                                <li>
+                                    <strong>Energiepreis der EEG:</strong> derzeit <strong><%= bezugspreis_kurz %></strong>. Ihn verrechnet die EEG
+                                    mit der monatlichen Abrechnung.
+                                    <% gemeinschaften = eeg_preise.mit_aktuellem_preis %>
+                                    <% if eeg_preise.bezugspreise.size == 1 && gemeinschaften.any? %>
+                                        <% g = gemeinschaften.first %>
+                                        Beispiel: Beziehen Sie in einem Monat <%= PreiseHelper::BEISPIEL_KWH %>&nbsp;kWh aus der Gemeinschaft, sind das
+                                        <%= PreiseHelper::BEISPIEL_KWH %> × <%= preis_zahl(g.aktuell.bezug) %>&nbsp;ct = <strong><%= euro(PreiseHelper::BEISPIEL_KWH * g.aktuell.bezug / 100) %></strong>.
+                                    <% elsif gemeinschaften.any? %>
+                                        Beispiel für <%= PreiseHelper::BEISPIEL_KWH %>&nbsp;kWh in einem Monat:
+                                        <%= safe_join(gemeinschaften.map { |g| "#{g.name}: #{PreiseHelper::BEISPIEL_KWH} × #{preis_zahl(g.aktuell.bezug)} ct = #{euro(PreiseHelper::BEISPIEL_KWH * g.aktuell.bezug / 100)}" }, "; ") %>.
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <strong>Netzentgelt mit ermäßigtem Arbeitspreis:</strong> Für Strom aus der Gemeinschaft ist der
+                                    Arbeitspreis des Netznutzungsentgelts im Regionalbereich, in dem unsere EEGs liegen, niedriger:
+                                    <%= netz_ermaessigung_text %>. Elektrizitätsabgabe und Erneuerbaren-Förderbeitrag entfallen
+                                    für diesen Strom. Das Netzentgelt verrechnet wie gewohnt Ihr Netzbetreiber
+                                    bzw. Stromlieferant, nicht die EEG.
+                                </li>
+                            </ul>
+
+                            <p class="mt-4">
+                                Den Rest Ihres Verbrauchs liefert wie bisher Ihr Stromlieferant zu seinem Preis.
+                            </p>
+
+                            <p class="mt-4">
+                                Wie viel aus der Gemeinschaft kommt, wird je Viertelstunde ermittelt. Begrenzt ist es durch Ihren
+                                eigenen Verbrauch in dieser Viertelstunde und durch die Erzeugung, die in der Gemeinschaft gerade
+                                verfügbar ist. Verbrauchen Sie etwa in einer Viertelstunde 0,5&nbsp;kWh und kann Ihnen die Gemeinschaft
+                                0,3&nbsp;kWh zuteilen, kommen 0,3&nbsp;kWh aus der EEG und 0,2&nbsp;kWh von Ihrem Stromlieferanten.
+                            </p>
+
+                            <p class="mt-4">
+                                Alle Preise mit Gültigkeitszeitraum stehen auf der Seite
+                                <%= link_to "Preise", preise_path, class: "font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:text-green-800" %>; die Netzentgelte erklären wir im
+                                <%= link_to "Beitrag zu den Netzentgelten 2027", "/blog/netzentgelte-2027-eeg-abschlag", class: "font-medium text-green-700 underline decoration-green-300 underline-offset-2 hover:text-green-800" %>.
                             </p>
                         </div>
                     </details>
@@ -218,7 +293,7 @@
 
                         <div class="mt-4 border-t border-slate-200 pt-4 text-sm leading-7 text-slate-600">
                             <p>
-                                Ja. Innerhalb unserer EEG gilt ein einheitlicher Energiepreis von <strong>11 ct/kWh USt-frei</strong>, unabhängig von der
+                                Ja. Der Energiepreis innerhalb unserer EEG (derzeit <strong><%= energiepreis_kurz %></strong>) gilt unabhängig von der
                                 Tageszeit.
                             </p>
 
@@ -299,7 +374,8 @@
                                     </p>
 
                                     <p class="mt-2">
-                                        Regelt die Teilnahme mit Ihrem Verbrauchszählpunkt: 11 Cent je kWh USt-frei,
+                                        Regelt die Teilnahme mit Ihrem Verbrauchszählpunkt: der jeweils gültige Energiepreis
+                                        (derzeit <%= bezugspreis_kurz %>),
                                         Aufteilung nach Ihrem tatsächlichen Viertelstundenverbrauch, monatliche Abrechnung
                                         per Lastschrift. Sie können jederzeit zum nächstmöglichen Termin kündigen. Mit der
                                         Teilnahme werden Sie zugleich außerordentliches Mitglied des Vereins.
@@ -314,8 +390,8 @@
                                     <p class="mt-2">
                                         Für Überschusseinspeiser:innen. Ihre Anlage bleibt vollständig in Ihrem Eigentum,
                                         Ihr Eigenverbrauch bleibt unberührt — die EEG darf lediglich den ins Netz
-                                        eingespeisten Überschuss innerhalb der Gemeinschaft zuweisen und vergütet ihn mit
-                                        11 Cent je kWh. Die Vereinbarung läuft fünf Jahre und ist mit drei Monaten zum
+                                        eingespeisten Überschuss innerhalb der Gemeinschaft zuweisen und vergütet ihn mit dem
+                                        jeweils gültigen Einspeisepreis (derzeit <%= einspeisepreis_kurz %>). Die Vereinbarung läuft fünf Jahre und ist mit drei Monaten zum
                                         Monatsletzten ordentlich kündbar.
                                     </p>
                                 </div>
