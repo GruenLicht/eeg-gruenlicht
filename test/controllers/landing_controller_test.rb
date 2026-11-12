@@ -55,6 +55,39 @@ class LandingControllerTest < ActionDispatch::IntegrationTest
     refute_includes response.body, "e10c2146-c551-4e73-8515-573c30be6c7e"
   end
 
+  test "start page hides the forum tab without FORUM_URL" do
+    original = ENV["FORUM_URL"]
+    ENV["FORUM_URL"] = nil
+    ForumThemen.reset!
+
+    get root_url, headers: BROWSER_HEADERS
+
+    assert_response :success
+    refute_includes response.body, %(id="service-tab-forum")
+  ensure
+    ENV["FORUM_URL"] = original
+    ForumThemen.reset!
+  end
+
+  test "start page shows the forum tab with the latest topics" do
+    original = ENV["FORUM_URL"]
+    ENV["FORUM_URL"] = "https://forum-beta.example.org"
+    ForumThemen.reset!
+    ForumThemen.fetcher = -> {
+      [ ForumThemen::Thema.new(titel: "Wo finde ich die Freigabe?", url: "https://forum-beta.example.org/t/freigabe/12", antworten: 2, geloest: true) ]
+    }
+
+    get root_url, headers: BROWSER_HEADERS
+
+    assert_response :success
+    assert_includes response.body, %(id="service-tab-forum")
+    assert_includes response.body, "Wo finde ich die Freigabe?"
+    assert_includes response.body, "https://forum-beta.example.org/new-topic?category=willkommen-onboarding"
+  ensure
+    ENV["FORUM_URL"] = original
+    ForumThemen.reset!
+  end
+
   test "static pages render" do
     [ preise_url, unterstuetzer_url, impressum_url, datenschutz_url, app_datenloeschung_url ].each do |url|
       get url, headers: BROWSER_HEADERS

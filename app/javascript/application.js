@@ -96,7 +96,7 @@ function activateServiceTab(container, tabName, updateHash = false) {
     return true
 }
 
-const SERVICE_TAB_NAMES = ["beitritt", "kontakt", "portal"]
+const SERVICE_TAB_NAMES = ["beitritt", "kontakt", "portal", "forum"]
 
 // Zerlegt den URL-Hash in Reiter-Name und optionalen Zusatz.
 // Beispiele:

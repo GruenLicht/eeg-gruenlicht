@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: beta-eeg-website
-        image: oydeu/eeg-gruenlicht:260622
+        image: oydeu/eeg-gruenlicht:261112-beta
         ports:
         - containerPort: 3000
         env:
@@ -30,6 +30,13 @@ spec:
             value: production
           - name: RAILS_CONFIG_HOSTS
             value: "beta.eeg-gruenlicht.at"
+          - name: BLOG_LISTED
+            value: "1"
+          # Reiter "Forum" im Servicebereich; ohne FORUM_URL bleibt er ausgeblendet.
+          - name: FORUM_URL
+            value: "https://forum-beta.eeg-gruenlicht.at"
+          - name: FORUM_KATEGORIE
+            value: "willkommen-onboarding"
 
           - name: NO_REPLY_EMAIL
             value: 'no-reply@eeg-gruenlicht.at'
@@ -55,7 +62,12 @@ spec:
           - name: SMTP_DOMAIN
             value: 'eeg-gruenlicht.at'
           - name: MAILER_URL_OPTIONS_HOST
-            value: 'www.eeg-gruenlicht.at'
+            value: 'beta.eeg-gruenlicht.at'
+          - name: SECRET_KEY_BASE
+            valueFrom:
+              secretKeyRef:
+                name: eeg-website-skb
+                key: SECRET_KEY_BASE
 ---
 kind: Service
 apiVersion: v1

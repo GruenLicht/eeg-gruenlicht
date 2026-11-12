@@ -1,0 +1,227 @@
+# Beta-Instanz des Mitgliederforums (Discourse) unter forum-beta.eeg-gruenlicht.at.
+#
+# - Image: offizielles discourse/discourse (laut Discourse noch "experimental",
+#   fuer die Beta bewusst so gewaehlt). Es startet nginx (Port 80), Unicorn und
+#   Sidekiq in einem Container und fuehrt beim Start Migrationen und
+#   Asset-Precompile aus -- der erste Start dauert daher einige Minuten.
+# - Datenbank: StackGres-Cluster pgcluster im Namespace db, Datenbank und
+#   Benutzer discourse_beta (Erweiterungen hstore, pg_trgm, vector vorab als
+#   Superuser angelegt). Redis laeuft hier als eigener Pod ohne Persistenz.
+# - Secrets: forum-beta (db-password, secret-key-base) und das bestehende
+#   eeg-website-smtp (username, password, address) fuer den Mailversand.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: forum-beta-shared
+  namespace: eeg-gruenlicht
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forum-beta-redis
+  namespace: eeg-gruenlicht
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forum-beta-redis
+  template:
+    metadata:
+      labels:
+        app: forum-beta-redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:7.4-alpine
+        args: ["--save", "", "--appendonly", "no"]
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 20m
+          limits:
+            memory: 256Mi
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: forum-beta-redis
+  namespace: eeg-gruenlicht
+spec:
+  selector:
+    app: forum-beta-redis
+  ports:
+  - name: redis
+    port: 6379
+    targetPort: 6379
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forum-beta
+  namespace: eeg-gruenlicht
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: forum-beta
+  template:
+    metadata:
+      labels:
+        app: forum-beta
+    spec:
+      containers:
+      - name: discourse
+        image: discourse/discourse:2026.7.5
+        ports:
+        - containerPort: 80
+        env:
+          - name: DISCOURSE_HOSTNAME
+            value: forum-beta.eeg-gruenlicht.at
+          - name: DISCOURSE_DEVELOPER_EMAILS
+            value: office@eeg-gruenlicht.at
+          - name: CREATE_DB_ON_BOOT
+            value: "0"
+          - name: UNICORN_WORKERS
+            value: "2"
+          - name: DISCOURSE_DB_HOST
+            value: pgcluster.db.svc.cluster.local
+          - name: DISCOURSE_DB_PORT
+            value: "5432"
+          - name: DISCOURSE_DB_NAME
+            value: discourse_beta
+          - name: DISCOURSE_DB_USERNAME
+            value: discourse_beta
+          - name: DISCOURSE_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: forum-beta
+                key: db-password
+          - name: DISCOURSE_SECRET_KEY_BASE
+            valueFrom:
+              secretKeyRef:
+                name: forum-beta
+                key: secret-key-base
+          - name: DISCOURSE_REDIS_HOST
+            value: forum-beta-redis
+          - name: DISCOURSE_NOTIFICATION_EMAIL
+            value: no-reply@eeg-gruenlicht.at
+          - name: DISCOURSE_SMTP_ADDRESS
+            valueFrom:
+              secretKeyRef:
+                name: eeg-website-smtp
+                key: address
+          - name: DISCOURSE_SMTP_PORT
+            value: "465"
+          - name: DISCOURSE_SMTP_USER_NAME
+            valueFrom:
+              secretKeyRef:
+                name: eeg-website-smtp
+                key: username
+          - name: DISCOURSE_SMTP_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: eeg-website-smtp
+                key: password
+          - name: DISCOURSE_SMTP_DOMAIN
+            value: eeg-gruenlicht.at
+          - name: DISCOURSE_SMTP_ENABLE_START_TLS
+            value: "false"
+          - name: DISCOURSE_SMTP_FORCE_TLS
+            value: "true"
+        volumeMounts:
+        - name: shared
+          mountPath: /shared
+        resources:
+          requests:
+            memory: 1Gi
+            cpu: 250m
+          limits:
+            memory: 3Gi
+        startupProbe:
+          httpGet:
+            path: /srv/status
+            port: 80
+          periodSeconds: 10
+          failureThreshold: 120
+        readinessProbe:
+          httpGet:
+            path: /srv/status
+            port: 80
+          periodSeconds: 15
+        livenessProbe:
+          httpGet:
+            path: /srv/status
+            port: 80
+          periodSeconds: 30
+          failureThreshold: 5
+      volumes:
+      - name: shared
+        persistentVolumeClaim:
+          claimName: forum-beta-shared
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: forum-beta
+  namespace: eeg-gruenlicht
+spec:
+  selector:
+    app: forum-beta
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: forum-beta
+  namespace: eeg-gruenlicht
+  annotations:
+    certmanager.io/issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/proxy-body-size: "20m"
+spec:
+  ingressClassName: "nginx"
+  tls:
+  - hosts:
+    - forum-beta.eeg-gruenlicht.at
+    secretName: forum-beta-tls
+  rules:
+  - host: forum-beta.eeg-gruenlicht.at
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: forum-beta
+            port:
+              number: 80
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: forum-beta-tls
+  namespace: eeg-gruenlicht
+  annotations:
+    cert-manager.io/issuer: "letsencrypt-prod"
+spec:
+  secretName: forum-beta-tls
+  issuerRef:
+    group: cert-manager.io
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - 'forum-beta.eeg-gruenlicht.at'
+  privateKey:
+    rotationPolicy: Always
