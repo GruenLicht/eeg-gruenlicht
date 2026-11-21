@@ -1,7 +1,7 @@
 ---
 title: "Mehr als Strom: Gemeinsam lernen, teilen und vergleichen"
 date: 2026-09-05
-updated: 2026-11-07
+updated: 2026-11-21
 author: Christoph Fabianek
 category: Gemeinschaft
 summary: "Eine Energiegemeinschaft ist nicht nur ein Abrechnungsmodell. Wer mitmacht, versteht den eigenen Verbrauch besser, profitiert von den Erfahrungen anderer — und sieht, was wir gemeinsam schaffen."
@@ -34,10 +34,9 @@ beantwortet niemand so ehrlich wie jemand, der es selbst ausprobiert hat.
 
 ### Einmal im Quartal: unsere Community-Treffen
 
-Am besten geht das persönlich. Deshalb treffen wir uns jedes Quartal — zuletzt beim Stadtfest im August. Die nächsten Termine:
+Am besten geht das persönlich. Deshalb treffen wir uns jedes Quartal — zuletzt am 19. November im Weingut Herzog mit mehr als 40 Gästen ([zum Rückblick](/blog/community-treffen-november-2026)). Der nächste Termin:
 
-- **Freitag, 13. November 2026:** Community-Treffen
-- **Donnerstag, 17. Dezember 2026:** Punschhütte vor dem Rathaus
+- **Donnerstag, 17. Dezember 2026, 16 bis 19 Uhr:** Punschhütte vor dem Rathaus
 
 Genaue Uhrzeiten und Details geben wir rechtzeitig in der monatlichen Abrechnungsinformation und auf unseren Social-Media-Kanälen bekannt. Auch wer noch nicht dabei ist und einfach Fragen hat, ist herzlich willkommen.
 
