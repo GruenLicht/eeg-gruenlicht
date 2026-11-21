@@ -5,6 +5,7 @@
 <%
     # Unterstützungen je Verein. Neue Zuwendung = neuer Eintrag in :anschub.
     # :betrag wird unverändert ausgegeben, :zeitraum ist das Jahr der Zuwendung.
+    # :foerderungen nur beim jeweiligen Fördernehmer eintragen (EU-Förderung: nur Bad Vöslau).
     vereine = [
         {
             tab_id: "bad-voeslau",
@@ -12,6 +13,17 @@
             short_name: "EEG GrünLicht Bad Vöslau",
             gegruendet: "2025",
             geschaeftsjahr: "2025/2026",
+            foerderungen: [
+                {
+                    name: "European Energy Communities Facility (EU, LIFE-Programm)",
+                    zweck: "Förderung für die Erstellung des Businessplans „Multi-EC Hub Bad Vöslau“ · Grant Agreement Nr. 101167230 · Kofinanziert von der Europäischen Union",
+                    betrag: "EUR 45.000",
+                    zeitraum: "2026–2028",
+                    tranchen: "EUR 22.500 erhalten im November 2026, EUR 22.500 nach Projektabschluss",
+                    emblem: "/blog-assets/eu-foerderung/kofinanziert-eu-hell.png",
+                    hinweis: "Kofinanziert von der Europäischen Union. Unser Businessplan „Multi-EC Hub Bad Vöslau“ wird über die European Energy Communities Facility gefördert (LIFE-Programm, Grant Agreement Nr. 101167230). Die geäußerten Ansichten und Meinungen entsprechen jedoch ausschließlich denen der Autor:innen und spiegeln nicht zwingend die der Europäischen Union oder der Europäischen Exekutivagentur für Klima, Infrastruktur und Umwelt (CINEA) wider. Weder die Europäische Union noch die Bewilligungsbehörde können für sie verantwortlich gemacht werden."
+                }
+            ],
             anschub: [
                 {
                     name: "Die Grünen Bad Vöslau",
@@ -86,8 +98,8 @@
     grundsaetze = [
         "Die Vereine sind nicht auf Gewinnerzielung ausgerichtet.",
         "Auf den innerhalb der EEG verrechneten Strompreis werden keine Aufschläge eingehoben.",
-        "Die Tätigkeit in den Vereinen erfolgt ehrenamtlich.",
-        "Externe Mittel werden ausschließlich für notwendige Vereinskosten verwendet."
+        "Die Tätigkeit in den Vereinen erfolgt grundsätzlich ehrenamtlich. Projektbezogene Leistungen, die aus Fördermitteln bezahlt werden, legen wir auf dieser Seite offen.",
+        "Externe Mittel werden ausschließlich für Vereinszwecke verwendet; zweckgebundene Fördermittel nur für den geförderten Zweck."
     ]
 
     transparenzregeln = [
@@ -228,6 +240,42 @@
                                 <p class="mt-4 text-sm leading-6 text-slate-500">
                                     Aus diesen Zuwendungen entstanden keine Mitgliedschafts-, Einfluss- oder Sonderrechte.
                                 </p>
+
+                                <% if verein[:foerderungen].present? %>
+                                    <h4 class="mt-10 text-base font-semibold text-slate-900">Förderungen</h4>
+
+                                    <div class="mt-5 space-y-4">
+                                        <% verein[:foerderungen].each do |foerderung| %>
+                                            <details class="group rounded-3xl border border-slate-200 bg-white">
+                                                <summary class="flex cursor-pointer list-none flex-col gap-4 rounded-3xl p-5 hover:bg-slate-50 sm:flex-row sm:items-center sm:justify-between [&::-webkit-details-marker]:hidden">
+                                                    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
+                                                        <img src="<%= foerderung[:emblem] %>" alt="Kofinanziert von der Europäischen Union"
+                                                             width="250" height="56" class="h-14 w-auto flex-none">
+                                                        <p class="font-semibold leading-snug text-slate-900"><%= foerderung[:name] %></p>
+                                                    </div>
+
+                                                    <span class="inline-flex flex-none items-center gap-1.5 text-sm font-medium text-green-700">
+                                                        <span class="group-open:hidden">Details</span>
+                                                        <span class="hidden group-open:inline">Weniger</span>
+                                                        <svg class="h-4 w-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                        </svg>
+                                                    </span>
+                                                </summary>
+
+                                                <div class="border-t border-slate-200 px-5 pb-5 pt-4">
+                                                    <p class="text-sm font-semibold text-slate-900">
+                                                        <%= foerderung[:betrag] %>
+                                                        <span class="font-normal text-slate-500">· <%= foerderung[:zeitraum] %></span>
+                                                    </p>
+                                                    <p class="mt-2 text-sm leading-6 text-slate-600"><%= foerderung[:zweck] %></p>
+                                                    <p class="mt-2 text-sm leading-6 text-slate-600"><%= foerderung[:tranchen] %></p>
+                                                    <p class="mt-4 text-xs leading-5 text-slate-500"><%= foerderung[:hinweis] %></p>
+                                                </div>
+                                            </details>
+                                        <% end %>
+                                    </div>
+                                <% end %>
 
                                 <h4 class="mt-10 text-base font-semibold text-slate-900">Unterstützung, die kein Geld ist</h4>
 

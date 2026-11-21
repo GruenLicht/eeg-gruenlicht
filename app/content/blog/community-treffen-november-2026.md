@@ -1,6 +1,7 @@
 ---
 title: "Über 40 Gäste beim Community-Treffen: Mehr als günstiger Strom"
 date: 2026-11-21
+updated: 2026-11-21
 author: Christoph Fabianek
 category: Gemeinschaft
 summary: "Am 19. November trafen sich mehr als 40 Mitglieder und Interessierte im Weingut Herzog. Ein Rückblick: was wir gemeinsam erreicht haben, was sich 2027 ändert, was Portal und App heute schon können — und ein Aufruf an alle, die Home Assistant nutzen."
@@ -20,7 +21,7 @@ Volles Haus im Weingut Herzog.
 ## Was wir gemeinsam erreicht haben
 
 - **Über 180 Mitglieder** — inklusive der laufenden Anmeldungen, nur gut acht Monate nach dem Start im März.
-- **EU-Förderung gewonnen:** Aus 600 Einreichungen in ganz Europa wurden 71 Energiegemeinschaften für die European Energy Communities Facility ausgewählt — wir sind eine davon. Gefördert wird unser Businessplan „Multi-EC Hub Bad Vöslau“.
+- **EU-Förderung gewonnen:** Aus 600 Einreichungen in ganz Europa wurden 71 Energiegemeinschaften für die [European Energy Communities Facility](https://energycommunitiesfacility.eu){: target="_blank" rel="noopener"} ausgewählt — wir sind eine davon. Gefördert wird unser Businessplan „Multi-EC Hub Bad Vöslau“.
 - **€ 3.430 gespart:** So viel haben unsere Mitglieder von März bis Oktober durch die Gemeinschaft gespart.
 - **37.300 kWh geteilt:** 37 % unseres Strombedarfs kamen aus der Gemeinschaft — das sind 6,3 Tonnen weniger CO₂ ([so rechnen wir](/blog/co2-einsparung-in-der-eeg)).
 - **Der EEG-Assistent ist live:** unsere eigene KI, betrieben in Bad Vöslau, seit November für alle Mitglieder in Portal und App.
@@ -93,3 +94,6 @@ Zum Abschluss: Obmann Christoph Fabianek mit seiner Frau, die alle Reels und uns
 {: .blog-caption}
 
 **Nächstes Treffen:** Donnerstag, 17. Dezember 2026, Punschhütte vor dem Rathaus, 16 bis 19 Uhr. Auch Gäste sind herzlich willkommen!
+
+![Kofinanziert von der Europäischen Union](/blog-assets/eu-foerderung/kofinanziert-eu-hell.png){: width="250" height="56"} Kofinanziert von der Europäischen Union. Unser Businessplan „Multi-EC Hub Bad Vöslau“ wird über die European Energy Communities Facility gefördert (LIFE-Programm, Grant Agreement Nr. 101167230). Die geäußerten Ansichten und Meinungen entsprechen jedoch ausschließlich denen der Autor:innen und spiegeln nicht zwingend die der Europäischen Union oder der Europäischen Exekutivagentur für Klima, Infrastruktur und Umwelt (CINEA) wider. Weder die Europäische Union noch die Bewilligungsbehörde können für sie verantwortlich gemacht werden.
+{: .blog-eu}

@@ -184,3 +184,33 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/* EU-Förderhinweis mit Emblem:  ![…](emblem.png){: width="250" height="56"} Text  +  {: .blog-eu}
+   Der Text darf keine Inline-Formatierung enthalten, sonst zerfällt er in mehrere Grid-Zellen. */
+.blog-prose .blog-eu {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1.25em;
+  align-items: start;
+  margin-top: 2.5em;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.25em;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+.blog-prose .blog-eu img {
+  width: auto;
+  height: 56px;
+  margin-top: 0.2em;
+  border: 0;
+  border-radius: 0;
+}
+
+@media (max-width: 767px) {
+  .blog-prose .blog-eu {
+    grid-template-columns: 1fr;
+    row-gap: 0.75em;
+  }
+}

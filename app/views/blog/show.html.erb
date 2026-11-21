@@ -62,7 +62,7 @@
             <span><%= @post.author %></span>
             <span aria-hidden="true">·</span>
             <time datetime="<%= @post.date.iso8601 %>"><%= blog_date(@post.date) %></time>
-            <% if @post.updated %>
+            <% if @post.updated && @post.updated != @post.date %>
                 <span aria-hidden="true">·</span>
                 <span>aktualisiert am <time datetime="<%= @post.updated.iso8601 %>"><%= blog_date(@post.updated) %></time></span>
             <% end %>
