@@ -14,7 +14,7 @@ Am Donnerstag, 19. November, war es im Weingut Herzog in der Brunngasse richtig 
 Volles Haus im Weingut Herzog.
 {: .blog-caption}
 
-**Zum Nachlesen:** die [Folien des Abends als PDF](/blog-assets/community-treffen-november-2026/folien-community-treffen-2026-11-19.pdf){: target="_blank" rel="noopener"} (1,4 MB) und [weitere Fotos auf unserer Facebook-Seite](https://www.facebook.com/eeg.gruenlicht/posts/pfbid0Aj55na5nf8GAbwkRCoxVQo5QRwSPzLhCEKzuP4sk9SPiLJAvoiCDnsaV6Msc6nycl){: target="_blank" rel="noopener"}.
+**Zum Nachlesen:** die [Folien des Abends als PDF](/blog-assets/community-treffen-november-2026/folien-community-treffen-2026-11-19.pdf){: target="_blank" rel="noopener"} (0,7 MB) und [weitere Fotos auf unserer Facebook-Seite](https://www.facebook.com/eeg.gruenlicht/posts/pfbid0Aj55na5nf8GAbwkRCoxVQo5QRwSPzLhCEKzuP4sk9SPiLJAvoiCDnsaV6Msc6nycl){: target="_blank" rel="noopener"}.
 {: .blog-info}
 
 ## Was wir gemeinsam erreicht haben
