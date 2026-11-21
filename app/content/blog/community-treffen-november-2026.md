@@ -31,7 +31,7 @@ Seit 1. Oktober gilt das neue Elektrizitätswirtschaftsgesetz. Für unsere Mitgl
 
 Weniger erfreulich: Laut Tarifentwurf sinkt der Netzentgelt-Abschlag für EEG-Strom 2027 von 28 auf 22 % ([Netzentgelte 2027](/blog/netzentgelte-2027-eeg-abschlag)). Und mit dem Leistungspreis zählt künftig auch, wie viel Strom Sie *gleichzeitig* beziehen ([Lastspitze](/blog/lastspitze-2027-portal-und-app)).
 
-Auch bei den Preisen ist Bewegung drin. An der Strombörse wird es teurer und unruhiger, mit Spitzen am Abend. Der Marktpreis der OeMAG für PV-Strom lag von März bis September unter unseren 11 ct, im Oktober mit 14,87 ct erstmals darüber. Von März bis Oktober zusammengerechnet hat die Einspeisung in die Gemeinschaft unseren Einspeisern trotzdem rund € 460 mehr gebracht. Unser Preis bleibt stabil: **11 ct/kWh für Bezug und Einspeisung, auch 2027.**
+Auch bei den Preisen ist Bewegung drin. An der Strombörse wird es teurer und unruhiger, mit Spitzen am Abend. Der Marktpreis der OeMAG für PV-Strom lag von März bis September unter unseren 11 ct, im Oktober mit 14,87 ct erstmals darüber. Von März bis Oktober zusammengerechnet hat die Einspeisung in die Gemeinschaft unseren Einspeisern trotzdem rund € 460 mehr gebracht.
 
 ## Mitmachen reicht — aber da ist mehr drin
 
@@ -56,6 +56,14 @@ Der EEG-Assistent jetzt auch in der App „GrünLicht“ – hier mit den Werten
 
 **So kommen Sie zur App:** „GrünLicht“ im App Store oder bei Google Play laden. Dann im Mitgliederportal „App verbinden“ öffnen und den QR-Code scannen. Oder Sie wählen in der App „Mit E-Mail verbinden“ und tippen auf den Link in der Mail.
 {: .blog-info}
+
+## Aus der Diskussion
+
+Nach den Vorträgen wurde lebhaft diskutiert. Drei Punkte nehmen wir mit:
+
+- **Unser Preis bleibt bei 11 ct/kWh.** Wir haben über die starken Preisschwankungen an der Börse und beim OeMAG-Marktpreis gesprochen. Die Teilnehmenden waren sich einig: Ein stabiler Preis für Bezug und Einspeisung ist für beide Seiten mehr wert, als jedem Ausschlag hinterherzulaufen. Es bleibt also bei **11 ct/kWh, auch 2027**.
+- **Günstiger Reststrom:** Den Strom, der gerade nicht aus der Gemeinschaft kommt, beziehen Sie weiter von Ihrem Stromlieferanten — und den können Sie frei wählen. Besprochen wurde der Tarif „Feel Good Energie für alle“ der Energie AG Oberösterreich; der ist für Bad Vöslau aber nicht mehr abschließbar. Am günstigsten ist derzeit der „Österreich-Tarif“ (V-Strom Österreich) des Verbund: im ersten Vertragsjahr 12 ct/kWh brutto (10 ct netto), dazu ein Grundpreis von 5,04 € pro Monat; ab dem zweiten Jahr kostet die Kilowattstunde 18 ct brutto (15 ct netto) ([help.ORF.at](https://help.orf.at/stories/3237480/){: target="_blank" rel="noopener"}, Stand 21. November 2026). Ob sich ein Wechsel für Sie lohnt, auch über das erste Jahr hinaus, zeigt der [Tarifkalkulator der E-Control](https://www.e-control.at/tarifkalkulator){: target="_blank" rel="noopener"}.
+- **Ersparnis auch in der App:** Gewünscht wurde, dass die berechnete Ersparnis nicht nur unter „Meine Energie“ im Mitgliederportal, sondern auch in der App „GrünLicht“ zu sehen ist. Das nehmen wir gerne auf.
 
 ## Sie nutzen Home Assistant? Wir suchen Testhaushalte!
 
