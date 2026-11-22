@@ -1,5 +1,5 @@
 <% content_for :title, "Datenschutz" %>
-<% content_for :meta_description, "Datenschutzinformationen der EEG Grünes Licht Bad Vöslau zur Website, zum Kontaktformular, zur Mitglieder-App und zur Verarbeitung personenbezogener Daten." %>
+<% content_for :meta_description, "Datenschutzinformationen der EEG Grünes Licht Bad Vöslau zur Website, zum Kontaktformular, zur Mitglieder-App, zur Home-Assistant-Integration und zur Verarbeitung personenbezogener Daten." %>
 <% content_for :canonical_path, datenschutz_path %>
 <section class="bg-white">
     <div class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
@@ -20,8 +20,9 @@
 
                     <p>
                         Diese Datenschutzinformation erläutert in knapper Form, welche personenbezogenen Daten beim Besuch
-                        dieser Website, bei der Nutzung des Kontaktformulars sowie bei der Nutzung unserer Mitglieder-App
-                        „EEG GrünLicht" verarbeitet werden.
+                        dieser Website, bei der Nutzung des Kontaktformulars, bei der Nutzung unserer Mitglieder-App
+                        „EEG GrünLicht" sowie bei der Nutzung der optionalen Home-Assistant-Integration verarbeitet
+                        werden.
                     </p>
                 </div>
             </section>
@@ -177,7 +178,9 @@
                             einem eigenen Server betreiben</span>. Es werden keine Daten an externe KI-Anbieter
                             weitergegeben.</li>
                         <li>Für die Antworten nutzt der Assistent Ihre Stamm- und Energiedaten, Summenwerte der
-                            Gemeinschaft und – falls Sie welche gemacht haben – Ihre Angaben unter „Meine Angaben".</li>
+                            Gemeinschaft und – falls Sie welche gemacht haben – Ihre Angaben unter „Meine Angaben". Dazu
+                            gehören auch Geräte, die Sie über die Home-Assistant-Integration für „Meine Angaben"
+                            freigegeben haben.</li>
                         <li>Die Unterhaltung wird nicht auf Ihrem Gerät gespeichert und ist beim Verlassen des
                             Assistenten bzw. beim Abmelden weg. Die Nutzung des Assistenten protokollieren wir
                             pseudonymisiert und ohne Inhalte der Fragen und Antworten.</li>
@@ -216,8 +219,9 @@
 
                     <p>
                         Beim Zugriff auf unsere Schnittstelle werden aus Sicherheitsgründen technische Daten (IP-Adresse,
-                        Zeitpunkt und Art des Zugriffs) protokolliert, ohne Inhalte. Rechtsgrundlage ist unser berechtigtes
-                        Interesse an einem sicheren Betrieb gemäß Art. 6 Abs. 1 lit. f DSGVO.
+                        Zeitpunkt und Art des Zugriffs) protokolliert, ohne Inhalte. Die Protokolldaten werden nach
+                        30 Tagen automatisch gelöscht. Rechtsgrundlage ist unser berechtigtes Interesse an einem
+                        sicheren Betrieb gemäß Art. 6 Abs. 1 lit. f DSGVO.
                     </p>
 
                     <h3 class="pt-2 font-medium text-slate-900">Kein Tracking</h3>
@@ -246,6 +250,159 @@
                         verlangen. Eine Schritt-für-Schritt-Anleitung sowie Angaben dazu, welche Daten gelöscht und
                         welche aus gesetzlichen Gründen aufbewahrt werden, finden Sie auf der Seite
                         <%= link_to "Datenlöschung – App „EEG GrünLicht“", app_datenloeschung_path, class: "text-green-700 hover:text-green-800" %>.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-slate-900">Home-Assistant-Integration (optional)</h2>
+
+                <div class="mt-5 space-y-4 leading-7">
+                    <p>
+                        Für Mitglieder, die zu Hause Home Assistant betreiben, gibt es die Integration
+                        „EEG GrünLicht". Die Nutzung ist freiwillig und für die Mitgliedschaft nicht nötig. Eine
+                        Nutzung ohne bestehende Mitgliedschaft ist nicht möglich. Die Integration verbindet sich wie
+                        die Mitglieder-App über unsere eigene Schnittstelle (api.eeg-gruenlicht.at) mit Ihrem
+                        Mitgliedskonto.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Verbindung und Gerätebindung</h3>
+
+                    <p>
+                        Die Kopplung erfolgt wie bei der App über einen Kurzcode aus dem Mitgliederportal, der im
+                        Portal bestätigt werden muss. Dabei erzeugt die Integration ein Schlüsselpaar. Der
+                        <span class="font-medium text-slate-900">private Schlüssel bleibt in Ihrem Home
+                        Assistant</span>. An uns übermittelt und gespeichert werden für die Verbindung:
+                    </p>
+
+                    <ul class="list-disc space-y-2 pl-6">
+                        <li>ein eigener Geräteschlüssel (der öffentliche Schlüssel)</li>
+                        <li>die Gerätebezeichnung „Home Assistant (EEG GrünLicht &lt;Version&gt;)", damit Sie die
+                            Verbindung im Mitgliederportal wiedererkennen und jederzeit entziehen können</li>
+                        <li>der Zeitpunkt der letzten Abfrage</li>
+                    </ul>
+
+                    <p>
+                        Über jede neue Verbindung informieren wir Sie per E-Mail. Die Integration meldet sich etwa
+                        alle 30 Minuten bei unserer Schnittstelle. Die Verbindung geht dabei immer von Ihrem Home
+                        Assistant aus.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Abgerufene Daten</h3>
+
+                    <p>
+                        Home Assistant lädt nur die Daten Ihres eigenen Mitgliedskontos, zum Beispiel zugeordnete
+                        Energiegemeinschaft, Mitgliedsnummer, Rolle und Zählpunkte. Standardmäßig lädt Home Assistant
+                        auch die Viertelstundenwerte Ihrer Zählpunkte, zum Beispiel für das Energie-Dashboard. Diesen
+                        Import können Sie in den Einstellungen der Integration jederzeit abschalten.
+                    </p>
+
+                    <p>
+                        Diese Daten bleiben in Ihrem Home Assistant, den Sie selbst betreiben.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Haushaltsprofil (nur mit Ihrer Freigabe)</h3>
+
+                    <p>
+                        Damit wir Ihnen individuellere Angebote machen können, können Sie uns freiwillig ein
+                        Haushaltsprofil melden. Die Meldung ist standardmäßig ausgeschaltet. Sie erfolgt nur, wenn
+                        Sie sie in der Integration ausdrücklich freigeben. Das Haushaltsprofil umfasst:
+                    </p>
+
+                    <ul class="list-disc space-y-2 pl-6">
+                        <li>Gerätetyp, Hersteller und Modell der Geräte, die Sie für die Meldung auswählen (z. B.
+                            Wechselrichter, Batterie, Wärmepumpe, Wallbox, Elektroauto, Zähler), sowie den Namen der
+                            Home-Assistant-Integration, über die das Gerät eingebunden ist</li>
+                        <li>Kennwerte wie die Batteriekapazität</li>
+                        <li>Ihre Angaben aus dem Einrichtungsdialog: die Leistung von PV-Anlage, Wärmepumpe und
+                            Wallbox, ob Sie ein Elektroauto haben, Lieferant, Produkt und Art des Tarifs für
+                            Strombezug und Einspeisung sowie Ihre Anmerkungen</li>
+                        <li>den Zeitpunkt Ihrer Freigabe, die Version der Integration und den Zweck der Meldung</li>
+                    </ul>
+
+                    <p>
+                        <span class="font-medium text-slate-900">Messwerte und Seriennummern werden nie
+                        übertragen.</span> Das Haushaltsprofil wird einmal täglich aktualisiert. Einsehen dürfen es
+                        der Vorstand der Energiegemeinschaft und vom Vorstand beauftragte Entwickler, soweit sie ein
+                        konkretes Angebot umsetzen.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Geräte in „Meine Angaben"</h3>
+
+                    <p>
+                        Wenn Sie es in der Integration freigeben, erscheinen die von Home Assistant gemeldeten
+                        Geräte unter „Meine Angaben" mit der Quelle „aus Home Assistant". Diese Freigabe ist
+                        unabhängig vom Haushaltsprofil. Weicht ein gemeldeter Wert von einer Ihrer eigenen Eingaben
+                        ab, zeigt das Mitgliederportal ihn nur als Vorschlag. Übernommen wird er erst, wenn Sie das
+                        bestätigen. Der EEG-Assistent nutzt diese Geräte wie Ihre übrigen Angaben unter „Meine
+                        Angaben".
+                    </p>
+
+                    <p>
+                        Schalten Sie die Freigabe ab, werden die Geräte nicht mehr aktualisiert. Sie bleiben in
+                        „Meine Angaben", bis Sie sie dort löschen.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Sichtbarkeit in der Mitgliederverwaltung</h3>
+
+                    <p>
+                        Der Vorstand der Energiegemeinschaft und die von ihm mit der Verwaltung beauftragten
+                        Personen sehen in der Mitgliederverwaltung je Mitglied:
+                    </p>
+
+                    <ul class="list-disc space-y-2 pl-6">
+                        <li>ob eine Home-Assistant-Verbindung besteht und aktiv ist</li>
+                        <li>die Version der Integration</li>
+                        <li>den Zeitpunkt des letzten Kontakts</li>
+                        <li>welche Freigaben eingeschaltet sind: Viertelstundenwerte, Haushaltsprofil (samt Datum
+                            der ersten Meldung) und Geräte in „Meine Angaben"</li>
+                    </ul>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Protokolldaten</h3>
+
+                    <p>
+                        Die Integration nutzt dieselbe Schnittstelle wie die Mitglieder-App. Für die Zugriffe gelten
+                        die Angaben unter „Protokolldaten" im Abschnitt
+                        <span class="font-medium text-slate-900">„Mitglieder-App ‚EEG GrünLicht'"</span>.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Kein Tracking</h3>
+
+                    <p>
+                        Die Integration enthält keine Analyse-, Tracking- oder Werbefunktionen und bindet keine
+                        Dienste Dritter ein.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Rechtsgrundlage</h3>
+
+                    <p>
+                        Die Verbindung und der Abruf Ihrer eigenen Daten erfolgen zur Erfüllung des
+                        Mitgliedschaftsverhältnisses (Art. 6 Abs. 1 lit. b DSGVO) sowie aus berechtigtem Interesse an
+                        einem sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO). Die Anzeige des Verbindungsstatus in der
+                        Mitgliederverwaltung dient der Betreuung der Mitglieder und dem Betrieb der Integration
+                        (Art. 6 Abs. 1 lit. f DSGVO). Das Haushaltsprofil und die Geräte in „Meine Angaben"
+                        verarbeiten wir nur, wenn Sie das in der Integration freigeben; Rechtsgrundlage ist Ihre
+                        Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie können sie jederzeit widerrufen: beim
+                        Haushaltsprofil durch Abschalten der Meldung, bei den Geräten in „Meine Angaben" durch
+                        Abschalten der Freigabe und Löschen der Geräte.
+                    </p>
+
+                    <h3 class="pt-2 font-medium text-slate-900">Widerruf und Löschung</h3>
+
+                    <p>
+                        Die Freigaben können Sie in den Einstellungen der Integration jederzeit einzeln abschalten.
+                        Schalten Sie die Meldung des Haushaltsprofils ab, löschen wir Ihr Haushaltsprofil. Wenn Sie
+                        die Integration entfernen, löscht Home Assistant zuerst das Haushaltsprofil bei uns und
+                        meldet dann die Verbindung ab. Die Verbindung können Sie außerdem jederzeit im
+                        Mitgliederportal unter den verbundenen Geräten entziehen.
+                    </p>
+
+                    <p>
+                        Ein bereits gemeldetes Haushaltsprofil bleibt gespeichert, wenn Sie nur die Verbindung im
+                        Mitgliederportal entziehen oder wenn Home Assistant unsere Schnittstelle beim Entfernen der
+                        Integration nicht erreicht. Die Löschung Ihrer Daten können Sie jederzeit unter
+                        <%= mail_to "office@eeg-gruenlicht.at", "office@eeg-gruenlicht.at", class: "text-green-700 hover:text-green-800" %>
+                        verlangen.
                     </p>
                 </div>
             </section>
@@ -280,8 +437,10 @@
                     </p>
 
                     <p>
-                        Für die Mitglieder-App gelten ergänzend die Angaben im Abschnitt
-                        <span class="font-medium text-slate-900">„Mitglieder-App ‚EEG GrünLicht'"</span>.
+                        Für die Mitglieder-App und die Home-Assistant-Integration gelten ergänzend die Angaben in
+                        den Abschnitten
+                        <span class="font-medium text-slate-900">„Mitglieder-App ‚EEG GrünLicht'"</span> und
+                        <span class="font-medium text-slate-900">„Home-Assistant-Integration (optional)"</span>.
                     </p>
                 </div>
             </section>
@@ -298,6 +457,12 @@
                         Auch die Kommunikation der Mitglieder-App mit unserer Schnittstelle erfolgt ausschließlich
                         verschlüsselt. Die Anmeldung ist zusätzlich an Ihr Gerät gebunden; der dafür verwendete private
                         Schlüssel verlässt den Sicherheitschip Ihres Geräts nicht.
+                    </p>
+
+                    <p>
+                        Auch die Home-Assistant-Integration kommuniziert ausschließlich verschlüsselt mit unserer
+                        Schnittstelle. Die Verbindung ist an einen Schlüssel gebunden, der nur in Ihrem Home
+                        Assistant liegt.
                     </p>
                 </div>
             </section>
@@ -328,7 +493,7 @@
 
                 <div class="mt-5 space-y-4 leading-7">
                     <p>
-                        Wir behalten uns vor, diese Datenschutzinformation bei Bedarf anzupassen, insbesondere bei Änderungen der Website, der App oder der rechtlichen Rahmenbedingungen.
+                        Wir behalten uns vor, diese Datenschutzinformation bei Bedarf anzupassen, insbesondere bei Änderungen der Website, der App, der Home-Assistant-Integration oder der rechtlichen Rahmenbedingungen.
                     </p>
 
                     <p>
