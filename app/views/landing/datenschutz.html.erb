@@ -184,17 +184,18 @@
                         <li>Die Unterhaltung wird nicht auf Ihrem Gerät gespeichert und ist beim Verlassen des
                             Assistenten bzw. beim Abmelden weg. Die Nutzung des Assistenten protokollieren wir
                             pseudonymisiert und ohne Inhalte der Fragen und Antworten.</li>
-                        <li>„Meine Angaben" sind freiwillige Angaben zu Ihrem Haushalt (z. B. Anzahl der Personen,
-                            Wärmepumpe, Elektroauto). Wir speichern sie, bis Sie sie in der App oder im Mitgliederportal
+                        <li>„Meine Angaben" sind freiwillige Angaben zu Ihrem Haushalt (z. B. Elektroauto,
+                            Wärmepumpe, PV-Anlage, Stromspeicher). Wir speichern sie, bis Sie sie in der App oder im Mitgliederportal
                             einzeln oder vollständig löschen. Das können Sie jederzeit selbst tun.</li>
                         <li>In der Mitgliederverwaltung sehen der Vorstand der Energiegemeinschaft und die von ihm mit
                             der Verwaltung beauftragten Personen je Mitglied ihrer eigenen Gemeinschaft, ob Angaben
-                            unter „Meine Angaben" vorhanden sind, wie viele es sind und wann sie zuerst eingetragen
-                            und zuletzt geändert wurden – ohne Inhalte.</li>
+                            unter „Meine Angaben" vorhanden sind, wie viele es sind, aus welchen Quellen sie stammen
+                            (Chat, Mitgliederportal, App oder Home Assistant) und wann sie zuerst eingetragen und
+                            zuletzt geändert wurden – ohne Inhalte.</li>
                         <li><span class="font-medium text-slate-900">Den Inhalt Ihrer Angaben</span> sehen nur die
                             Administratoren der Mitgliederverwaltung; das sind ausschließlich Mitglieder des Vorstands.
-                            Sie sehen dasselbe wie Sie selbst: die Werte (z. B. Haushaltsgröße, Stromtarif, Leistung
-                            der PV-Anlage, Geräte), woher sie stammen (Chat, Mitgliederportal, App oder Home
+                            Sie sehen dasselbe wie Sie selbst: die Werte (z. B. Elektroauto und Ladezeiten,
+                            Wärmepumpe, Leistung der PV-Anlage, Stromspeicher, große Geräte), woher sie stammen (Chat, Mitgliederportal, App oder Home
                             Assistant), wann sie geändert wurden und noch offene Vorschläge aus Home Assistant. Ändern
                             oder löschen können sie Ihre Angaben nicht. Ihre Angaben werden an niemanden sonst
                             weitergegeben.</li>
@@ -241,6 +242,7 @@
                     <ul class="list-disc space-y-2 pl-6">
                         <li>ob und seit wann die App verbunden ist</li>
                         <li>wann die App zuletzt benutzt wurde</li>
+                        <li>welche Art von Gerät verbunden ist (z. B. iPhone)</li>
                     </ul>
 
                     <p>
@@ -385,9 +387,9 @@
                     <p>
                         In der Mitgliederverwaltung gilt für diese Geräte dasselbe wie für Ihre übrigen Angaben
                         unter „Meine Angaben": Der Vorstand und die von ihm mit der Verwaltung beauftragten Personen
-                        sehen, ob und wie viele Angaben vorhanden sind und wann sie zuerst eingetragen und
-                        zuletzt geändert wurden. Welche Geräte gemeldet wurden und welche Vorschläge aus Home
-                        Assistant noch offen sind, sehen nur die Administratoren der Mitgliederverwaltung; das sind
+                        sehen, ob und wie viele Angaben vorhanden sind, aus welchen Quellen sie stammen und wann
+                        sie zuerst eingetragen und zuletzt geändert wurden. Welche Geräte gemeldet wurden und
+                        welche Vorschläge aus Home Assistant noch offen sind, sehen nur die Administratoren der Mitgliederverwaltung; das sind
                         ausschließlich Mitglieder des Vorstands. Ändern oder löschen können sie die Geräte nicht.
                         Jedes Öffnen wird protokolliert, wie unter „EEG-Assistent (KI)" im Abschnitt
                         <span class="font-medium text-slate-900">„Mitglieder-App ‚EEG GrünLicht'"</span> beschrieben.
@@ -405,7 +407,8 @@
                         <li>die Version der Integration</li>
                         <li>den Zeitpunkt des letzten Kontakts</li>
                         <li>welche Freigaben eingeschaltet sind: Viertelstundenwerte, Haushaltsprofil (samt Datum
-                            der ersten Meldung) und Geräte in „Meine Angaben"</li>
+                            der letzten Meldung) und Geräte in „Meine Angaben"</li>
+                        <li>ob die Anlage über die Integration steuerbar ist, sofern die Integration das meldet</li>
                     </ul>
 
                     <h3 class="pt-2 font-medium text-slate-900">Protokolldaten</h3>
